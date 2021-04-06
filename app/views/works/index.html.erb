@@ -1,0 +1,30 @@
+<div> 
+    <div class="col-md-5 offset-md-4"> 
+        <h2 class="text-center pt-5"> Works </h2>
+            <%= link_to '募集', new_work_path, class: 'btn btn-primary' %> 
+        <table class="table table-hover">
+            <thead> 
+                <tr>
+                    <th>
+                        <%= Work.human_attribute_name(:title) %> 
+                    </th>
+                    <th>
+                        <%= Work.human_attribute_name(:work_at) %>
+                    </th>
+                </tr>
+            </thead>
+            <tbody> 
+                <% @works.each do |work| %>
+                    <tr> 
+                        <td>
+                            <%= link_to work.title, work %>
+                        </td>
+                        <td>
+                            <%= link_to work.work_at, work %>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

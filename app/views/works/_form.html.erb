@@ -1,0 +1,7 @@
+<%= form_with model: work, local: true do |f| %>
+    <%= f.text_field :title, class: 'form-control', id: 'work_title', placeholder: 'What kind of job?' %>
+    <%= f.text_area :description, rows:5, class: 'form-control', id: 'work_description', placeholder: 'Tell us more about the job' %>
+    <%= f.number_field :wages, class: 'form-control', id: 'work_wages' %>
+    <%= f.datetime_field :work_at, class: 'form-control', id: 'work_work_at' %>
+    <%= f.submit nil, class: 'btn btn-primary' %>
+<% end %>

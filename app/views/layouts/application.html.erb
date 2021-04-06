@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LookForWork</title>
+    <title>Look-For-Work</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,15 @@
   </head>
 
   <body>
+      <div class="app-title navbar navbar-expand-md navbar-light bg-light"></div>
+      <div class="navbar-brand">Look-For-Work</div>
+    <div class="container">
+      <% if flash.notice.present? %>
+        <div class="alert alert-success">
+          <%= flash.notice %> 
+        </div>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
