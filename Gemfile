@@ -64,9 +64,6 @@ gem 'kaminari-i18n'
 # 画像の並べ替え
 gem 'acts_as_list'
 
-# デフォルトCSSデザイン
-gem 'bootstrap'
-
 # validatesメソッドにemailオプションを追加
 gem 'email_validator'
 
