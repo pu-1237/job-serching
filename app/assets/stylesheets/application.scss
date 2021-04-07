@@ -1,1 +1,11 @@
-@import "bootstrap"
+@import "bootstrap";
+
+/* liから黒丸を消す　*/
+li{
+    list-style:none;
+}
+
+/* kaminariにbootstrapを設定する */
+.pagination {
+  justify-content: center;
+}
