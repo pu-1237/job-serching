@@ -22,7 +22,7 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.new(work_params)
+    @work = current_user.works.new(work_params)
     if @work.save
         redirect_to works_url, notice: "「#{@work.title}」を投稿しました。"
     else

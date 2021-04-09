@@ -3,4 +3,6 @@ class User < ApplicationRecord
 
     validates :name, presence: true
     validates :email, email: {allow_blank: true}
+
+    has_many :works, dependent: :destroy
 end
