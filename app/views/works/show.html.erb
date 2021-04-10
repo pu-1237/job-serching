@@ -1,4 +1,4 @@
-<% if @user.id != current_user.id %>
+<% unless current_user.admin %>
     <% if @work.applicant_ids.include?(current_user.id) %>
         <%= link_to "申し込みをキャンセルする", cancel_work_path(@work.id), data: { confirm: "こちらの投稿の申し込みをキャンセルしますか？" } %>
     <% else %>
