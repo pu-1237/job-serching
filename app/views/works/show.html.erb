@@ -1,8 +1,8 @@
 <% unless current_user.admin %>
     <% if @work.applicant_ids.include?(current_user.id) %>
-        <%= link_to "申し込みをキャンセルする", cancel_work_path(@work.id), data: { confirm: "こちらの投稿の申し込みをキャンセルしますか？" } %>
+        <%= link_to "申し込みをキャンセルする", cancel_work_path(@work.id), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
     <% else %>
-        <%= link_to "申し込む", apply_work_path(@work.id), data: { confirm: "こちらの投稿に申し込みますか？" } %>
+        <%= link_to "申し込む", apply_work_path(@work.id), data: { confirm: "こちらの案件に申し込みますか？" } %>
     <% end %>
 <% end %>
 <div>
@@ -10,8 +10,10 @@
         <h2 class="text-center pt-5"> 本文 </h2>
         <div class="nav justify-content-end">
             <%= link_to 'ワーク一覧', works_path, class: 'nav-link' %>
-            <%= link_to '編集', edit_work_path, class: 'nav-link' %>
-            <%= link_to '削除', @work, method: :delete, data: { confirm: "このワークを削除しますか？"}, class: 'nav-link' %> 
+            <% if current_user.admin? %>
+                <%= link_to '編集', edit_work_path, class: 'nav-link' %>
+                <%= link_to '削除', @work, method: :delete, data: { confirm: "このワークを削除しますか？"}, class: 'nav-link' %> 
+            <% end %>
         </div>
         <table class="table table-hover"> 
             <tbody> 
