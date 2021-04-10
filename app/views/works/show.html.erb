@@ -1,3 +1,10 @@
+<% if @user.id != current_user.id %>
+    <% if @work.applicant_ids.include?(current_user.id) %>
+        <%= link_to "申し込みをキャンセルする", cancel_work_path(@work.id), data: { confirm: "こちらの投稿の申し込みをキャンセルしますか？" } %>
+    <% else %>
+        <%= link_to "申し込む", apply_work_path(@work.id), data: { confirm: "こちらの投稿に申し込みますか？" } %>
+    <% end %>
+<% end %>
 <div>
     <div class="col-md-4 offset-md-4"> 
         <h2 class="text-center pt-5"> 本文 </h2>

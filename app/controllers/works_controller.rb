@@ -1,10 +1,12 @@
 class WorksController < ApplicationController
+
   def index
     @works = Work.all
   end
 
   def show
     @work = Work.find(params[:id])
+    @user = @work.user
   end
 
   def new
@@ -36,10 +38,25 @@ class WorksController < ApplicationController
     redirect_to works_path, notice: "「#{work.title}」を削除しました。"
   end
 
+  def apply
+    @work = Work.find(params[:id])
+    WorkApplicant.create(work_id: @work.id, applicant_id: current_user.id)
+    flash[:notice] = '申し込みが完了しました。'
+    redirect_to action: "show"
+  end
+
+  def cancel
+    @work = Work.find(params[:id])
+    work_applicant = WorkApplicant.find_by(work_id: @work.id, applicant_id: current_user.id)
+    work_applicant.destroy
+    flash[:notice] = 'キャンセルが完了しました。'
+    redirect_to action: "show"
+  end
 
   private
   
   def work_params
     params.require(:work).permit(:title, :description, :wages, :work_at)
   end
+
 end
