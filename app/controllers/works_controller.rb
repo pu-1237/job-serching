@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  before_action :if_not_admin, only: [:new, :edit, :update, :create, :destroy]
+  before_action :require_admin, only: [:new, :edit, :update, :create, :destroy]
 
   def index
     @works = Work.all
@@ -60,7 +60,7 @@ class WorksController < ApplicationController
     params.require(:work).permit(:title, :description, :wages, :work_at)
   end
 
-  def if_not_admin
+  def require_admin
     redirect_to root_path unless current_user.admin?
   end
 

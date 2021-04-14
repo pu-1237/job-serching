@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
         redirect_to login_path unless current_user
     end
 
+    def require_admin
+        redirect_to root_path unless current_user.admin?
+    end
+
     # アプリの設定へ反映する
     def set_locale
         I18n.locale = locale

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
-  root to: 'works#index'
+  root to: 'calendars#index'
   resources :works do
     member do
       get 'apply'
