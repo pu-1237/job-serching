@@ -6,14 +6,13 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
-  root to: 'calendars#index'
-  resources :works do
+  root to: 'events#index'
+  resources :events do
     member do
       get 'apply'
       get 'cancel'
     end
   end
 
-  resources :calendars
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

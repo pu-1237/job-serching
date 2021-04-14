@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_085429) do
+ActiveRecord::Schema.define(version: 2021_04_14_102836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "event_applicants", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "applicant_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["applicant_id"], name: "index_event_applicants_on_applicant_id"
+    t.index ["event_id"], name: "index_event_applicants_on_event_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title", limit: 30, null: false
+    t.text "description", null: false
+    t.integer "wages", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
@@ -25,27 +46,7 @@ ActiveRecord::Schema.define(version: 2021_04_10_085429) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  create_table "work_applicants", force: :cascade do |t|
-    t.bigint "work_id"
-    t.bigint "applicant_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["applicant_id"], name: "index_work_applicants_on_applicant_id"
-    t.index ["work_id"], name: "index_work_applicants_on_work_id"
-  end
-
-  create_table "works", force: :cascade do |t|
-    t.string "title", limit: 30, null: false
-    t.text "description", null: false
-    t.integer "wages", null: false
-    t.datetime "work_at", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_works_on_user_id"
-  end
-
-  add_foreign_key "work_applicants", "users", column: "applicant_id"
-  add_foreign_key "work_applicants", "works"
-  add_foreign_key "works", "users"
+  add_foreign_key "event_applicants", "events"
+  add_foreign_key "event_applicants", "users", column: "applicant_id"
+  add_foreign_key "events", "users"
 end

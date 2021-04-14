@@ -1,0 +1,8 @@
+<%= form_with model: event, local: true do |f| %>
+    <%= f.text_field :title, class: 'form-control', id: 'event_title', placeholder: 'What kind of job?' %>
+    <%= f.text_area :description, rows:5, class: 'form-control', id: 'event_description', placeholder: 'Tell us more about the job' %>
+    <%= f.number_field :wages, class: 'form-control', id: 'event_wages' %>
+    <%= f.datetime_field :start, class: 'form-control', id: 'event_start' %>
+    <%= f.datetime_field :end, class: 'form-control', id: 'event_end' %>
+    <%= f.submit nil, class: 'btn btn-primary' %>
+<% end %>
