@@ -1,5 +1,5 @@
 <% unless current_user.admin %>
-    <% if @work.applicant_ids.include?(current_user.id) %>
+    <% if @event.applicant_ids.include?(current_user.id) %>
         <%= link_to "申し込みをキャンセルする", cancel_event_path(@event.id), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
     <% else %>
         <%= link_to "申し込む", apply_event_path(@event.id), data: { confirm: "こちらの案件に申し込みますか？" } %>

@@ -9,3 +9,18 @@ li{
 .pagination {
   justify-content: center;
 }
+
+.bootstrap-datetime-width {
+  /* 縦に並んでいるのを横に並べる */
+  display: inline-block;
+  /* 横幅を表示に合わせる */
+  width: auto;
+}
+
+.form-check-input {
+  /* マウスカーソルを重ねたときに指マークにする */
+  cursor: pointer;
+  position: relative;
+  left: 25px;
+}
+
