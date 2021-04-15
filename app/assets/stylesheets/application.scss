@@ -24,3 +24,12 @@ li{
   left: 25px;
 }
 
+/* フッターを下部に固定する */
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}

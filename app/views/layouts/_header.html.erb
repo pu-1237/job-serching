@@ -15,7 +15,8 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <% if current_user&.admin %>
                 <%= link_to '案件一覧', events_path, class: 'nav-link' %>
-                <%= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link' %>
+                <%= link_to '案件管理', list_events_path, class: 'nav-link' %>
+                <%= link_to 'ユーザー管理', admin_users_path, class: 'nav-link' %>
             <% elsif current_user %>
                 <%= link_to '案件一覧', events_path, class: 'nav-link' %>
                 <%= link_to '申し込み一覧', "#", class: 'nav-link' %>

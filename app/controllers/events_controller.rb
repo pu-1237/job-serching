@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :require_admin, only: [:new, :edit, :update, :create, :destroy]
+  before_action :require_admin, only: [:new, :edit, :update, :create, :destroy, :list]
 
   def index
     @events = Event.all
@@ -52,6 +52,10 @@ class EventsController < ApplicationController
     event_applicant.destroy
     flash[:notice] = 'キャンセルが完了しました。'
     redirect_to action: "show"
+  end
+
+  def list
+    @events = Event.all.page(params[:page]).per(5)
   end
 
   private

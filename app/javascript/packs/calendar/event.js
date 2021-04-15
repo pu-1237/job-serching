@@ -6,6 +6,10 @@ document.addEventListener('turbolinks:load', function() {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new Calendar(calendarEl, {
+        //日付の'日'表示を消す
+        dayCellContent: function(e) {
+            e.dayNumberText = e.dayNumberText.replace('日', '');
+        },
         plugins: [ dayGridPlugin, interactionPlugin ],
         
         //カレンダーに予定を表示させる
