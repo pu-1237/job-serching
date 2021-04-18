@@ -21,13 +21,13 @@ class EventsController < ApplicationController
   def update
     event = Event.find(params[:id])
     event.update!(event_params)
-    redirect_to events_path, notice: "「#{event.title}を編集しました」"
+    redirect_to list_events_path, notice: "「#{event.title}を編集しました」"
   end
 
   def create
     @event = current_user.events.new(event_params)
     if @event.save
-        redirect_to events_url, notice: "「#{@event.title}」を投稿しました。"
+        redirect_to list_events_url, notice: "「#{@event.title}」を投稿しました。"
     else
       render :new
     end
@@ -55,6 +55,10 @@ class EventsController < ApplicationController
   end
 
   def list
+    @events = Event.all.page(params[:page]).per(5)
+  end
+
+  def datelist
     @events = Event.all.page(params[:page]).per(5)
   end
 

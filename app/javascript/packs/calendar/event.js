@@ -32,16 +32,23 @@ document.addEventListener('turbolinks:load', function() {
         }, 
         allDayText: '終日',
         height: "auto",
+        eventDisplay: 'block',
+        navLinks: true, //日付クリックで遷移
 
-        dateClick: function(info){
-            //日付をクリックしたときのイベント
+        //日付クリック時の処理//
+        dateClick: function(date, jsEvent, view){
+
         },
-        eventClick: function(info){
-            //表示されたイベントをクリックしたときのイベント
+        //イベントクリック時の処理//
+        eventClick: function(info) {
+            // infoからevent.idを取得
+            var event = calendar.getEventById(info.event.id);
+            // urlにevet.idを埋め込んでページ遷移
+            window.location.href = "events/" + event.id;
         },
         eventClassNames: function(arg){
             //表示されたイベントにclassをcss用に追加する
-        }
+        },
     });
     
     calendar.render();

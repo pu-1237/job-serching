@@ -33,3 +33,15 @@ body {
 main {
   flex: 1;
 }
+
+/* カレンダーでのイベントの表示から時刻を消す */
+.fc-dayGridMonth-view .fc-event-time {
+  display: none;
+}
+
+td.fc-sat {
+  background-color: #eaf4ff;
+}
+td.fc-sun {
+  background-color: #ffeaea;
+}
