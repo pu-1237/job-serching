@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     collection do
       get 'list'
       get 'datelist'
+      get 'applicant'
     end
   end
 
