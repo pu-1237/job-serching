@@ -7,7 +7,11 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @user = @event.user
+    @users = User.all
+    # 申し込み者一覧を配列に格納する
+    applicants = @users.find_all{|user| @event.applicant_ids.include?(user.id)}
+    # 配列に対してページネイトする
+    @applicants = Kaminari.paginate_array(applicants).page(params[:page]).per(10)
   end
 
   def new

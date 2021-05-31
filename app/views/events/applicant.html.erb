@@ -22,10 +22,10 @@
                                 <%= link_to event.title, event %>
                             </td>
                             <td>
-                                <%= link_to event.start, event %>
+                                <%= link_to event.start.strftime("%m月%d日 %H:%M"), event %>
                             </td>
                             <td>
-                                <%= link_to event.end, event %>
+                                <%= link_to event.end.strftime("%m月%d日 %H:%M"), event %>
                             </td>
                         </tr>
                     

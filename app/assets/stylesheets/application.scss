@@ -35,12 +35,12 @@ main {
 }
 
 /* カレンダーでのイベントの表示から時刻を消す */
-.fc-dayGridMonth-view .fc-event-time {
+.fc-event-time {
   display: none;
 }
 
 td.fc-sat {
-  background-color: #eaf4ff;
+  background-color: red;
 }
 td.fc-sun {
   background-color: #ffeaea;
