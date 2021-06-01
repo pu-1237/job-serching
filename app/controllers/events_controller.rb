@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   def destroy
     event = Event.find(params[:id])
     event.destroy
-    redirect_to events_path, notice: "「#{event.title}」を削除しました。"
+    redirect_to list_events_url, notice: "「#{event.title}」を削除しました。"
   end
 
   def apply
@@ -52,10 +52,15 @@ class EventsController < ApplicationController
 
   def cancel
     @event = Event.find(params[:id])
-    event_applicant = EventApplicant.find_by(event_id: @event.id, applicant_id: current_user.id)
+    event_applicant = EventApplicant.find_by(event_id: @event.id, applicant_id: params[:applicant_id])
     event_applicant.destroy
     flash[:notice] = 'キャンセルが完了しました。'
     redirect_to action: "show"
+  end
+  def request
+    @event = Event.find(params[:id])
+    event_applicant = EventApplicant.find_by(event_id: @event.id, applicant_id: current_user.id)
+    event_applicant.request = true
   end
 
   def list

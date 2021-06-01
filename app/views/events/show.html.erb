@@ -2,7 +2,10 @@
     <% if @event.applicant_ids.include?(current_user.id) %>
         <%= link_to "申し込みをキャンセルする", cancel_event_path(@event.id), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
     <% else %>
-        <%= link_to "申し込む", apply_event_path(@event.id), data: { confirm: "こちらの案件に申し込みますか？" } %>
+        <% #申し込み上限判定 %>
+        <% if @event.limit > @event.applicant_ids.size %>
+            <%= link_to "申し込む", apply_event_path(@event.id), data: { confirm: "こちらの案件に申し込みますか？" } %>
+        <% end %>
     <% end %>
 <% end %>
 <div>
@@ -45,6 +48,12 @@
                         <th>
                             <%= User.human_attribute_name(:email) %>
                         </th>
+                        <th>
+                            キャンセルリクエスト
+                        </th>
+                        <th>
+                            キャンセル処理
+                        </th>
                     </tr>
                 </thead>
                 <tbody> 
@@ -55,6 +64,13 @@
                             </td>
                             <td>
                                 <%= applicant.email %>
+                            </td>
+                            <td>
+                                ◯
+                            </td>
+                            <td>
+                                <% #link_toにcancelメソッドで受け取るパラメータを付与する%>
+                                <%= link_to "申し込みをキャンセルする", cancel_event_path(applicant_id: applicant.id ), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
                             </td>
                         </tr>
                     <% end %>

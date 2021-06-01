@@ -3,6 +3,7 @@
     <%= f.text_field :title, class: 'form-control', id: 'event_title', placeholder: 'タイトル' %>
     <%= f.text_area :description, rows:5, class: 'form-control', id: 'event_description', placeholder: 'ここに内容' %>
     <%= f.number_field :wages, class: 'form-control', id: 'event_wages', placeholder: '見込み金額' %>
+    <%= f.number_field :limit, class: 'form-control', id: 'event_limit', placeholder: '募集人数'%>
     <%= f.label :end,"開始時刻", {class:'control-label'}%><br>
     <%= f.datetime_select :start, {default: Date.today + 0.hours + 00.minutes, minute_step: 15}, class: 'form-control bootstrap-datetime-width', id: 'event_start' %><br>
     <%= f.label :end,"終了時刻", {class:'control-label'}%><br>
