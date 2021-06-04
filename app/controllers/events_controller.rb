@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :require_admin, only: [:new, :edit, :update, :create, :destroy, :list]
+  before_action :require_admin, only: [:new, :edit, :update, :create, :destroy, :list, :cancel]
 
   def index
     @events = Event.all
@@ -57,11 +57,17 @@ class EventsController < ApplicationController
     flash[:notice] = 'キャンセルが完了しました。'
     redirect_to action: "show"
   end
-  def request
+  def cancel_request
     @event = Event.find(params[:id])
     event_applicant = EventApplicant.find_by(event_id: @event.id, applicant_id: current_user.id)
-    event_applicant.request = true
-  end
+    if event_applicant.update(request: true)
+      RequestMailer.creation_email(current_user, @event).deliver_now
+      flash[:notice] = 'キャンセルリクエストが完了しました。'
+      redirect_to action: "show"
+    else
+      render :show
+    end
+  end 
 
   def list
     @events = Event.all.page(params[:page]).per(5)

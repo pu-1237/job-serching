@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member do
       get 'apply'
       get 'cancel'
+      get 'cancel_request'
     end
     collection do
       get 'list'
