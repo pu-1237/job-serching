@@ -46,6 +46,7 @@ class EventsController < ApplicationController
   def apply
     @event = Event.find(params[:id])
     EventApplicant.create(event_id: @event.id, applicant_id: current_user.id)
+    ApplyMailer.creation_email(current_user, @event).deliver_now
     flash[:notice] = '申し込みが完了しました。'
     redirect_to action: "show"
   end
@@ -53,9 +54,13 @@ class EventsController < ApplicationController
   def cancel
     @event = Event.find(params[:id])
     event_applicant = EventApplicant.find_by(event_id: @event.id, applicant_id: params[:applicant_id])
-    event_applicant.destroy
-    flash[:notice] = 'キャンセルが完了しました。'
-    redirect_to action: "show"
+    if event_applicant.destroy
+      CancelMailer.creation_email(User.find(params[:applicant_id]), @event).deliver_now
+      flash[:notice] = 'キャンセルが完了しました。'
+      redirect_to action: "show"
+    else
+      render :show
+    end
   end
   def cancel_request
     @event = Event.find(params[:id])

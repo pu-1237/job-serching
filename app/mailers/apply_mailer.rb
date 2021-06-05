@@ -1,11 +1,11 @@
-class RequestMailer < ApplicationMailer
+class ApplyMailer < ApplicationMailer
     default from: 'taskleaf1237@gmail.com'
 
     def creation_email(user, event)
         @user = user
         @event = event
         mail(
-            subject: 'キャンセルリクエスト受付メール',
+            subject: '申し込み完了メール',
             to: @user.email,
         )
     end

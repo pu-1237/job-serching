@@ -39,9 +39,46 @@ main {
   display: none;
 }
 
-td.fc-sat {
-  background-color: red;
+//.fc-day-sat {
+//    background-color: #ddfaff;
+//}
+
+//.fc-day-sun{
+//  background-color: #FADBDA;
+//}
+
+.fc-col-header-cell-cushion{
+  color: black
 }
-td.fc-sun {
-  background-color: #ffeaea;
+
+.fc-daygrid-day-number{
+  color:black
+}
+
+
+.fc-day-sun{
+  .fc-daygrid-day-number{
+    color: red
+  }
+}
+
+.fc-day-sat{
+  .fc-daygrid-day-number{
+    color: #007BFF;
+  }
+}
+
+.fc-day-sun{
+  .fc-col-header-cell-cushion {
+    color: red;
+  }
+}
+.fc-day-sat{
+  .fc-col-header-cell-cushion {
+    color: #007BFF;
+  }
+}
+
+.fc-bg-event.fc-event.fc-event-start.fc-event-end.fc-event-past{
+  background-color: white
 }

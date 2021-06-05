@@ -1,6 +1,7 @@
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import googleCalendarPlugin from '@fullcalendar/google-calendar';
 
 document.addEventListener('turbolinks:load', function() {
     var calendarEl = document.getElementById('calendar');
@@ -10,8 +11,14 @@ document.addEventListener('turbolinks:load', function() {
         dayCellContent: function(e) {
             e.dayNumberText = e.dayNumberText.replace('日', '');
         },
-        plugins: [ dayGridPlugin, interactionPlugin ],
-        
+        plugins: [ dayGridPlugin, interactionPlugin, googleCalendarPlugin ], 
+        googleCalendarApiKey: 'AIzaSyAZM90quGfy0sLog_0O1cMAK04P59_9bjg',
+        eventSources: [
+            {
+                googleCalendarId: 'ja.japanese#holiday@group.v.calendar.google.com',
+                display: 'background'
+            }
+        ],
         //カレンダーに予定を表示させる
         //'/コントローラー名.json'形式で記述
         events: '/events.json',
