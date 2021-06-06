@@ -28,6 +28,8 @@ Rails6ではcssは引き続きSprocketsで、jsはWebpackerで扱う。
 参考↓
 https://knmts.com/become-engineer-4/
 
+credentials.yml.enc を 編集する📝
+$ EDITOR="vi" bin/rails credentials:edit
 
 
 User

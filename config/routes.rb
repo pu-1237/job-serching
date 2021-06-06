@@ -17,8 +17,8 @@ Rails.application.routes.draw do
       get 'list'
       get 'datelist'
       get 'applicant'
+      get ':year/:month/:day' => 'events#date',
+        :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
     end
   end
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

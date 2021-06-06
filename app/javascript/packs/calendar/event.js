@@ -17,7 +17,6 @@ document.addEventListener('turbolinks:load', function() {
             {
                 googleCalendarId: 'ja.japanese#holiday@group.v.calendar.google.com',
                 display: 'background',
-                className: 'event_holiday'
             }
         ],
         //カレンダーに予定を表示させる
@@ -41,12 +40,18 @@ document.addEventListener('turbolinks:load', function() {
         allDayText: '終日',
         height: "auto",
         eventDisplay: 'block',
-        navLinks: true, //日付クリックで遷移
+        navLinks: true, //日付クリックで遷移する
+        navLinkDayClick: function(date, jsEvent) {  //日付クリックでのイベント
+            const year = date.getFullYear(); //date(Dateオブジェクト)から西暦を取り出す
+            const month = ( '00' + (date.getMonth() + 1)).slice(-2); //月を取り出して桁数を揃える
+            const day = ( '00' +　date.getDate()).slice(-2);　//日付を取り出して桁数を揃える
+            window.location.href = "events/" + year + "/" + month + "/" + day //遷移先の指定
+            console.log(date)
+        },
 
         //日付クリック時の処理//
-        dateClick: function(date, jsEvent, view){
-
-        },
+        dateClick: function(info) {
+},
         //イベントクリック時の処理//
         eventClick: function(info) {
             // infoからevent.idを取得
@@ -58,6 +63,7 @@ document.addEventListener('turbolinks:load', function() {
             //表示されたイベントにclassをcss用に追加する
         },
     });
+    calendar.setOption('dayMaxEvents', 1),
     
     calendar.render();
 });
