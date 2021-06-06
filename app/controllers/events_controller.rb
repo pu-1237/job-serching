@@ -5,6 +5,15 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def date
+    @events = []
+    Event.all.each do |event|
+      if event.start.year == params[:year] && event.star.month == params[:month] && event.start.day == params[:day]
+          @events << event
+      end
+    end
+  end
+
   def show
     @event = Event.find(params[:id])
     @users = User.all
