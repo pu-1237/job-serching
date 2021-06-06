@@ -16,7 +16,8 @@ document.addEventListener('turbolinks:load', function() {
         eventSources: [
             {
                 googleCalendarId: 'ja.japanese#holiday@group.v.calendar.google.com',
-                display: 'background'
+                display: 'background',
+                className: 'event_holiday'
             }
         ],
         //カレンダーに予定を表示させる

@@ -55,12 +55,17 @@ main {
   color:black
 }
 
-
 .fc-day-sun{
   .fc-daygrid-day-number{
     color: red
   }
 }
+
+//.fc-day[data-date="2021-06-23"] { 
+//  .fc-daygrid-day-number{
+//  color: #007BFF;
+//  }
+//}
 
 .fc-day-sat{
   .fc-daygrid-day-number{
@@ -79,6 +84,6 @@ main {
   }
 }
 
-.fc-bg-event.fc-event.fc-event-start.fc-event-end.fc-event-past{
+.fc-bg-event.fc-event.fc-event-start.fc-event-end{
   background-color: white
 }
