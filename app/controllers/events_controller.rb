@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.new(event_params)
     if @event.save
-        redirect_to list_events_url, notice: "「#{@event.title}」を投稿しました。"
+        redirect_to list_events_url, notice: "「#{@event.title}」を登録しました。"
     else
       render :new
     end
@@ -97,7 +97,7 @@ class EventsController < ApplicationController
   private
   
   def event_params
-    params.require(:event).permit(:title, :description, :wages, :start, :end)
+    params.require(:event).permit(:title, :description, :wages, :start, :end, :deadline, :limit)
   end
 
 end

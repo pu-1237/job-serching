@@ -1,7 +1,7 @@
 <%= params[:year] + "/" + params[:month] + "/" + params[:day]%>
 <div class="col-md-8 offset-md-2"> 
     <% wday = Date.new(params[:year].to_i, params[:month].to_i, params[:day].to_i).wday %>
-    <%= %w(日 月 火 水 木 金 土)[wday] + '曜日' %>
+    <h2><%= %w(日 月 火 水 木 金 土)[wday] + '曜日' %></h2>
     <% Event.all.each do |event| %>
       <% if event.start.year.to_s == params[:year] && sprintf("%02d", event.start.month) == params[:month] && sprintf("%02d", event.start.day) == params[:day] %>
         <table class="table table-hover"> 

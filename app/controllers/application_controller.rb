@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user
-    before_action :login_required
+    before_action :login_required, except: [:top]
     before_action :set_locale
 
     private
@@ -21,4 +21,5 @@ class ApplicationController < ActionController::Base
     def set_locale
         I18n.locale = locale
     end
+
 end

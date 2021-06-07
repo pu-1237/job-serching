@@ -1,10 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_action :login_required
 
-  def index
-    if current_user
-      redirect_to tasks_path
-    end
+  def top
   end
 
   def new
@@ -35,4 +32,5 @@ class SessionsController < ApplicationController
   def session_params
     params.require(:session).permit(:email, :password)
   end
+
 end

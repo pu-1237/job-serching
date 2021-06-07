@@ -1,12 +1,14 @@
 <% unless current_user.admin %>
-    <% if @event.applicant_ids.include?(current_user.id) %>
-        <% if EventApplicant.find_by(event_id: @event.id, applicant_id: current_user.id).request == false %>
-            <%= link_to "申し込みをキャンセルする", cancel_request_event_path(@event.id), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
-        <% end %>
-    <% else %>
-        <% #申し込み上限判定 %>
-        <% if @event.limit > @event.applicant_ids.size %>
-            <%= link_to "申し込む", apply_event_path(@event.id), data: { confirm: "こちらの案件に申し込みますか？" } %>
+    <%if @event.deadline > DateTime.now %>
+        <% if @event.applicant_ids.include?(current_user.id) %>
+            <% if EventApplicant.find_by(event_id: @event.id, applicant_id: current_user.id).request == false %>
+                <%= link_to "申し込みをキャンセルする", cancel_request_event_path(@event.id), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
+            <% end %>
+        <% else %>
+            <% #申し込み上限判定 %>
+            <% if @event.limit > @event.applicant_ids.size %>
+                <%= link_to "申し込む", apply_event_path(@event.id), data: { confirm: "こちらの案件に申し込みますか？" } %>
+            <% end %>
         <% end %>
     <% end %>
 <% end %>
