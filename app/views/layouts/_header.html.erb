@@ -21,7 +21,7 @@
                 <%= link_to '案件一覧', events_path, class: 'nav-link' %>
                 <%= link_to '申し込み一覧', applicant_events_path, class: 'nav-link' %>
                 <%= link_to '給与明細', "#", class: 'nav-link' %>
-                <%= link_to '出勤確認', "#", class: 'nav-link' %>
+                <%= link_to '出勤確認', appendance_events_path, class: 'nav-link' %>
             <%end%>
             <div class="dropdown-divider"></div>
             <%= link_to t('.logout'), logout_path, method: :delete, class: 'nav-link' %>

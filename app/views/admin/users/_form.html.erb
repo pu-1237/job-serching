@@ -1,4 +1,6 @@
 <%= form_with model:[:admin, user], local: true do |f| %>
+    <%= f.label :new_profile_picture %>
+    <%= f.file_field :new_profile_picture %>
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
     <%= f.label :email %>

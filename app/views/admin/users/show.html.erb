@@ -9,6 +9,17 @@
                 <table class= "table table-hover">
                     <tbody>
                         <tr>
+                            <th>プロフィール画像</th>
+                            <td><% if @user.profile_picture.attached? %>
+                                    <%= image_tag @user.profile_picture.variant(resize_to_fill: [128, 128]) %>
+                                <% end %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><%= User.human_attribute_name(:id) %> </th>
+                            <td><%= @user.id %></td>
+                        </tr>
+                        <tr>
                             <th><%= User.human_attribute_name(:name) %> </th>
                             <td><%= @user.name %></td>
                         </tr>

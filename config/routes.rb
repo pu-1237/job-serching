@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get 'applicant'
       get ':year/:month/:day' => 'events#date',
         :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
+      get 'appendance'
     end
   end
 end

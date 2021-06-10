@@ -6,6 +6,9 @@
             <thead> 
                 <tr>
                     <th>
+                        <%= User.human_attribute_name(:id) %> 
+                    </th>
+                    <th>
                         <%= User.human_attribute_name(:name) %> 
                     </th>
                     <th>
@@ -19,6 +22,9 @@
             <tbody> 
                 <% @users.each do |user| %>
                     <tr> 
+                        <td>
+                            <%= link_to user.id, [:admin, user] %>
+                        </td>
                         <td>
                             <%= link_to user.name, [:admin, user] %>
                         </td>
