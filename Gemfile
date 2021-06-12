@@ -81,3 +81,6 @@ gem 'sidekiq', '~> 5.0'
 
 # 総当たり攻撃対策
 gem 'rack-attack'
+
+# 定時処理
+gem 'whenever', require: false

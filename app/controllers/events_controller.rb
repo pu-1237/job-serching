@@ -87,9 +87,6 @@ class EventsController < ApplicationController
     @events = Event.all.page(params[:page]).per(5)
   end
 
-  def attendance
-  end
-
   def applicant
     # current_userの申し込みを配列に格納する
     events = Event.all.find_all{ |event| current_user.event_applicants.map(&:event_id).include?(event.id) }
