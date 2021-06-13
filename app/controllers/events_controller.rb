@@ -94,6 +94,12 @@ class EventsController < ApplicationController
     @events = Kaminari.paginate_array(events).page(params[:page]).per(5)
   end
 
+  def punch_in
+    @event = Event.find(params[:id])
+    EventApplicant.find_by(event_id: @event.id, applicant_id: current_user.id).update(attendance: true)
+    render :show
+  end
+
   private
   
   def event_params

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       get 'apply'
       get 'cancel'
       get 'cancel_request'
+      get 'punch_in'
+
     end
     collection do
       get 'list'
@@ -19,7 +21,8 @@ Rails.application.routes.draw do
       get 'applicant'
       get ':year/:month/:day' => 'events#date',
         :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
-      get 'appendance'
+      
+
     end
   end
 end

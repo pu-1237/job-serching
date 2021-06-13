@@ -19,12 +19,6 @@ document.addEventListener('turbolinks:load', function() {
                 display: 'background',
             }
         ],
-        eventRender: function(event, element) {
-            if(event.source.googleCalendarId == 'ja.japanese#holiday@group.v.calendar.google.com') {
-                $('.fc-day-top[data-date=' + event.start._i + ']').css('color', '#FF0066');
-                element.hide();
-            }
-        },
         //カレンダーに予定を表示させる
         //'/コントローラー名.json'形式で記述
         events: '/events.json',

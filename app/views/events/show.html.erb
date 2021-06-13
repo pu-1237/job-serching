@@ -11,6 +11,13 @@
             <% end %>
         <% end %>
     <% end %>
+    <% if @event.start.day == Date.today.day %>
+        <% if @event.applicant_ids.include?(current_user.id) %>
+            <% if EventApplicant.find_by(event_id: @event.id, applicant_id: current_user.id).attendance == false %>
+                <%= link_to '出勤確認', punch_in_event_path%>
+            <% end %>
+        <% end %>
+    <% end %>
 <% end %>
 <div>
     <div class="col-md-4 offset-md-4"> 
@@ -57,6 +64,9 @@
                         <th>
                             キャンセル処理
                         </th>
+                        <th>
+                            出勤確認
+                        </th>
                     </tr>
                 </thead>
                 <tbody> 
@@ -78,6 +88,13 @@
                             <td>
                                 <% #link_toにcancelメソッドで受け取るパラメータを付与する%>
                                 <%= link_to "申し込みをキャンセルする", cancel_event_path(applicant_id: applicant.id ), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
+                            </td>
+                            <td>
+                                <% if EventApplicant.find_by(event_id: @event.id, applicant_id: applicant.id).attendance %>
+                                    ○
+                                <% else %>
+                                    -
+                                <% end %>
                             </td>
                         </tr>
                     <% end %>
