@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :require_admin, only: [:new, :edit, :update, :create, :destroy, :list, :cancel]
+  before_action :require_admin, only: [:new, :edit, :update, :create, :destroy, :manager, :cancel]
 
   def index
     @events = Event.all
@@ -34,13 +34,13 @@ class EventsController < ApplicationController
   def update
     event = Event.find(params[:id])
     event.update!(event_params)
-    redirect_to list_events_path, notice: "「#{event.title}を編集しました」"
+    redirect_to manager_events_path, notice: "「#{event.title}を編集しました」"
   end
 
   def create
     @event = current_user.events.new(event_params)
     if @event.save
-        redirect_to list_events_url, notice: "「#{@event.title}」を登録しました。"
+        redirect_to manager_events_url, notice: "「#{@event.title}」を登録しました。"
     else
       render :new
     end
@@ -49,7 +49,7 @@ class EventsController < ApplicationController
   def destroy
     event = Event.find(params[:id])
     event.destroy
-    redirect_to list_events_url, notice: "「#{event.title}」を削除しました。"
+    redirect_to manager_events_url, notice: "「#{event.title}」を削除しました。"
   end
 
   def apply
@@ -83,12 +83,12 @@ class EventsController < ApplicationController
     end
   end 
 
-  def list
+  def manager
     @events = Event.all.page(params[:page]).per(5)
   end
 
-  def applicant
-    # current_userの申し込みを配列に格納する
+  def entries
+    # current_userの申し込んだイベントを配列に格納する
     events = Event.all.find_all{ |event| current_user.event_applicants.map(&:event_id).include?(event.id) }
     # 配列に対してページネイトする
     @events = Kaminari.paginate_array(events).page(params[:page]).per(5)
@@ -98,6 +98,17 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     EventApplicant.find_by(event_id: @event.id, applicant_id: current_user.id).update(attendance: true)
     render :show
+  end
+
+  # 給与明細
+  def payments
+  end
+
+  # 月ごとの給与明細
+  def list
+    # current_userの申し込んだイベントを配列に格納する
+    events = Event.all.find_all{ |event| current_user.event_applicants.map(&:event_id).include?(event.id) }
+    @events = events.find_all{ |event| event.start.year.to_s == params[:year] && sprintf('%02d', event.start.month)== params[:month] }
   end
 
   private

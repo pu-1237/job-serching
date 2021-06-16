@@ -16,9 +16,12 @@ Rails.application.routes.draw do
 
     end
     collection do
-      get 'list'
+      get 'manager'
       get 'datelist'
-      get 'applicant'
+      get 'entries'
+      get 'payments'
+      get 'payments/:year/:month' => 'events#list',
+        :constraints => { :year => /\d{4}/, :month => /\d{2}/ }
       get ':year/:month/:day' => 'events#date',
         :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
       
