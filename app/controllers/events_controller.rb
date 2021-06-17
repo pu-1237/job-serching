@@ -84,7 +84,8 @@ class EventsController < ApplicationController
   end 
 
   def manager
-    @events = Event.all.page(params[:page]).per(5)
+    @q = Event.all.ransack(params[:q])
+    @events = @q.result(distinct: true).page(params[:page]).per(5)
   end
 
   def entries

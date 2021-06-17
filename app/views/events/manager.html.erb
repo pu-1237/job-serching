@@ -1,6 +1,17 @@
 <div> 
     <div class="col-md-5 offset-md-4"> 
         <h2 class="text-center pt-5"> 案件管理 </h2>
+            <%= search_form_for @q, url: "manager", class: 'mb-5 form-inline' do |f| %>
+                <div class="col-som-10">
+                    <%= f.search_field :id_eq, class: 'form-control', placeholder: 'id'  %>
+                </div>
+                <div class="col-som-10">
+                    <%= f.search_field :title_cont, class: 'form-control', placeholder: 'タイトル'  %>
+                </div>
+                <div class="form-group">
+                    <%= f.submit class: 'btn btn-outline-primary' %>
+                </div>
+            <% end %>
             <% if current_user.admin? %>
                 <%= link_to '追加', new_event_path, class: 'btn btn-primary' %> 
             <% end %>
@@ -8,7 +19,10 @@
             <thead> 
                 <tr>
                     <th>
-                        <%= Event.human_attribute_name(:title) %> 
+                        <%= Event.human_attribute_name(:id) %> 
+                    </th>
+                    <th>
+                        title
                     </th>
                     <th>
                         <%= Event.human_attribute_name(:start) %>
@@ -18,6 +32,9 @@
             <tbody> 
                 <% @events.each do |event| %>
                     <tr> 
+                        <td>
+                            <%= link_to event.id, event %>
+                        </td>
                         <td>
                             <%= link_to event.title, event %>
                         </td>

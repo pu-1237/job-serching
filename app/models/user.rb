@@ -15,4 +15,12 @@ class User < ApplicationRecord
             self.profile_picture = new_profile_picture
         end 
     end
+
+    def self.ransackable_attributes(auth_object = nil)
+        %w[id name]
+    end
+
+    def self.ransakable_associations(auth_object = nil)
+        []
+    end
 end

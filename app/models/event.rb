@@ -16,4 +16,13 @@ class Event < ApplicationRecord
             errors.add(:end, "が開始時刻を上回っています。正しく記入してください。") if self.start > self.end 
         end
     end
+
+
+    def self.ransackable_attributes(auth_object = nil)
+        %w[title id]
+    end
+    
+    def self.ransakable_associations(auth_object = nil)
+        []
+    end
 end
