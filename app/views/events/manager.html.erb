@@ -19,13 +19,13 @@
             <thead> 
                 <tr>
                     <th>
-                        <%= Event.human_attribute_name(:id) %> 
+                        <%= sort_link(@q, :id) %> 
                     </th>
                     <th>
                         title
                     </th>
                     <th>
-                        <%= Event.human_attribute_name(:start) %>
+                        <%= sort_link(@q, :start) %>
                     </th>
                 </tr>
             </thead>

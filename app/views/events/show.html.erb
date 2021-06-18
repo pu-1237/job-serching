@@ -20,8 +20,8 @@
     <% end %>
 <% end %>
 <div>
-    <div class="col-md-4 offset-md-4"> 
-        <h2 class="text-center pt-5"> イベント詳細 </h2>
+    <div class="col-md-7 offset-md-2"> 
+        <h2 class="text-center"> イベント詳細 </h2>
         <div class="nav justify-content-end">
             <% if current_user.admin? %>
                 <%= link_to '編集', edit_event_path, class: 'nav-link' %>
@@ -47,8 +47,8 @@
 
 <% if current_user.admin? %>
     <div>
-        <div class="col-md-4 offset-md-4"> 
-            <h2 class="text-center pt-5"> 申し込み者一覧 </h2>
+        <div class="col-md-7 offset-md-2"> 
+            <h2 class="text-center"> 申し込み者一覧 </h2>
                     <table class="table table-hover">
                 <thead> 
                     <tr>
@@ -66,6 +66,9 @@
                         </th>
                         <th>
                             出勤確認
+                        </th>
+                        <th>
+                            勤怠管理
                         </th>
                     </tr>
                 </thead>
@@ -95,6 +98,9 @@
                                 <% else %>
                                     -
                                 <% end %>
+                            </td>
+                            <td>
+                                <input type="text" name="name" size="40">
                             </td>
                         </tr>
                     <% end %>

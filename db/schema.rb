@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_132015) do
+ActiveRecord::Schema.define(version: 2021_06_18_110539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2021_06_10_132015) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "request", default: false, null: false
     t.boolean "attendance", default: false, null: false
+    t.datetime "begin"
+    t.datetime "finish"
     t.index ["applicant_id"], name: "index_event_applicants_on_applicant_id"
     t.index ["event_id"], name: "index_event_applicants_on_event_id"
   end
@@ -65,6 +67,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_132015) do
     t.datetime "end"
     t.integer "limit"
     t.datetime "deadline"
+    t.string "imageurl", default: "work_icon2.png"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
