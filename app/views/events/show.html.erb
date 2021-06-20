@@ -53,6 +53,9 @@
                 <thead> 
                     <tr>
                         <th>
+                            <%= User.human_attribute_name(:id) %> 
+                        </th>
+                        <th>
                             <%= User.human_attribute_name(:name) %> 
                         </th>
                         <th>
@@ -76,8 +79,12 @@
                     </tr>
                 </thead>
                 <tbody> 
-                    <% @applicants.each_with_index do |applicant, idx| %>
+                    <%# fields_forのindexに合わせて申し込みの昇順でソートする %>
+                    <% @applicants.sort_by{|a| EventApplicant.find_by(event_id: @event.id, applicant_id: a.id).created_at }.each_with_index do |applicant, idx| %>
                         <tr> 
+                            <td>
+                                <%= link_to applicant.id, [:admin, applicant] %>
+                            </td>
                             <td>
                                 <%= link_to applicant.name, [:admin, applicant] %>
                             </td>
@@ -104,6 +111,7 @@
                             </td>
                             <td>
                                 <%= form_for @event do |f| %>
+                                <%= applicant.created_at%>
                                     <%= f.fields_for :event_applicants do |e| %>　<%# 関連付けられたモデルにデータを同時保存する model,controller側ではaccepts_nested_attributes_for view側ではfields_for %>
                                         <% if idx == e.index %> <%# FormBuilderオブジェクトのインスタンスメソッドで各インスタンスのindexを取得する %>
                                         <%= e.datetime_select :begin, {default: @event.start, minute_step: 15}, class: 'form-control bootstrap-datetime-width', id: 'event_applicants_begin' %>
