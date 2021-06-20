@@ -6,6 +6,8 @@ class Event < ApplicationRecord
     has_many :event_applicants, dependent: :destroy
     has_many :applicants, through: :event_applicants, dependent: :destroy
 
+    accepts_nested_attributes_for :event_applicants
+
     default_scope -> { order(start: :asc) }
 
     validate  :start_end_check

@@ -27,6 +27,15 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def create
+    @event = current_user.events.new(event_params)
+    if @event.save
+        redirect_to manager_events_url, notice: "「#{@event.title}」を登録しました。"
+    else
+      render :new
+    end
+  end
+
   def edit
     @event = Event.find(params[:id])
   end
@@ -37,14 +46,7 @@ class EventsController < ApplicationController
     redirect_to manager_events_path, notice: "「#{event.title}を編集しました」"
   end
 
-  def create
-    @event = current_user.events.new(event_params)
-    if @event.save
-        redirect_to manager_events_url, notice: "「#{@event.title}」を登録しました。"
-    else
-      render :new
-    end
-  end
+
 
   def destroy
     event = Event.find(params[:id])
@@ -111,11 +113,25 @@ class EventsController < ApplicationController
     events = Event.all.find_all{ |event| current_user.event_applicants.map(&:event_id).include?(event.id) }
     @events = events.find_all{ |event| event.start.year.to_s == params[:year] && sprintf('%02d', event.start.month)== params[:month] }
   end
-
   private
   
   def event_params
-    params.require(:event).permit(:title, :description, :wages, :start, :end, :deadline, :limit)
+    params.require(:event).permit(
+      :title,
+      :description,
+      :wages,
+      :start,
+      :end,
+      :deadline,
+      :limit,
+      event_applicants_attributes: [
+                        :id,
+                        :event_id,
+                        :applicant_id,
+                        :request,
+                        :attendance,
+                        :begin,
+                        :finish]
+      )
   end
-
 end

@@ -68,12 +68,15 @@
                             出勤確認
                         </th>
                         <th>
-                            勤怠管理
+                            出勤時間
+                        </th>
+                        <th>
+                            退勤時間
                         </th>
                     </tr>
                 </thead>
                 <tbody> 
-                    <% @applicants.each do |applicant| %>
+                    <% @applicants.each_with_index do |applicant, idx| %>
                         <tr> 
                             <td>
                                 <%= link_to applicant.name, [:admin, applicant] %>
@@ -100,7 +103,24 @@
                                 <% end %>
                             </td>
                             <td>
-                                <input type="text" name="name" size="40">
+                                <%= form_for @event do |f| %>
+                                    <%= f.fields_for :event_applicants do |e| %>
+                                        <% if idx == e.index #FormBuilderオブジェクトのインスタンスメソッドで各インスタンスのindexを取得する %>
+                                        <%= e.datetime_select :begin, {default: @event.start, minute_step: 15}, class: 'form-control bootstrap-datetime-width', id: 'event_applicants_begin' %>
+                                        <% end %>
+                                    <% end %>
+                                    <%= f.submit '変更' %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <%= form_for @event do |f| %>
+                                    <%= f.fields_for :event_applicants do |e| %>
+                                        <% if idx == e.index #FormBuilderオブジェクトのインスタンスメソッドで各インスタンスのindexを取得する %>
+                                        <%= e.datetime_select :finish, {default: @event.end, minute_step: 15}, class: 'form-control bootstrap-datetime-width', id: 'event_applicants_finish' %>
+                                        <% end %>
+                                    <% end %>
+                                    <%= f.submit '変更' %>
+                                <% end %>
                             </td>
                         </tr>
                     <% end %>
