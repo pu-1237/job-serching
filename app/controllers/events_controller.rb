@@ -43,7 +43,7 @@ class EventsController < ApplicationController
   def update
     event = Event.find(params[:id])
     event.update!(event_params)
-    redirect_to manager_events_path, notice: "「#{event.title}を編集しました」"
+    redirect_to event_path, notice: "「#{event.title}を編集しました」"
   end
 
 

@@ -111,7 +111,6 @@
                             </td>
                             <td>
                                 <%= form_for @event do |f| %>
-                                <%= applicant.created_at%>
                                     <%= f.fields_for :event_applicants do |e| %>　<%# 関連付けられたモデルにデータを同時保存する model,controller側ではaccepts_nested_attributes_for view側ではfields_for %>
                                         <% if idx == e.index %> <%# FormBuilderオブジェクトのインスタンスメソッドで各インスタンスのindexを取得する %>
                                         <%= e.datetime_select :begin, {default: @event.start, minute_step: 15}, class: 'form-control bootstrap-datetime-width', id: 'event_applicants_begin' %>

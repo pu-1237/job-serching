@@ -1,29 +1,44 @@
-<%= params[:year] + "/" + params[:month] %><br>
+
 <% sum = 0 %>
 <% @events.each do |event| %>
-    <% sum += event.wages %>
+    <% applicant = EventApplicant.find_by(event_id: event.id, applicant_id: current_user.id)  %>
+    <% if applicant.finish != nil && applicant.begin != nil %>
+    <% zikan = (applicant.finish - applicant.begin) / 3600 %>
+    <% sum += event.wages * zikan.to_i %>
+    <% end %>
 <% end %>
 <h3> 合計金額 </h3>
 <%= sum %>円
 
+<h3> 勤務実績 </h3>
 <% @events.each do |event| %>
-    <table class="table table-hover">
-        <% sum += event.wages %>
-        <tr>
-            <th>
-                タイトル
-            </th>
-            <td>
-                <%= event.title %>
-            </td>
-        </tr>
-        <tr>
-            <th>
-                給与
-            </th>
-            <td>
-                <%= event.wages %>
-            </td>
-        </tr>
-    </table>
+    <% applicant = EventApplicant.find_by(event_id: event.id, applicant_id: current_user.id)  %>
+    <% if applicant.finish != nil && applicant.begin != nil %>
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    タイトル
+                </th>
+                <td>
+                    <%= link_to event.title, event %>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    時給
+                </th>
+                <td>
+                    <%= event.wages %>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    勤務時間
+                </th>
+                <td>
+                    <%= applicant.begin.to_s + '〜' + applicant.finish.to_s %>
+                </td>
+            </tr>
+        </table>
+    <% end %>
 <% end %>
