@@ -28,4 +28,6 @@ Rails.application.routes.draw do
 
     end
   end
+  resource :account, only:[:show, :edit, :update]
+  
 end

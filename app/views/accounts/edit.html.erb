@@ -1,0 +1,9 @@
+<div>
+    <div class="col-md-4 offset-md-4">
+        <h2 class="text-center pt-5"> User Edit </h2>
+            <div class="nav justify-content-end"> 
+                <%= link_to '戻る', account_path, class: 'nav-link'%>
+            </div>
+            <%= render partial: 'form', locals: { user: @user } %>
+    </div>
+</div>

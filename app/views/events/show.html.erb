@@ -1,3 +1,4 @@
+
 <% unless current_user.admin %>
     <%if @event.deadline > DateTime.now %>
         <% if @event.applicant_ids.include?(current_user.id) %>
