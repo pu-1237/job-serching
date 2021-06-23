@@ -11,8 +11,7 @@ end
 def update
     @user = current_user
 
-    if @user.authenticate(user_params[:password])
-        @user.update(user_params)
+    if @user.update(user_params)
         redirect_to account_path, notice: "アカウント情報を更新しました。"
     else
         render :edit

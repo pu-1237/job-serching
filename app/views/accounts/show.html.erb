@@ -1,8 +1,8 @@
 <div>
     <div class="col-md-4 offset-md-4">
-        <h2 class="text-center pt-5"> User Description </h2>
+        <h2 class="text-center pt-5"> マイアカウント </h2>
             <div class="nav justify-content-end"> 
-                <%= link_to 'メールアドレスを変更する', edit_account_path(@user), class: 'nav-link' %>
+                
             </div>
                 <table class= "table table-hover">
                     <tbody>
@@ -24,6 +24,17 @@
                         <tr>
                             <th><%= User.human_attribute_name(:email) %></th>
                             <td><%= @user.email %></td>
+                            <td><%= link_to '編集', edit_account_path(edit: 'email'), class: 'nav-link' %></td>
+                        </tr>
+                        <tr>
+                            <th><%= '電話番号' %></th>
+                            <td><%= '090-1111-1111' %></td>
+                            <td><%= link_to '編集', edit_account_path(edit: 'number'), class: 'nav-link' %></td>
+                        </tr>
+                        <tr>
+                            <th><%= User.human_attribute_name(:password) %></th>
+                            <td></td>
+                            <td><%= link_to '編集', edit_account_path(edit: 'password'), class: 'nav-link' %></td>
                         </tr>
                     </tbody>
                 </table>

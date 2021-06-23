@@ -1,9 +1,29 @@
 <div>
     <div class="col-md-4 offset-md-4">
-        <h2 class="text-center pt-5"> User Edit </h2>
-            <div class="nav justify-content-end"> 
-                <%= link_to '戻る', account_path, class: 'nav-link'%>
-            </div>
-            <%= render partial: 'form', locals: { user: @user } %>
+        <% if params[:edit] == 'email' %>
+            <h2 class="text-center pt-5"> Eメールアドレスを変更 </h2>
+            <p>現在のEメールアドレス:</p>
+            <%= @user.email %><br>
+            <br>
+
+            <%= form_with model: @user, url: account_path, local: true do |f| %>
+                <%= '新しいEメールアドレス:' %>
+                <%= f.text_field :email, class: 'form-control' %>
+                <%= f.submit nil, class: 'btn btn-primary'%>
+            <% end %>
+        <% elsif params[:edit] == 'number' %>
+            <h2 class="text-center pt-5"> 電話番号を変更 </h2>
+            <p>現在の電話番号:</p>
+            <%= '090-1111-1111' %><br>
+        <% elsif params[:edit] == 'password' %>
+            <h2 class="text-center pt-5"> パスワードを変更 </h2>
+        <%= form_with model:@user, url:account_path, local: true do |f| %>
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+            <%= f.submit nil, class: 'btn btn-primary'%>
+        <% end %>
+        <% end %>
     </div>
 </div>
