@@ -105,6 +105,7 @@ class EventsController < ApplicationController
 
   # 給与明細
   def payments
+    @events = Event.all.find_all{ |event| current_user.event_applicants.map(&:event_id).include?(event.id) }
   end
 
   # 月ごとの給与明細

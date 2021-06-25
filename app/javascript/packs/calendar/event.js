@@ -19,10 +19,6 @@ document.addEventListener('turbolinks:load', function() {
                 display: 'background',
             }
         ],
-        eventContent: function(event, element) { 
-            console.log('aaa.com'); 
-            console.log(element); 
-        }, 
         //カレンダーに予定を表示させる
         //'/コントローラー名.json'形式で記述
         events: '/events.json',

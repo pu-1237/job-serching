@@ -1,5 +1,5 @@
 <div> 
-    <div class="col-md-5 offset-md-4"> 
+    <div class="col-md-6 offset-md-3"> 
         <h2 class="text-center pt-5"> 給与明細 </h2> 
         <table>
             <tr>
@@ -23,6 +23,21 @@
         <% 13.times do |i| %>
             <% d = today << i %>
             <%= link_to d.strftime('%Y年%m月'), "#{d.strftime('/events/payments/%Y/%m').to_s}" %><br>
+            <% events = @events.find_all{ |event| event.start.year == d.year && event.start.month == d.month } %>
+            <% sum = 0 %>
+            <% events.each do |event| %>
+                <% applicant = EventApplicant.find_by(event_id: event.id, applicant_id: current_user.id)  %>
+                <% if applicant.finish != nil && applicant.begin != nil %>
+                    <% zikan = (applicant.finish - applicant.begin) / 3600 %>
+                    <% zangyou = zikan - 8 %>
+                    <% if zangyou > 0 %> 
+                        <% zikan = zikan - zangyou + zangyou * 1.5 %>
+                    <% end %>
+                    <% sum += event.wages * zikan.to_i %>
+                <% end %>
+            <% end %>
+            <%= "合計金額:#{sum}円" %>
+            <p></p>
         <% end %>
     </div>
 </div>
