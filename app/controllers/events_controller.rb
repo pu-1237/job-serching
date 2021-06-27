@@ -86,13 +86,21 @@ class EventsController < ApplicationController
   end 
 
   def manager
-    @q = Event.all.ransack(params[:q])
+    # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
+    @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
+    # 取得した時刻が含まれる月の範囲のデータを取得
+    events_month = Event.where(updated_at: @month.all_month)
+    @q = events_month.all.ransack(params[:q])
     @events = @q.result(distinct: true).page(params[:page]).per(5)
   end
 
   def entries
+    # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
+    @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
+    # 取得した時刻が含まれる月の範囲のデータを取得
+    events_month = Event.where(updated_at: @month.all_month)
     # current_userの申し込んだイベントを配列に格納する
-    events = Event.all.find_all{ |event| current_user.event_applicants.map(&:event_id).include?(event.id) }
+    events = events_month.all.find_all{ |event| current_user.event_applicants.map(&:event_id).include?(event.id) }
     # 配列に対してページネイトする
     @events = Kaminari.paginate_array(events).page(params[:page]).per(5)
   end

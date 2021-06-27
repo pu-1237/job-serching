@@ -81,8 +81,16 @@
     <% applicant = EventApplicant.find_by(event_id: event.id, applicant_id: current_user.id)  %>
     <% if applicant.finish != nil && applicant.begin != nil %>
     <div class="col-md-6 offset-md-3" > 
-        <table class="table table-hover">
+        <table class="table table-bordered table-hover">
         <tr>
+            <tr>
+                <th>
+                    案件名
+                </th>
+                <td>
+                    <%= link_to event.title, event %>
+                </td>
+            </tr>
                 <th>
                     作業日
                 </th>
@@ -100,18 +108,15 @@
             </tr>
             <tr>
                 <th>
-                    タイトル
+                    支給額
                 </th>
                 <td>
-                    <%= link_to event.title, event %>
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    時給
-                </th>
-                <td>
-                    <%= event.wages %>
+                    <% zikan = (applicant.finish - applicant.begin) / 3600 %>
+                    <% zangyou = zikan - 8 %>
+                    <% if zangyou > 0 %> 
+                        <% zikan = zikan - zangyou + zangyou * 1.5 %>
+                    <% end %>
+                    <%= "#{event.wages * zikan.to_i}円" %>
                 </td>
             </tr>
         </table>

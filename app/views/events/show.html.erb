@@ -29,14 +29,68 @@
                 <%= link_to '削除', @event, method: :delete, data: { confirm: "このワークを削除しますか？"}, class: 'nav-link' %> 
             <% end %>
         </div>
-        <table class="table table-hover"> 
+        <table class="table table-bordered table-hover"> 
             <tbody> 
                 <tr>
-                    <th>
+                    <td>
+                        案件名
+                    </td>
+                    <td>
                         <%= @event.title %> 
-                    </th>
+                    </td>
                 </tr>
                 <tr>
+                    <td>
+                        作業場所
+                    </td>
+                    <td>
+                        <%=  %> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        作業内容
+                    </td>
+                    <td>
+                        <%=  %> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        勤務予定時間
+                    </td>
+                    <td>
+                        <%= " #{@event.start.strftime("%H:%M")} - #{@event.end.strftime("%H:%M")} " %> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        時給
+                    </td>
+                    <td>
+                        <%= "#{@event.wages}円" %> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        別途手当
+                    </td>
+                    <td>
+                        <%=  %> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        見込み金額
+                    </td>
+                    <td>
+                        <%= "#{@event.wages * ((@event.end - @event.start) / 3600).to_i}円" %> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        備考
+                    </td>
                     <td>
                         <%= simple_format(h(@event.description), {}, sanitize: false, wrapper_tag: "div") %> 
                     </td>

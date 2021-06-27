@@ -4,21 +4,26 @@
     <h2><%= %w(日 月 火 水 木 金 土)[wday] + '曜日' %></h2>
     <% Event.all.each do |event| %>
       <% if event.start.year.to_s == params[:year] && sprintf("%02d", event.start.month) == params[:month] && sprintf("%02d", event.start.day) == params[:day] %>
-        <table class="table table-hover"> 
+        <table class="table table-bordered table-hover"> 
             <tbody> 
                 <tr>
-                    <th>
-                        <%= link_to event.title, event_path(event.id) %> 
-                    </th>
-                </tr>
-                <tr>
                     <td>
-                        <%= simple_format(h(event.description), {}, sanitize: false, wrapper_tag: "div") %> 
+                        <%= "案件名: "%><%= link_to event.title, event %> 
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <%= event.wages%>
+                        <%= "見込金額: #{event.wages * (event.end - event.start).to_i}" %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%= "勤務時間:" + event.start.strftime("%H:%M").to_s + '-' + event.end.strftime("%H:%M").to_s %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%= "作業場所: "%>
                     </td>
                 </tr>
             </tbody>
