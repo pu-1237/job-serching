@@ -95,9 +95,9 @@ class EventsController < ApplicationController
   end
 
   def entries
-    # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
+    # クエリストリングをTimeオブジェクトに変換、ない場合は現在の時刻を取得
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
-    # 取得した時刻が含まれる月の範囲のデータを取得
+    # 取得したTimeオブジェクトが含まれるレンジを取得可能
     events_month = Event.where(updated_at: @month.all_month)
     # current_userの申し込んだイベントを配列に格納する
     events = events_month.all.find_all{ |event| current_user.event_applicants.map(&:event_id).include?(event.id) }
