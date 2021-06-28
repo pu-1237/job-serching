@@ -88,8 +88,8 @@ class EventsController < ApplicationController
   def manager
     # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
-    # 取得した時刻が含まれる月の範囲のデータを取得
-    events_month = Event.where(updated_at: @month.all_month)
+    # 取得した時刻でデータを取得
+    events_month = Event.where(start: @month.all_month)
     @q = events_month.all.ransack(params[:q])
     @events = @q.result(distinct: true).page(params[:page]).per(5)
   end

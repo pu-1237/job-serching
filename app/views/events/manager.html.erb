@@ -33,7 +33,7 @@
                         title
                     </th>
                     <th>
-                        <%= sort_link(@q, :start) %>
+                        start
                     </th>
                 </tr>
             </thead>
@@ -50,6 +50,7 @@
                             <%= event.start.strftime("%m月%d日 %H:%M") %>
                         </td>
                     </tr>
+
                 <% end %>
             </tbody>
         </table>

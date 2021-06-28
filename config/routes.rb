@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
+  get 'password_reset/new'
+  get 'password_reset/edit'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -24,10 +28,15 @@ Rails.application.routes.draw do
         :constraints => { :year => /\d{4}/, :month => /\d{2}/ }
       get ':year/:month/:day' => 'events#date',
         :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
-      
-
     end
   end
+  
   resource :account, only:[:show, :edit, :update]
+
+  resources :password_resets do
+    collection do
+      get 'sent'
+    end
+  end
   
 end

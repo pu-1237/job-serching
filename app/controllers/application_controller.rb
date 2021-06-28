@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user
-    before_action :login_required, except: [:top]
+    before_action :login_required, except: [:top], if: :use_before_action?
     before_action :set_locale
 
     private
@@ -20,6 +20,12 @@ class ApplicationController < ActionController::Base
     # アプリの設定へ反映する
     def set_locale
         I18n.locale = locale
+    end
+
+
+    # 特定のコントローラではbefore_actionを使用しない判定に用いる
+    def use_before_action?
+        true
     end
 
 end

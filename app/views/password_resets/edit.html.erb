@@ -1,0 +1,12 @@
+<div class="col-md-4 offset-md-4">
+<h2 class="text-center pt-5"> パスワード再設定 </h2><br>
+<p>新しいパスワード:</p>
+<%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+    <%= hidden_field_tag :email, @user.email %>
+    <%= f.label :password %><br>
+    <%= f.password_field :password , class: 'form-control'%><br>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+    <%= f.submit "パスワードを変更する", class: 'btn btn-primary' %>
+<% end %>
+</div>
