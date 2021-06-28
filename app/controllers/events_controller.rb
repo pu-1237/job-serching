@@ -88,7 +88,7 @@ class EventsController < ApplicationController
   def manager
     # クエリストリングがあればTimeオブジェクトに変換、ない場合は現在の時刻を取得
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
-    # 取得した時刻でデータを取得
+    # 取得したTimeオブジェクトでデータを取得
     events_month = Event.where(start: @month.all_month)
     @q = events_month.all.ransack(params[:q])
     @events = @q.result(distinct: true).page(params[:page]).per(5)
@@ -97,8 +97,8 @@ class EventsController < ApplicationController
   def entries
     # クエリストリングをTimeオブジェクトに変換、ない場合は現在の時刻を取得
     @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
-    # 取得したTimeオブジェクトが含まれるレンジを取得可能
-    events_month = Event.where(updated_at: @month.all_month)
+    # 取得したTimeオブジェクトでデータを取得
+    events_month = Event.where(start: @month.all_month)
     # current_userの申し込んだイベントを配列に格納する
     events = events_month.all.find_all{ |event| current_user.event_applicants.map(&:event_id).include?(event.id) }
     # 配列に対してページネイトする
