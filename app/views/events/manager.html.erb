@@ -30,10 +30,10 @@
                         <%= sort_link(@q, :id) %> 
                     </th>
                     <th>
-                        title
+                        <%= Event.human_attribute_name(:title) %>
                     </th>
                     <th>
-                        start
+                        <%= Event.human_attribute_name(:start) %>
                     </th>
                 </tr>
             </thead>

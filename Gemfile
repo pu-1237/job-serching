@@ -84,3 +84,5 @@ gem 'rack-attack'
 
 # 定時処理
 gem 'whenever', require: false
+
+gem 'aws-sdk-s3', require: false
