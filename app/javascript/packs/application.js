@@ -9,6 +9,10 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 require("bootstrap")
 
+//= require jquery
+//= require moment
+//= require fullcalendar
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
