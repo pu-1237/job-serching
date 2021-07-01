@@ -38,7 +38,22 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
+
+  # Don't care if the mailer can't send.
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    domain: 'gmail.com',
+    port: 587,
+    user_name: Rails.application.credentials.gmail[:user_name],
+    password: Rails.application.credentials.gmail[:password],
+    authentication: 'login',
+    enable_starttls_auto: true
+  }
+  
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil

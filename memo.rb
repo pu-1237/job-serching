@@ -46,30 +46,3 @@ belongs_to :applicant, class_name: 'User', foreign_key: 'applicant_id'　#申し
 validates_uniqueness_of :event_id, scope: :applicant_id　#イベントidと申し込み者idで申し込みは一意である。
 
 event_applicants = current_user.event_applicants.map(&:event_id)
-
-namespace :attendance do
-    desc "出勤確認メール"
-    task :mail => :environment do
-          EventApplicant.all.each do |application|
-            event = Event.find(application.event_id)
-            user = User.find(application.applicant_id)
-            if event.start.day == Date.today.day
-                AttendanceMailer.creation_email(user, event).deliver_now
-            end
-          end
-    end
-  end
-
-  namespace :attendance do
-    desc "出勤確認メール"
-    task :mail => :environment do
-      Event.all.each do |event|
-        User.all.each do |user|
-          if EventApplicant.find_by(event_id: event.id, applicant_id: user.id) && event.start.day == Date.today.day
-            AttendanceMailer.creation_email(user, event).deliver_now
-          end
-        end
-      end
-    end
-  end
-
