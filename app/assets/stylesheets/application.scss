@@ -1,5 +1,11 @@
 @import 'bootstrap/scss/bootstrap';
 
+/*
+*= require_tree .
+*= require_self
+*= require fullcalendar
+*/
+
 /* liから黒丸を消す　*/
 li{
     list-style:none;
