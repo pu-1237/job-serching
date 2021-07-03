@@ -31,18 +31,5 @@ https://knmts.com/become-engineer-4/
 credentials.yml.enc を 編集する📝
 $ EDITOR="vi" bin/rails credentials:edit
 
-
-User
-has_many :events, dependent: :destroy　#Userは複数のイベントを持つ
-has_many :event_applicants, foreign_key: 'applicant_id'　#Userは複数の申し込みを持つ
-
-Event
-belongs_to :user　  #EventはUser属する
-has_many :event_applicants, dependent: :destroy　#Eventは複数の申し込みを持つ
-has_many :applicants, through: :event_applicants, dependent: :destroy　#イベントは申し込みを通して、複数の申し込み者(User)を持つ
-
-EventApplicant    
-belongs_to :applicant, class_name: 'User', foreign_key: 'applicant_id'　#申し込みは申し込み者(User)に属する。
-validates_uniqueness_of :event_id, scope: :applicant_id　#イベントidと申し込み者idで申し込みは一意である。
-
-event_applicants = current_user.event_applicants.map(&:event_id)
+herokuにcssが適用されない原因
+webpacker.ymlの  extract_css: false (CSSファイルを別に設定する)がtrueになっていると反映されない
