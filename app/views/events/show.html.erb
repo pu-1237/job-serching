@@ -44,7 +44,7 @@
                         作業場所
                     </td>
                     <td>
-                        <%=  %> 
+                        <%= @event.place %> 
                     </td>
                 </tr>
                 <tr>
@@ -52,7 +52,7 @@
                         作業内容
                     </td>
                     <td>
-                        <%=  %> 
+                        <%= @event.description %> 
                     </td>
                 </tr>
                 <tr>
@@ -76,7 +76,7 @@
                         別途手当
                     </td>
                     <td>
-                        <%=  %> 
+                        <%= "#{@event.allowance}円" %> 
                     </td>
                 </tr>
                 <tr>
@@ -92,7 +92,7 @@
                         備考
                     </td>
                     <td>
-                        <%= simple_format(h(@event.description), {}, sanitize: false, wrapper_tag: "div") %> 
+                        <%= simple_format(h(@event.remark), {}, sanitize: false, wrapper_tag: "div") %> 
                     </td>
                 </tr>
             </tbody>
@@ -131,11 +131,15 @@
                         <th>
                             退勤時間
                         </th>
+                        <th>
+                            勤怠処理
+                        </th>
                     </tr>
                 </thead>
                 <tbody> 
                     <%# fields_forのindexに合わせて申し込みの昇順でソートする %>
-                    <% @applicants.sort_by{|a| EventApplicant.find_by(event_id: @event.id, applicant_id: a.id).created_at }.each_with_index do |applicant, idx| %>
+                    <% @applicants.sort_by{|app| EventApplicant.find_by(event_id: @event.id, applicant_id: app.id).created_at }.each_with_index do |applicant, idx| %>
+                        <% user_applicant = EventApplicant.find_by(event_id: @event.id, applicant_id: applicant.id)%>
                         <tr> 
                             <td>
                                 <%= link_to applicant.id, [:admin, applicant] %>
@@ -147,7 +151,7 @@
                                 <%= applicant.email %>
                             </td>
                             <td>
-                                <% if EventApplicant.find_by(event_id: @event.id, applicant_id: applicant.id).request %>
+                                <% if user_applicant.request %>
                                     ○
                                 <% else %>
                                     -
@@ -158,7 +162,7 @@
                                 <%= link_to "申し込みをキャンセルする", cancel_event_path(applicant_id: applicant.id ), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
                             </td>
                             <td>
-                                <% if EventApplicant.find_by(event_id: @event.id, applicant_id: applicant.id).attendance %>
+                                <% if user_applicant.attendance %>
                                     ○
                                 <% else %>
                                     -
@@ -182,6 +186,13 @@
                                         <% end %>
                                     <% end %>
                                 <%= f.submit '変更' %>
+                                <% end %>
+                            </td>
+                            <td>
+                                <% if user_applicant.finish != nil && user_applicant.begin != nil %>
+                                    ○
+                                <% else %>
+                                    -
                                 <% end %>
                             </td>
                         </tr>

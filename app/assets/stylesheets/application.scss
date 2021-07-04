@@ -39,15 +39,6 @@ main {
   display: none;
 }
 
-
-//.fc-day-sat {
-//    background-color: #ddfaff;
-//}
-
-//.fc-day-sun{
-//  background-color: #FADBDA;
-//}
-
 .fc-col-header-cell-cushion{
   color: black
 }
@@ -61,12 +52,6 @@ main {
     color: red
   }
 }
-
-//.fc-day[data-date="2021-06-23"] { 
-//  .fc-daygrid-day-number{
-//  color: #007BFF;
-//  }
-//}
 
 .fc-day-sat{
   .fc-daygrid-day-number{
@@ -104,3 +89,4 @@ div#test {
 div#sent{
   padding: 50px;
 }
+

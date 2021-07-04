@@ -1,9 +1,11 @@
-
 <%= form_with model: event, local: true do |f| %>
     <%= f.text_field :title, class: 'form-control', id: 'event_title', placeholder: 'タイトル' %>
-    <%= f.text_area :description, rows:5, class: 'form-control', id: 'event_description', placeholder: 'ここに内容' %>
-    <%= f.number_field :wages, class: 'form-control', id: 'event_wages', placeholder: '見込み金額' %>
+    <%= f.text_field :description, class: 'form-control', id: 'event_description', placeholder: '作業内容' %>
+    <%= f.text_field :place, class: 'form-control', id: 'event_place', placeholder: '作業場所' %>
+    <%= f.number_field :wages, class: 'form-control', id: 'event_wages', placeholder: '時給' %>
+    <%= f.number_field :allowance, class: 'form-control', id: 'event_allowance', placeholder: '別途手当' %>
     <%= f.number_field :limit, class: 'form-control', id: 'event_limit', placeholder: '募集人数'%>
+    <%= f.text_area :remark, rows: 5, class: 'form-control', id: 'event_remark', placeholder: '備考' %>
     <%= f.label :start,"開始時刻", {class:'control-label'}%><br>
     <%= f.datetime_select :start, {default: Date.today + 0.hours + 00.minutes, minute_step: 15}, class: 'form-control bootstrap-datetime-width', id: 'event_start' %><br>
     <%= f.label :end,"終了時刻", {class:'control-label'}%><br>

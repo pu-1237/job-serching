@@ -1,26 +1,26 @@
-
-<% sum = 0 %>
-<% kihon = 0 %>
-<% zan = 0 %>
-<% kihonsum = 0 %>
-<% zangyousum = 0 %>
+<% working_hours = 0 %> <%# 労働時間 %>
+<% overtime = 0 %> <%# 残業時間 %>
+<% ovettime_sum = 0 %> <%# 総残業時間 %>
+<% base_pay = 0 %>　<%# 基本給 %>
+<% overtime_pay = 0 %> <%# 残業代 %>
+<% allowance = 0 %>　<%# 別途手当 %>
+<% gros_pay = 0 %> <%# 総支給額 %>
 <% @events.each do |event| %>
     <% applicant = EventApplicant.find_by(event_id: event.id, applicant_id: current_user.id)  %>
     <% if applicant.finish != nil && applicant.begin != nil %>
-    <% zikan = (applicant.finish - applicant.begin) / 3600 %>
-    <% zangyou = zikan - 8 %>
-    <% if zangyou > 0 %> 
-        <% zan += zangyou %>
-        <% sum += event.wages * (zikan - zangyou + zangyou * 1.5).to_i %>
-        <% zangyousum += event.wages * (zangyou * 1.5).to_i %>
-        <% kihonsum += event.wages * (zikan - zangyou).to_i%>
-        <% kihon += zikan - zangyou %>
-    <% else %>
-        <% sum += event.wages * zikan.to_i %>
-        <% kihonsum += event.wages * zikan.to_i %>
-        <% kihon += zikan %>
-    <% end %>
-   
+        <% working_hours = (applicant.finish - applicant.begin) / 3600 %>
+        <% overtime = working_hours - 8 %>
+        <% if overtime > 0 %> 
+            <% overtime_sum += overtime %>
+            <% gros_pay += event.wages * (working_hours - overtime + overtime * 1.5).to_i %>
+            <% overtime_pay += event.wages * (overtime * 1.5).to_i %>
+            <% base_pay += event.wages * (working_hours - overtime).to_i%>
+        <% else %>
+            <% gros_pay += event.wages * working_hours.to_i %>
+            <% base_pay += event.wages * working_hours.to_i %>
+        <% end %>
+        <% allowance += event.allowance %>
+        <% gros_pay += event.allowance %>
     <% end %>
 <% end %>
 <div class="col-md-6 offset-md-3" id="test"> 
@@ -55,23 +55,31 @@
                 総支給額
             </th>
             <td>
-                <%= "#{sum}円" %>
+                <%= "#{gros_pay}円" %>
             </td>
         </tr>
         <tr>
             <th>
-                基本支給
+                基本支給額
             </th>
             <td>
-                <%= "#{kihonsum}円"%>
+                <%= "#{base_pay}円"%>
             </td>
         </tr>
         <tr>
             <th>
-                残業支給
+                残業支給額
             </th>
             <td>
-                <%= "#{zangyousum}円"%>
+                <%= "#{overtime_pay}円"%>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                別途手当額
+            </th>
+            <td>
+                <%= "#{allowance}円"%>
             </td>
         </tr>
     </table>
@@ -111,12 +119,12 @@
                     支給額
                 </th>
                 <td>
-                    <% zikan = (applicant.finish - applicant.begin) / 3600 %>
-                    <% zangyou = zikan - 8 %>
-                    <% if zangyou > 0 %> 
-                        <% zikan = zikan - zangyou + zangyou * 1.5 %>
+                    <% working_hours = (applicant.finish - applicant.begin) / 3600 %>
+                    <% overtime = working_hours - 8 %>
+                    <% if overtime > 0 %> 
+                        <% working_hours = working_hours - overtime + overtime * 1.5 %>
                     <% end %>
-                    <%= "#{event.wages * zikan.to_i}円" %>
+                    <%= "#{event.wages * working_hours.to_i + event.allowance}円" %>
                 </td>
             </tr>
         </table>

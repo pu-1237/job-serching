@@ -38,7 +38,7 @@
                     <% if zangyou > 0 %> 
                         <% zikan = zikan - zangyou + zangyou * 1.5 %>
                     <% end %>
-                    <% sum += event.wages * zikan.to_i %>
+                    <% sum += event.wages * zikan.to_i + event.allowance%>
                 <% end %>
             <% end %>
             <td><%= "支給額:#{sum}円" %></td>

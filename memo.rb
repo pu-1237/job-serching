@@ -32,4 +32,5 @@ credentials.yml.enc を 編集する📝
 $ EDITOR="vi" bin/rails credentials:edit
 
 herokuにcssが適用されない原因
+$ rails assets:precompile であらかじめコンパイルしたファイルをpublic下に作る(herokuではコンパイルしない)
 webpacker.ymlの  extract_css: false (CSSファイルを別に設定する)がtrueになっていると反映されない
