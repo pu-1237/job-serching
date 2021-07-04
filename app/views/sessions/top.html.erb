@@ -1,5 +1,5 @@
 <ul>
-    <li><%= link_to '新規登録', root_path, class: 'btn btn-primary btn-lg mb-3' %> </li>
+    <li><%= link_to '新規登録', register_path, class: 'btn btn-primary btn-lg mb-3' %> </li>
     <% if current_user %>
         <li><%= link_to '会員ページ', events_path, class: 'btn btn-primary btn-lg mb-3' %> </li>
     <% else %>

@@ -1,18 +1,100 @@
 <%= form_with model:[:admin, user], local: true do |f| %>
-    <%= f.label :new_profile_picture %>
-    <%= f.file_field :new_profile_picture %>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-    <%= f.label :email %>
-    <%= f.text_field :email, class: 'form-control' %>
-    <%= f.label :number %>
-    <%= f.text_field :number, class: 'form-control' %>
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: 'form-control' %>
-    <%= f.label :admin, '管理者権限', class: 'form-check-label' %>
-    <%= f.check_box :admin ,class: 'form-check-input' %><br>
-    <%= f.submit nil, class: 'btn btn-primary'%>
+<table id="form_table">
+    <tr>
+        <td>
+            <%= f.label :new_profile_picture %>
+        </td>
+        <td>
+            <%= f.file_field :new_profile_picture, class: 'file-form' %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label "姓名(漢字)"%>
+        </td>
+        <td>
+            <div style="display:inline-flex">
+                <%= f.text_field :last_name, class: 'form-control form-inline', placeholder: '姓(漢字)'%>
+                <%= f.text_field :first_name, class: 'form-control', placeholder: '名(漢字)' %>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label "姓名(カナ)" %>
+        </td>
+        <td>
+            <div style="display:inline-flex">
+                <%= f.text_field :last_name_kana, class: 'form-control', placeholder: 'セイ(全角カナ)' %>
+                <%= f.text_field :first_name_kana, class: 'form-control', placeholder: 'メイ(全角カナ)' %>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :email, id: 'label_email'%>
+        </td>
+        <td>
+        <%= f.text_field :email, class: 'form-control' %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :number %>
+        </td>
+        <td>
+            <%= f.text_field :number, class: 'form-control' %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :postal_code %>
+        </td>
+        <td>
+            <%= f.text_field :postal_code, class: 'form-control' %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :address %>
+        </td>
+        <td>
+            <%= f.text_field :address, class: 'form-control' %>
+        <td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :station %>
+        </td>
+        <td>
+            <%= f.text_field :station, class: 'form-control' %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :password %>
+        </td>
+        <td>
+            <%= f.password_field :password, class: 'form-control' %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :password_confirmation %>
+        </td>
+        <td>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :admin, '管理者権限', class: 'form-check-label' %>
+        </td>
+        <td>
+            <%= f.check_box :admin ,class: 'form-check-input' %><br>
+        </td>
+    </tr>
+</table>
+<%= f.submit nil, class: 'btn btn-primary'%>
 <% end %>
 

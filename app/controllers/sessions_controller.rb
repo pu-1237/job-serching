@@ -3,6 +3,9 @@ class SessionsController < ApplicationController
 
   def top
   end
+  
+  def register
+  end
 
   def new
     if params[:locale] == :en

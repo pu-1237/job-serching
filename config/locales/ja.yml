@@ -24,6 +24,9 @@ ja:
         password: パスワード
         password_confirmation: パスワード(確認)
         new_profile_picture: プロフィール画像
+        postal_code: 郵便番号
+        address: 住所
+        station: 最寄駅
       event:
         title: タイトル
         start: 開始日時

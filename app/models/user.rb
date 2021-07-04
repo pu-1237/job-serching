@@ -1,7 +1,10 @@
 class User < ApplicationRecord
     has_secure_password
 
-    validates :name, presence: true
+    validates :last_name, presence: true
+    validates :first_name, presence: true
+    validates :last_name_kana, presence: true
+    validates :first_name_kana, presence: true
     validates :email, email: {allow_blank: true}
 
     has_many :events, dependent: :destroy
@@ -51,4 +54,14 @@ class User < ApplicationRecord
     def password_reset_expired?
         reset_sent_at < 2.hours.ago
     end
+
+    # 姓名を連結する
+    def full_name
+        self.last_name + " " + self.first_name
+    end
+
+    def full_name_kana
+        self.last_name_kana + " " + self.first_name_kana
+    end
+
 end

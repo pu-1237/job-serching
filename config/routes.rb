@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-  get 'password_resets/edit'
-  get 'password_reset/new'
-  get 'password_reset/edit'
+  get 'register', to: 'sessions#register'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -11,6 +8,7 @@ Rails.application.routes.draw do
     resources :users
   end
   root to: 'sessions#top'
+
   resources :events do
     member do
       get 'apply'

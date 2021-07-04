@@ -86,7 +86,28 @@ div#test {
   margin-bottom: 40px ;
 }
 
-div#sent{
+div#sent {
   padding: 50px;
+}
+
+/* form_with */
+label {
+  display: block; /* これなしだとwidthが効かない */
+  width: 200px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+table#form_table {
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+.file-form{
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
