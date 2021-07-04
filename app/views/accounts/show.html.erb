@@ -18,8 +18,12 @@
                             <td><%= @user.id %></td>
                         </tr>
                         <tr>
-                            <th><%= User.human_attribute_name(:name) %> </th>
-                            <td><%= @user.name %></td>
+                            <th><%= '姓名(漢字)' %> </th>
+                            <td><%= @user.full_name %></td>
+                        </tr>
+                        <tr>
+                            <th><%= '姓名(カナ)' %> </th>
+                            <td><%= @user.full_name_kana %></td>
                         </tr>
                         <tr>
                             <th><%= User.human_attribute_name(:email) %></th>
@@ -32,8 +36,23 @@
                             <td><%= link_to '編集', edit_account_path(edit: 'number'), class: 'nav-link' %></td>
                         </tr>
                         <tr>
+                            <th><%= User.human_attribute_name(:postal_code) %></th>
+                            <td><%= @user.postal_code %></td>
+                            <td><%= link_to '編集', edit_account_path(edit: 'postal_code'), class: 'nav-link' %></td>
+                        </tr>
+                        <tr>
+                            <th><%= User.human_attribute_name(:address) %></th>
+                            <td><%= @user.address %></td>
+                            <td><%= link_to '編集', edit_account_path(edit: 'address'), class: 'nav-link' %></td>
+                        </tr>
+                        <tr>
+                            <th><%= User.human_attribute_name(:station) %></th>
+                            <td><%= @user.station %></td>
+                            <td><%= link_to '編集', edit_account_path(edit: 'station'), class: 'nav-link' %></td>
+                        </tr>
+                        <tr>
                             <th><%= User.human_attribute_name(:password) %></th>
-                            <td></td>
+                            <td><%= @user.password %></td>
                             <td><%= link_to '編集', edit_account_path(edit: 'password'), class: 'nav-link' %></td>
                         </tr>
                     </tbody>
