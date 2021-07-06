@@ -13,10 +13,10 @@
 <th><%= Date.today + 7 %></th>
 </tr>
 <tr>
-<th>10:00〜11:00</th><td><%= link_to "○", root_path, class: 'btn btn-primary', id:'entry_link' %></td>
+<th>10:00〜11:00</th><td><%= link_to "○", apply_interview_path(id: 1,interview_id: 1, registrant_id: current_user.id), class: 'btn btn-primary', id:'entry_link', data: { confirm: "こちらの案件に申し込みますか？" }  %></td>
 </tr>
 <tr>
-<th>11:00〜12:00</th><td><%= link_to "✖️", root_path, class: 'btn btn-primary', id:'entry_link' %></td>
+<th>11:00〜12:00</th>
 </tr>
 <tr>
 <th>13:00〜14:00</th>

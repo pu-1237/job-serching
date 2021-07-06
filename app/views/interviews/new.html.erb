@@ -1,0 +1,9 @@
+<div>
+    <div class="col-md-6 offset-md-3">
+        <h2 class="text-center pt-5"> 新規作成 </h2>
+            <div class="nav justify-content-end"> 
+                <%= link_to '案件一覧', events_path, class: 'nav-link' %> 
+            </div>
+            <%= render partial: "form", locals: { interview: @interview } %>
+    </div>
+</div>

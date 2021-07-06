@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   end
   root to: 'sessions#top'
 
+  resources :interviews do
+    member do
+      get 'apply'
+      get 'cancel'
+    end
+  end
+
   resources :events do
     member do
       get 'apply'
@@ -30,6 +37,8 @@ Rails.application.routes.draw do
   end
   
   resource :account, only:[:show, :edit, :update]
+
+  resource :registration, only:[:new, :create]
 
   resources :password_resets do
     collection do
