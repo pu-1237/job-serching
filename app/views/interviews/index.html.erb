@@ -13,22 +13,39 @@
 <th><%= Date.today + 7 %></th>
 </tr>
 <tr>
-<th>10:00〜11:00</th><td><%= link_to "○", apply_interview_path(id: 1,interview_id: 1, registrant_id: current_user.id), class: 'btn btn-primary', id:'entry_link', data: { confirm: "こちらの案件に申し込みますか？" }  %></td>
+<th>10:00〜11:00</th>
+
+<% array = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00']%>
+<% interview = Interview.find_by(start: DateTime.parse("#{Date.today + 1} 10:00"))%>
+<% if interview %>
+<td>
+<%= link_to "○", apply_interview_path(id: interview.id, interview_id: interview.id, registrant_id: current_user.id), class: 'btn btn-primary', id:'entry_link', data: { confirm: "こちらの案件に申し込みますか？" }  %>
+</td>
+<% end %>
 </tr>
 <tr>
-<th>11:00〜12:00</th>
+<th>11:00〜12:00</th><td><%= Interview.find(1).start%></td>
 </tr>
 <tr>
-<th>13:00〜14:00</th>
+<th>12:00〜13:00</th><td><%=DateTime.parse('2021-07-07 10:00')%></td>
+</tr>
+<tr>
+<th>13:00〜14:00</th><td><%= DateTime.parse("#{Date.today} 10:00") %></td>
+</tr>
+<tr>
+<th>14:00〜15:00</th>
 </tr>
 <tr>
 <th>15:00〜16:00</th>
 </tr>
 <tr>
+<th>16:00〜17:00</th>
+</tr>
+<tr>
 <th>17:00〜18:00</th>
 </tr>
 <tr>
-<th>19:00〜20:00</th>
+<th>18:00〜19:00</th>
 </tr>
 </table>
 </div>
