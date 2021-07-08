@@ -9,13 +9,6 @@ Rails.application.routes.draw do
   end
   root to: 'sessions#top'
 
-  resources :interviews do
-    member do
-      get 'apply'
-      get 'cancel'
-    end
-  end
-
   resources :events do
     member do
       get 'apply'

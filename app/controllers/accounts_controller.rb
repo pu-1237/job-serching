@@ -21,7 +21,26 @@ end
 private
 
 def user_params
-    params.require(:user).permit(:email, :number, :new_profile_picture, :password, :password_conformation)
+    params.require(:user).permit(
+        :last_name,
+        :first_name,
+        :last_name_kana,
+        :first_name_kana,
+        :gender,
+        :birthday,
+        :email,
+        :number,
+        :postcode,
+        :address,
+        :prefecture_name,
+        :address_city,
+        :address_street,
+        :address_building,
+        :station,
+        :password,
+        :password_confirmation,
+        :new_profile_picture
+    )
 end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_06_130011) do
+ActiveRecord::Schema.define(version: 2021_07_04_083832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,24 +73,6 @@ ActiveRecord::Schema.define(version: 2021_07_06_130011) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "interview_registrants", force: :cascade do |t|
-    t.bigint "interview_id"
-    t.bigint "registrant_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["interview_id"], name: "index_interview_registrants_on_interview_id"
-    t.index ["registrant_id"], name: "index_interview_registrants_on_registrant_id"
-  end
-
-  create_table "interviews", force: :cascade do |t|
-    t.datetime "start"
-    t.integer "limit"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_interviews_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
@@ -104,9 +86,14 @@ ActiveRecord::Schema.define(version: 2021_07_06_130011) do
     t.string "first_name"
     t.string "last_name_kana"
     t.string "first_name_kana"
-    t.string "address"
-    t.string "postal_code"
+    t.integer "postcode"
+    t.integer "prefecture_code"
+    t.string "address_city"
+    t.string "address_street"
+    t.string "address_building"
     t.string "station"
+    t.string "gender"
+    t.date "birthday"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
@@ -115,7 +102,4 @@ ActiveRecord::Schema.define(version: 2021_07_06_130011) do
   add_foreign_key "event_applicants", "events"
   add_foreign_key "event_applicants", "users", column: "applicant_id"
   add_foreign_key "events", "users"
-  add_foreign_key "interview_registrants", "interviews"
-  add_foreign_key "interview_registrants", "users", column: "registrant_id"
-  add_foreign_key "interviews", "users"
 end

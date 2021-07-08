@@ -106,13 +106,27 @@ table#form_table {
   margin-top: 40px;
 }
 
-.file-form{
+.form-con{
   margin-bottom: 15px;
   margin-top: 15px;
 }
 
 #entry_link{
   font-size:30px;
+}
+
+.border{
+  border-top:solid 1px red;
+}
+
+#gender_checkbox {
+  display: inline-block;
+  width: 25px;
+} 
+
+.bootstrap-date {
+  display: inline-block;
+  width: auto;
 }
 
 

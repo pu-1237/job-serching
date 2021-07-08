@@ -1,11 +1,11 @@
 <div>
-    <div class="col-md-4 offset-md-4">
+    <div class="col-md-6 offset-md-3">
         <h2 class="text-center pt-5"> ユーザー詳細 </h2>
             <div class="nav justify-content-end"> 
                 <%= link_to '編集', edit_admin_user_path(@user), class: 'nav-link' %>
                 <%= link_to '削除', admin_user_path(@user), method: :delete, data: {confirm: "ユーザー「#{@user.full_name}」を削除してよろしいですか？"}, class: 'nav-link' %>
             </div>
-                <table class= "table table-hover">
+                <table class= "table table-hover table-bordered">
                     <tbody>
                         <tr>
                             <th>プロフィール画像</th>
@@ -27,6 +27,14 @@
                             <td><%= @user.full_name_kana %></td>
                         </tr>
                         <tr>
+                            <th><%= '性別' %> </th>
+                            <td><%= @user.gender = :male ? '男' : '女' %></td>
+                        </tr>
+                        <tr>
+                            <th><%= '生年月日' %> </th>
+                            <td><%= @user.birthday %></td>
+                        </tr>
+                        <tr>
                             <th><%= User.human_attribute_name(:email) %></th>
                             <td><%= @user.email %></td>
                         </tr>
@@ -36,10 +44,10 @@
                         </tr>
                         <tr>
                             <th><%= User.human_attribute_name(:postal_code) %></th>
-                            <td><%= @user.postal_code %></td>
+                            <td><%= @user.postcode %></td>
                         </tr>
                         <tr>
-                            <th><%= User.human_attribute_name(:address) %></th>
+                            <th><%= "都道府県" %></th>
                             <td><%= @user.address %></td>
                         </tr>
                         <tr>

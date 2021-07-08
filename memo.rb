@@ -28,6 +28,10 @@ Rails6ではcssは引き続きSprocketsで、jsはWebpackerで扱う。
 参考↓
 https://knmts.com/become-engineer-4/
 
+パスを書かずにrequire("jquery.minipreview.js")とだけすると、それはnpm/yarm経由とみなされます。
+
+自分で置いたファイルを読みたい場合は、require("./jquery.minipreview.js")のように相対パスを明示して指定してください。
+
 credentials.yml.enc を 編集する📝
 $ EDITOR="vi" bin/rails credentials:edit
 

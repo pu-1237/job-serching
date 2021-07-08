@@ -18,6 +18,20 @@ class User < ApplicationRecord
 
     attr_accessor :remember_token, :reset_token
 
+    include JpPrefecture
+    jp_prefecture :prefecture_code
+
+
+    # 都道府県コードを文字に変換する
+    def prefecture_name
+        JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+    end
+    
+    def prefecture_name=(prefecture_name)
+        self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+    end
+
+
     before_save do
         if new_profile_picture
             self.profile_picture = new_profile_picture
@@ -66,5 +80,12 @@ class User < ApplicationRecord
     def full_name_kana
         self.last_name_kana + " " + self.first_name_kana
     end
+
+    # 住所を結合させる
+    def address
+        self.prefecture_name + self.address_city + self.address_street + self.address_building
+    end
+
+
 
 end

@@ -1,13 +1,7 @@
+
+
 <%= form_with model: user, url: registration_path, local: true do |f| %>
 <table id="form_table">
-    <tr>
-        <td>
-            <%= f.label :new_profile_picture %>
-        </td>
-        <td>
-            <%= f.file_field :new_profile_picture, class: 'file-form' %>
-        </td>
-    </tr>
     <tr>
         <td>
             <%= f.label "姓名(漢字)"%>
@@ -32,6 +26,25 @@
     </tr>
     <tr>
         <td>
+            <%= f.label "性別" %>
+        </td>
+        <td>
+            <%= f.radio_button :gender, :male %>
+            <%= f.label :gender, "男",class: 'form-con', id:"gender_checkbox" %>
+            <%= f.radio_button :gender, :female %>
+            <%= f.label :gender, "女",class: 'form-con', id:"gender_checkbox" %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label "生年月日" %>
+        </td>
+        <td>
+            <%= f.date_select :birthday, {use_month_numbers: true,start_year: 1950}, {class: "form-control bootstrap-date"} %>
+        </td>
+    </tr>
+    <tr>
+        <td>
             <%= f.label :email, id: 'label_email'%>
         </td>
         <td>
@@ -48,19 +61,43 @@
     </tr>
     <tr>
         <td>
-            <%= f.label :postal_code %>
+            <%= f.label :postcode, '郵便番号' %>
         </td>
         <td>
-            <%= f.text_field :postal_code, class: 'form-control' %>
+            <%= f.text_field :postcode , class: 'form-control', id: "user_postcode" %>
         </td>
     </tr>
     <tr>
         <td>
-            <%= f.label :address %>
+            <%= f.label :prefecture_code, '都道府県' %>
         </td>
         <td>
-            <%= f.text_field :address, class: 'form-control' %>
+            <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, class: 'form-control', id: 'user_prefecture_code' %>
         <td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :address_city, '市区町村' %>
+        </td>
+        <td>
+            <%= f.text_field :address_city, autocomplete: 'address_city', class: 'form-control', id: "user_address_city" %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :address_street, '番地' %>
+        </td>
+        <td>
+            <%= f.text_field :address_street, autocomplete: 'address_street', class: 'form-control', id: "user_address_street" %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :address_building, '建物' %>
+        </td>
+        <td>
+            <%= f.text_field :address_building, autocomplete: 'address_building', class: 'form-control' %>
+        </td>
     </tr>
     <tr>
         <td>
@@ -87,6 +124,6 @@
         </td>
     </tr>
 </table>
-<%= f.submit nil, class: 'btn btn-primary'%>
+<%= f.submit '同意して進む', class: 'btn btn-primary'%>
 <% end %>
 

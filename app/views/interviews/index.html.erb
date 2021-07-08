@@ -1,5 +1,7 @@
 まだ本登録は完了していません
 <div class="col-md-6 offset-md-3"> 
+<%= link_to '登録', new_interview_path %>
+<% time_array = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00']%>
 <table class="table-bordered">
 <tr>
 <th></th>
@@ -14,17 +16,20 @@
 </tr>
 <tr>
 <th>10:00〜11:00</th>
-
-<% array = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00']%>
-<% interview = Interview.find_by(start: DateTime.parse("#{Date.today + 1} 10:00"))%>
-<% if interview %>
 <td>
+<% if interview = Interview.test
 <%= link_to "○", apply_interview_path(id: interview.id, interview_id: interview.id, registrant_id: current_user.id), class: 'btn btn-primary', id:'entry_link', data: { confirm: "こちらの案件に申し込みますか？" }  %>
-</td>
 <% end %>
+</td>
+
 </tr>
 <tr>
-<th>11:00〜12:00</th><td><%= Interview.find(1).start%></td>
+<th>11:00〜12:00</th>
+<td>
+<% if interview = Interview.find_by(start: DateTime.parse("#{Date.today + 0} #{time_array[1]}"))%>
+<%= link_to "○", apply_interview_path(id: interview.id, interview_id: interview.id, registrant_id: current_user.id), class: 'btn btn-primary', id:'entry_link', data: { confirm: "こちらの案件に申し込みますか？" }  %>
+<% end %>
+</td>
 </tr>
 <tr>
 <th>12:00〜13:00</th><td><%=DateTime.parse('2021-07-07 10:00')%></td>
