@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   resource :registration, only:[:new, :create]
 
+  resources :registration_steps, only: [:index, :show, :update]
+
   resources :password_resets do
     collection do
       get 'sent'

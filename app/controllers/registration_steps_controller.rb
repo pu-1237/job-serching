@@ -1,25 +1,23 @@
-class RegistrationsController < ApplicationController
+class RegistrationStepsController < ApplicationController
+    include Wicked::Wizard
+    steps :second
 
-    def new
-        @user = User.new
-    end
-    
-    def create
-        @user = User.new(user_params)
-    
-        if @user.save
-            session[:user_id] = @user.id
-            redirect_to registration_steps_path
-        else
-            render :new
-        end
+    def show
+        @user = current_user
+        render_wizard
     end
 
-    def use_before_action?
-        false
+    def update
+        @user = current_user
+        @user.update(user_params)
+        render_wizard @user
     end
 
     private
+
+    def finish_wizard_path
+        users_path(current_user)
+    end
 
     def user_params
         params.require(:user).permit(
