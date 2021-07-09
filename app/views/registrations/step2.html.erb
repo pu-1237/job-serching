@@ -1,0 +1,25 @@
+<%= @a.nil?%>
+<div>
+    <div class="col-md-6 offset-md-3">
+        <h2 class="text-center pt-5"> WEB登録フォーム</h2>
+        <hr width="750" align="left">
+
+        <p id="step">
+            STEP1 応募情報登録 ></p><h5 id="step">STEP2 写真アップロード</h5> >STEP3 確認 >STEP4 完了
+        
+        <h2 class="text-left pt-5"> 必要事項をご記入ください </h2>
+            <%= form_for @user, url: step3_registration_path, method: :get do |f|%>
+                <table id="form_table">
+                <tr>
+                    <td>
+                        <%= f.label :new_profile_picture %>
+                    </td>
+                    <td>
+                        <%= f.file_field :new_profile_picture, class: 'file-form' %>
+                    </td>
+                </tr>
+                <tr><td><%= f.submit '入力内容を確認する', class: 'btn btn-primary'%></td></tr>
+                </table>
+            <% end %>
+    </div>
+</div>

@@ -54,7 +54,7 @@
             <%= f.label :email, id: 'label_email'%>
         </td>
         <td>
-        <%= f.text_field :email, class: 'form-control' %>
+            <%= f.text_field :email, class: 'form-control', placeholder: '例)sample@example.com' %>
         </td>
     </tr>
     <tr>
@@ -62,7 +62,7 @@
             <%= f.label :number %>
         </td>
         <td>
-            <%= f.text_field :number, class: 'form-control' %>
+            <%= f.text_field :number, class: 'form-control', placeholder: '例)09012345678' %>
         </td>
     </tr>
     <tr>
@@ -70,46 +70,26 @@
             <%= f.label :postcode, '郵便番号' %>
         </td>
         <td>
-            <%= f.text_field :postcode , class: 'form-control', id: "user_postcode" %>
+            <%= f.text_field :postcode , class: 'form-control', id: "user_postcode", placeholder: '例)1234567' %>
         </td>
     </tr>
     <tr>
         <td>
-            <%= f.label :prefecture_code, '都道府県' %>
+            <%= f.label :prefecture_code, '住所' %>
         </td>
         <td>
-            <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください' }, class: 'form-control', id: 'user_prefecture_code' %>
+            <div style="display:inline-flex">
+            <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: 'form-control', id: 'user_prefecture_code' %>
+            <%= f.text_field :address_city, autocomplete: 'address_city', class: 'form-control', id: "user_address_city", placeholder: '市区町村' %>
+            <%= f.text_field :address_street, autocomplete: 'address_street', class: 'form-control', id: "user_address_street", placeholder: '番地' %>
+            <%= f.text_field :address_building, autocomplete: 'address_building', class: 'form-control', placeholder: '建物' %>
         <td>
-    </tr>
     <tr>
-        <td>
-            <%= f.label :address_city, '市区町村' %>
-        </td>
-        <td>
-            <%= f.text_field :address_city, autocomplete: 'address_city', class: 'form-control', id: "user_address_city" %>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <%= f.label :address_street, '番地' %>
-        </td>
-        <td>
-            <%= f.text_field :address_street, autocomplete: 'address_street', class: 'form-control', id: "user_address_street" %>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <%= f.label :address_building, '建物' %>
-        </td>
-        <td>
-            <%= f.text_field :address_building, autocomplete: 'address_building', class: 'form-control' %>
-        </td>
-    </tr>
         <td>
             <%= f.label :station %>
         </td>
         <td>
-            <%= f.text_field :station, class: 'form-control' %>
+            <%= f.text_field :station, class: 'form-control', placeholder: '駅名'%>
         </td>
     </tr>
     <tr>
@@ -128,15 +108,8 @@
             <%= f.password_field :password_confirmation, class: 'form-control' %>
         </td>
     </tr>
-    <tr>
-        <td>
-            <%= f.label :admin, '管理者権限', class: 'form-check-label' %>
-        </td>
-        <td>
-            <%= f.check_box :admin ,class: 'form-check-input' %><br>
-        </td>
-    </tr>
 </table>
 <%= f.submit nil, class: 'btn btn-primary'%>
 <% end %>
+
 

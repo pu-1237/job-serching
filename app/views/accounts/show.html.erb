@@ -1,75 +1,72 @@
 <div>
     <div class="col-md-6 offset-md-3">
         <h2 class="text-center pt-5"> マイアカウント </h2>
-            <div class="nav justify-content-end"> 
-                
-            </div>
-                <table class= "table table-hover table-bordered">
-                    <tbody>
-                        <tr>
-                            <th>プロフィール画像</th>
-                            <td><% if @user.profile_picture.attached? %>
-                                    <%= image_tag @user.profile_picture.variant(resize_to_fill: [128, 128]) %>
-                                <% end %>
-                            </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th><%= User.human_attribute_name(:id) %> </th>
-                            <td><%= @user.id %></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th><%= '姓名(漢字)' %> </th>
-                            <td><%= @user.full_name %></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th><%= '姓名(カナ)' %> </th>
-                            <td><%= @user.full_name_kana %></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th><%= '性別' %> </th>
-                            <td><%= @user.gender = :male ? '男' : '女' %></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th><%= '生年月日' %> </th>
-                            <td><%= @user.birthday %></td>
-                            <<td></td>
-                        </tr>
-                        <tr>
-                            <th><%= User.human_attribute_name(:email) %></th>
-                            <td><%= @user.email %></td>
-                            <td><%= link_to '編集', edit_account_path(edit: 'email'), class: 'btn btn-primary' %></td>
-                        </tr>
-                        <tr>
-                            <th><%= User.human_attribute_name(:number) %></th>
-                            <td><%= @user.number %></td>
-                            <td><%= link_to '編集', edit_account_path(edit: 'number'), class: 'btn btn-primary' %></td>
-                        </tr>
-                        <tr>
-                            <th><%= User.human_attribute_name(:postcode) %></th>
-                            <td><%= @user.postcode %></td>
-                            <td><%= link_to '編集', edit_account_path(edit: 'postcode'), class: 'btn btn-primary' %></td>
-                        </tr>
-                        <tr>
-                            <th><%= User.human_attribute_name(:address) %></th>
-                            <td><%= @user.address %></td>
-                            <td><%= link_to '編集', edit_account_path(edit: 'address'), class: 'btn btn-primary' %></td>
-                        </tr>
-                        <tr>
-                            <th><%= User.human_attribute_name(:station) %></th>
-                            <td><%= @user.station %></td>
-                            <td><%= link_to '編集', edit_account_path(edit: 'station'), class: 'btn btn-primary' %></td>
-                        </tr>
-                        <tr>
-                            <th><%= User.human_attribute_name(:password) %></th>
-                            <td><%= @user.password %></td>
-                            <td><%= link_to '編集', edit_account_path(edit: 'password'), class: 'btn btn-primary' %></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <table class= "table table-hover table-bordered">
+                <tbody>
+                    <tr>
+                        <th>プロフィール画像</th>
+                        <td><% if @user.profile_picture.attached? %>
+                                <%= image_tag @user.profile_picture.variant(resize_to_fill: [128, 128]) %>
+                            <% end %>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><%= User.human_attribute_name(:id) %> </th>
+                        <td><%= @user.id %></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><%= '姓名(漢字)' %> </th>
+                        <td><%= @user.full_name %></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><%= '姓名(カナ)' %> </th>
+                        <td><%= @user.full_name_kana %></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><%= '性別' %> </th>
+                        <td><%= @user.gender = :male ? '男' : '女' %></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><%= '生年月日' %> </th>
+                        <td><%= @user.birthday %></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th><%= User.human_attribute_name(:email) %></th>
+                        <td><%= @user.email %></td>
+                        <td><%= link_to '編集', edit_account_path(edit: 'email'), class: 'btn btn-primary' %></td>
+                    </tr>
+                    <tr>
+                        <th><%= User.human_attribute_name(:number) %></th>
+                        <td><%= @user.number %></td>
+                        <td><%= link_to '編集', edit_account_path(edit: 'number'), class: 'btn btn-primary' %></td>
+                    </tr>
+                    <tr>
+                        <th><%= User.human_attribute_name(:postcode) %></th>
+                        <td><%= @user.postcode %></td>
+                        <td><%= link_to '編集', edit_account_path(edit: 'postcode'), class: 'btn btn-primary' %></td>
+                    </tr>
+                    <tr>
+                        <th><%= User.human_attribute_name(:address) %></th>
+                        <td><%= @user.address %></td>
+                        <td><%= link_to '編集', edit_account_path(edit: 'address'), class: 'btn btn-primary' %></td>
+                    </tr>
+                    <tr>
+                        <th><%= User.human_attribute_name(:station) %></th>
+                        <td><%= @user.station %></td>
+                        <td><%= link_to '編集', edit_account_path(edit: 'station'), class: 'btn btn-primary' %></td>
+                    </tr>
+                    <tr>
+                        <th><%= User.human_attribute_name(:password) %></th>
+                        <td><%= @user.password %></td>
+                        <td><%= link_to '編集', edit_account_path(edit: 'password'), class: 'btn btn-primary' %></td>
+                    </tr>
+                </tbody>
+            </table>
     </div>
 </div>

@@ -87,8 +87,3 @@ gem 'whenever', require: false
 
 # AWS
 gem 'aws-sdk-s3', require: false
-
-gem 'jp_prefecture'
-
-# ウィザードフォーム
-gem 'wicked'

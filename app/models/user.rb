@@ -83,6 +83,4 @@ class User < ApplicationRecord
         self.prefecture_name &.+ self.address_city &.+ self.address_street &.+ self.address_building
     end
 
-
-
 end

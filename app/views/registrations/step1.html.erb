@@ -1,0 +1,116 @@
+
+<div>
+    <div class="col-md-6 offset-md-3">
+        <h2 class="text-center pt-5"> WEB登録フォーム</h2>
+        <hr width="750" align="left">
+
+            <h5 id="step">STEP1 応募情報登録</h5> >STEP2 写真アップロード >STEP3 確認 >STEP4 完了
+
+        <h2 class="text-left pt-5"> 必要事項をご記入ください </h2>
+        <%= form_for @user, url: step2_registration_path, method: :get do |f| %>
+        <table id="form_table">
+            <tr>
+                <td>
+                    <%= f.label "姓名(漢字)"%>
+                </td>
+                <td>
+                    <div style="display:inline-flex">
+                        <%= f.text_field :last_name, class: 'form-control form-inline', placeholder: '姓(漢字)'%>
+                        <%= f.text_field :first_name, class: 'form-control', placeholder: '名(漢字)' %>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.label "姓名(カナ)" %>
+                </td>
+                <td>
+                    <div style="display:inline-flex">
+                        <%= f.text_field :last_name_kana, class: 'form-control', placeholder: 'セイ(全角カナ)' %>
+                        <%= f.text_field :first_name_kana, class: 'form-control', placeholder: 'メイ(全角カナ)' %>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.label "性別" %>
+                </td>
+                <td>
+                    <%= f.radio_button :gender, :male %>
+                    <%= f.label :gender, "男",class: 'form-con', id:"gender_checkbox" %>
+                    <%= f.radio_button :gender, :female %>
+                    <%= f.label :gender, "女",class: 'form-con', id:"gender_checkbox" %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.label "生年月日" %>
+                </td>
+                <td>
+                    <%= f.date_select :birthday, {use_month_numbers: true,start_year: 1950}, {class: "form-control bootstrap-date"} %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.label :email, id: 'label_email'%>
+                </td>
+                <td>
+                    <%= f.text_field :email, class: 'form-control', placeholder: '例)sample@example.com' %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.label :number %>
+                </td>
+                <td>
+                    <%= f.text_field :number, class: 'form-control', placeholder: '例)09012345678' %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.label :postcode, '郵便番号' %>
+                </td>
+                <td>
+                    <%= f.text_field :postcode , class: 'form-control', id: "user_postcode", placeholder: '例)1234567' %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.label :prefecture_code, '住所' %>
+                </td>
+                <td>
+                    <div style="display:inline-flex">
+                    <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: 'form-control', id: 'user_prefecture_code' %>
+                    <%= f.text_field :address_city, autocomplete: 'address_city', class: 'form-control', id: "user_address_city", placeholder: '市区町村' %>
+                    <%= f.text_field :address_street, autocomplete: 'address_street', class: 'form-control', id: "user_address_street", placeholder: '番地' %>
+                    <%= f.text_field :address_building, autocomplete: 'address_building', class: 'form-control', placeholder: '建物' %>
+                <td>
+            <tr>
+                <td>
+                    <%= f.label :station %>
+                </td>
+                <td>
+                    <%= f.text_field :station, class: 'form-control', placeholder: '駅名'%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.label :password %>
+                </td>
+                <td>
+                    <%= f.password_field :password, class: 'form-control' %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.label :password_confirmation %>
+                </td>
+                <td>
+                    <%= f.password_field :password_confirmation, class: 'form-control' %>
+                </td>
+            </tr>
+        </table>
+        <%= f.submit '進む', class: 'btn btn-primary'%>
+        <% end %>
+    </div>
+</div>

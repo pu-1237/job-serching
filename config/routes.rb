@@ -31,9 +31,14 @@ Rails.application.routes.draw do
   
   resource :account, only:[:show, :edit, :update]
 
-  resource :registration, only:[:new, :create]
-
-  resources :registration_steps, only: [:index, :show, :update]
+  resource :registration do
+    collection do
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'step4'
+    end
+  end
 
   resources :password_resets do
     collection do
