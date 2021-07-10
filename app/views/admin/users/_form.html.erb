@@ -9,9 +9,7 @@
         </td>
     </tr>
     <tr>
-        <td>
-            <%= f.label "姓名(漢字)"%>
-        </td>
+        <td><%= f.label "姓名(漢字)"%></td>
         <td>
             <div style="display:inline-flex">
                 <%= f.text_field :last_name, class: 'form-control form-inline', placeholder: '姓(漢字)'%>
@@ -20,9 +18,7 @@
         </td>
     </tr>
     <tr>
-        <td>
-            <%= f.label "姓名(カナ)" %>
-        </td>
+        <td><%= f.label "姓名(カナ)" %></td>
         <td>
             <div style="display:inline-flex">
                 <%= f.text_field :last_name_kana, class: 'form-control', placeholder: 'セイ(全角カナ)' %>
@@ -31,9 +27,7 @@
         </td>
     </tr>
     <tr>
-        <td>
-            <%= f.label "性別" %>
-        </td>
+        <td><%= f.label "性別" %></td>
         <td>
             <%= f.radio_button :gender, :male %>
             <%= f.label :gender, "男",class: 'form-con', id:"gender_checkbox" %>
@@ -42,47 +36,33 @@
         </td>
     </tr>
     <tr>
-        <td>
-            <%= f.label "生年月日" %>
-        </td>
-        <td>
-            <%= f.date_select :birthday, {use_month_numbers: true,start_year: 1950}, {class: "form-control bootstrap-date"} %>
-        </td>
+        <td><%= f.label "生年月日" %></td>
+        <td><%= f.date_select :birthday, {use_month_numbers: true,start_year: 1950}, {class: "form-control bootstrap-date"} %></td>
     </tr>
     <tr>
-        <td>
-            <%= f.label :email, id: 'label_email'%>
-        </td>
-        <td>
-            <%= f.text_field :email, class: 'form-control', placeholder: '例)sample@example.com' %>
-        </td>
+        <td><%= f.label :email, id: 'label_email'%></td>
+        <td><%= f.text_field :email, class: 'form-control', id:'email', placeholder: '例)sample@example.com' %></td>
     </tr>
     <tr>
-        <td>
-            <%= f.label :number %>
-        </td>
-        <td>
-            <%= f.text_field :number, class: 'form-control', placeholder: '例)09012345678' %>
-        </td>
+        <td><%= f.label :number %></td>
+        <td><%= f.text_field :number, class: 'form-control', id:"number", placeholder: '例)09012345678' %></td>
     </tr>
     <tr>
-        <td>
-            <%= f.label :postcode, '郵便番号' %>
-        </td>
-        <td>
-            <%= f.text_field :postcode , class: 'form-control', id: "user_postcode", placeholder: '例)1234567' %>
-        </td>
+        <td><%= f.label :postcode, '郵便番号' %></td>
+        <td><%= f.text_field :postcode , class: 'form-control', id: "user_postcode", placeholder: '例)1234567' %></td>
     </tr>
     <tr>
-        <td>
-            <%= f.label :prefecture_code, '住所' %>
-        </td>
+        <td><%= f.label :prefecture_code, '住所' %></td>
         <td>
             <div style="display:inline-flex">
             <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '都道府県' }, class: 'form-control', id: 'user_prefecture_code' %>
+            </div>
+            <div style="display:inline-flex">
             <%= f.text_field :address_city, autocomplete: 'address_city', class: 'form-control', id: "user_address_city", placeholder: '市区町村' %>
-            <%= f.text_field :address_street, autocomplete: 'address_street', class: 'form-control', id: "user_address_street", placeholder: '番地' %>
-            <%= f.text_field :address_building, autocomplete: 'address_building', class: 'form-control', placeholder: '建物' %>
+            </div>
+            <div style="display:inline-flex">
+            <%= f.text_field :address_street, autocomplete: 'address_street', class: 'form-control', id: "user_address_street", placeholder: 'その他' %>
+            </div>
         <td>
     <tr>
         <td>

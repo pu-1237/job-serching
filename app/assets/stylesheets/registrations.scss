@@ -1,3 +1,134 @@
-// Place all the styles related to the registrations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@media (max-width:789px){
+    table#form_table td,table#form_table th{ display:block; }
+}
+@media (min-width:790px){
+    table#form_table td,table#form_table th{ display:table-cell; }
+    
+}
+
+
+input#user_last_name{
+    width: 10em;
+}
+
+input#user_last_name_kana{
+    width: 10em;
+}
+
+input#user_first_name{
+    width: 10em;
+}
+
+input#user_first_name_kana{
+    width: 10em;
+}
+
+input#email{
+    width: 20em;
+}
+
+input#number{
+    width: 13em;
+}
+
+input#user_postcode{
+    width: 13em;
+}
+
+input#user_address_street{
+    width: 21em;
+}
+
+select#user_birthday_1i{
+    background: #f8f8f8;
+    font-size: 16px;
+    padding: 10px 15px;
+    width: 6em;
+    transition: 0.8s;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #ced4da;
+}
+select#user_birthday_2i{
+    background: #f8f8f8;
+    font-size: 16px;
+    padding: 10px 15px;
+    width: 4em;
+    transition: 0.8s;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #ced4da;
+}
+
+select#user_birthday_3i{
+    background: #f8f8f8;
+    font-size: 16px;
+    padding: 10px 15px;
+    width: 4em;
+    transition: 0.8s;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid #ced4da;
+}
+
+select#user_prefecture_code{
+    background: #f8f8f8;
+    display: block;
+    font-size: 16px;
+    padding: 10px 15px;
+    width: 10em;
+    transition: 0.8s;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+input#user_address_city {
+    width: 11em;
+}
+
+input#user_station{
+    width: 11em;
+}
+
+input#user_password{
+    width: 21em;
+}
+
+input#user_password_confirmation{
+    width: 21em;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  background: #f8f8f8;
+  display: block;
+  font-size: 16px;
+  padding: 12px 15px;
+  width: 480px;
+  transition: 0.8s;
+  border-radius: 0;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    background: #e9f5fb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="password"],
+textarea{
+    box-shadow: none;
+    outline: none;
+}
+
+
+
+
