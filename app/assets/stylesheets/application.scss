@@ -148,6 +148,9 @@ textarea:focus {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-input#numer.form-control {
-  width: 15em;
+@media (max-width:789px){
+  table td,table th{ display:block; }
+}
+@media (min-width:790px){
+  table td,table th{ display:table-cell; }
 }
