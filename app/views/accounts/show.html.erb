@@ -9,7 +9,6 @@
                                 <%= image_tag @user.profile_picture.variant(resize_to_fill: [128, 128]) %>
                             <% end %>
                         </td>
-                        <td></td>
                     </tr>
                     <tr>
                         <th><%= User.human_attribute_name(:id) %> </th>
@@ -33,7 +32,7 @@
                     </tr>
                     <tr>
                         <th><%= '生年月日' %> </th>
-                        <td><%= @user.birthday %></td>
+                        <td><%= @user.birthday&.strftime("%Y年%m月%d日") %></td>
                         <td></td>
                     </tr>
                     <tr>

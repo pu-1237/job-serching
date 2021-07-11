@@ -1,16 +1,47 @@
 <%= form_with model: event, local: true do |f| %>
-    <%= f.text_field :title, class: 'form-control', id: 'event_title', placeholder: 'タイトル' %>
-    <%= f.text_field :description, class: 'form-control', id: 'event_description', placeholder: '作業内容' %>
-    <%= f.text_field :place, class: 'form-control', id: 'event_place', placeholder: '作業場所' %>
-    <%= f.number_field :wages, class: 'form-control', id: 'event_wages', placeholder: '時給' %>
-    <%= f.number_field :allowance, class: 'form-control', id: 'event_allowance', placeholder: '別途手当' %>
-    <%= f.number_field :limit, class: 'form-control', id: 'event_limit', placeholder: '募集人数'%>
-    <%= f.text_area :remark, rows: 5, class: 'form-control', id: 'event_remark', placeholder: '備考' %>
-    <%= f.label :start,"開始時刻", {class:'control-label'}%><br>
-    <%= f.datetime_select :start, {default: Date.today + 0.hours + 00.minutes, minute_step: 15}, class: 'form-control bootstrap-datetime-width', id: 'event_start' %><br>
-    <%= f.label :end,"終了時刻", {class:'control-label'}%><br>
-    <%= f.datetime_select :end, {default: Date.today + 0.hours + 00.minutes, minute_step: 15}, class: 'form-control bootstrap-datetime-width', id: 'event_end' %><br>
-    <%= f.label "募集期限", {class:'control-label'}%><br>
-    <%= f.datetime_select :deadline, {default: Date.today + 0.hours + 00.minutes, minute_step: 15}, class: 'form-control bootstrap-datetime-width', id: 'event_deadline' %><br>
-    <%= f.submit nil, class: 'btn btn-primary js-event-create-btn' %>
+<table class="table table-bordered" id="form_table">
+    <tbody>
+        <tr>
+            <td><%= f.label :title %></td>
+            <td><%= f.text_field :title, class: 'form-control', id: 'event_title', placeholder: 'タイトル' %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :descriotion %></td>
+            <td><%= f.text_field :description, class: 'form-control', id: 'event_description', placeholder: '作業内容' %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :place %></td>
+            <td><%= f.text_field :place, class: 'form-control', id: 'event_place', placeholder: '作業場所' %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :wages %></td>
+            <td><%= f.number_field :wages, class: 'form-control', id: 'event_wages', placeholder: '時給' %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :allowance %></td>
+            <td><%= f.number_field :allowance, class: 'form-control', id: 'event_allowance', placeholder: '別途手当' %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :limit %></td>
+            <td><%= f.number_field :limit, class: 'form-control', id: 'event_limit', placeholder: '募集人数'%></td>
+        </tr>
+        <tr>
+            <td><%= f.label :remark %></td>
+            <td><%= f.text_area :remark, rows: 5, class: 'form-control', id: 'event_remark', placeholder: '備考' %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :start, {class:'control-label'}%></td>
+            <td><%= f.datetime_select :start, {default: Date.today + 0.hours + 00.minutes, minute_step: 15}, class: 'form-control bootstrap-datetime-width', id: 'event_start' %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :end, {class:'control-label'}%></td>
+            <td><%= f.datetime_select :end, {default: Date.today + 0.hours + 00.minutes, minute_step: 15}, class: 'form-control bootstrap-datetime-width', id: 'event_end' %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :deadline, {class:'control-label'}%></td>
+            <td><%= f.datetime_select :deadline, {default: Date.today + 0.hours + 00.minutes, minute_step: 15}, class: 'form-control bootstrap-datetime-width', id: 'event_deadline' %></td>
+        </tr>
+    </tbody>
+</table>
+<%= f.submit nil, class: 'btn btn-primary js-event-create-btn' %>
 <% end %>  

@@ -80,7 +80,7 @@ class User < ApplicationRecord
 
     # 住所を結合させる
     def address
-        self.prefecture_name &.+ self.address_city &.+ self.address_street &.+ self.address_building
+        self.prefecture_name &.+ self.address_city &.+ self.address_street
     end
 
 end

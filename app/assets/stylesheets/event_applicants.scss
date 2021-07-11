@@ -1,3 +1,68 @@
-// Place all the styles related to the EventApplicants controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@media (max-width:789px){
+    textarea#event_remark { width: 20em; }
+}
+@media (min-width:790px){
+    textarea#event_remark { width: 30em; }
+}
+
+textarea#event_remark {
+    background: #f8f8f8;
+    display: block;
+    font-size: 16px;
+    padding: 12px 15px;
+    transition: 0.8s;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+}
+input#event_title {
+    width: 20em;
+}
+input#event_description {
+    width: 20em;
+}
+input#event_place {
+    width: 20em;
+}
+
+input#event_allowance {
+    width: 11em;
+}
+
+input#event_wages {
+    width: 11em;
+}
+
+input#event_limit {
+    width: 11em;
+}
+
+select#event_start {
+    width: 85px;
+    background: #f8f8f8;
+    padding: 9px 10px;
+    transition: 0.8s;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+select#event_end {
+    width: 85px;
+    background: #f8f8f8;
+    padding: 9px 10px;
+    transition: 0.8s;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+select#event_deadline {
+    width: 85px;
+    background: #f8f8f8;
+    padding: 9px 10px;
+    transition: 0.8s;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+}

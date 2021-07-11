@@ -10,6 +10,10 @@
         <%= form_for @user, url: registration_path do |f| %>
         <table id="form_table">
             <tr>
+                <td><%#= f.label :new_profile_picture %></td>
+                <td><%#= f.hidden_field :new_profile_picture %></td>
+            </tr>
+            <tr>
                 <td>
                     姓名(漢字)
                 </td>
@@ -84,6 +88,7 @@
                     都道府県
                 </td>
                 <td>
+                    <%= @user.prefecture_name %>
                     <%= f.hidden_field :prefecture_code %>
                 <td>
             </tr>
@@ -92,23 +97,17 @@
                     市区町村
                 </td>
                 <td>
+                    <%= @user.address_city %>
                     <%= f.hidden_field :address_city %>
                 </td>
             </tr>
             <tr>
                 <td>
-                    番地
+                    番地・建物
                 </td>
                 <td>
+                    <%= @user.address_street %>
                     <%= f.hidden_field :address_street %>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    建物
-                </td>
-                <td>
-                    <%= f.hidden_field :address_building %>
                 </td>
             </tr>
             <tr>
@@ -116,6 +115,7 @@
                     最寄駅
                 </td>
                 <td>
+                    <%= @user.station %>
                     <%= f.hidden_field :station %>
                 </td>
             </tr>
@@ -124,6 +124,7 @@
                     パスワード
                 </td>
                 <td>
+                    <%= '非表示'%>
                     <%= f.hidden_field :password %>
                 </td>
             </tr>
@@ -132,6 +133,7 @@
                     パスワード(確認)
                 </td>
                 <td>
+                    <%= '非表示'%>
                     <%= f.hidden_field :password_confirmation %>
                 </td>
             </tr>

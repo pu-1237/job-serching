@@ -8,7 +8,6 @@ class AddColumsToUsers < ActiveRecord::Migration[6.1]
     add_column :users, :prefecture_code, :integer
     add_column :users, :address_city, :string
     add_column :users, :address_street, :string
-    add_column :users, :address_building, :string
     add_column :users, :station, :string
     add_column :users, :gender, :string
     add_column :users, :birthday, :date
@@ -22,7 +21,6 @@ class AddColumsToUsers < ActiveRecord::Migration[6.1]
     remove_column :users, :prefecture_code
     remove_column :users, :address_city
     remove_column :users, :address_street
-    remove_column :users, :address_building
     remove_column :users, :station
     remove_column :users, :gender
     remove_column :users, :birthday

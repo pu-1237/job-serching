@@ -28,7 +28,6 @@ class RegistrationsController < ApplicationController
         session[:prefecture_code] = user_params[:prefecture_code]
         session[:address_city] = user_params[:address_city]
         session[:address_street] = user_params[:address_street]
-        session[:address_building] = user_params[:address_building]
         session[:station] = user_params[:station]
         @user = User.new # 新規インスタンス作成
     end
@@ -51,7 +50,6 @@ class RegistrationsController < ApplicationController
             prefecture_code: session[:prefecture_code],
             address_city: session[:address_city],
             address_street: session[:address_street],
-            address_building: session[:address_building],
             station: session[:station],
             new_profile_picture: session[:new_profile_picture]
         )
@@ -74,7 +72,6 @@ class RegistrationsController < ApplicationController
             prefecture_code: session[:prefecture_code],
             address_city: session[:address_city],
             address_street: session[:address_street],
-            address_building: session[:address_building],
             station: session[:station],
             new_profile_picture: user_params[:new_profile_picture] # step2で入力した値をインスタンスに渡す
         )
