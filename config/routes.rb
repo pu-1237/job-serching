@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'user_images/index'
+  get 'user_images/new'
+  get 'user_images/edit'
   get 'register', to: 'sessions#register'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -7,6 +10,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
+
+  resources :users do
+    resources :images, controller: "user_images"
+  end
+
   root to: 'sessions#top'
 
   resources :events do

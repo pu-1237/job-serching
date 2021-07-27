@@ -10,6 +10,8 @@ class User < ApplicationRecord
     has_many :events, dependent: :destroy
     has_many :event_applicants, foreign_key: 'applicant_id', dependent: :destroy
 
+    has_many :images, class_name: "UserImage"
+
     has_one_attached :profile_picture
     attribute :new_profile_picture
 

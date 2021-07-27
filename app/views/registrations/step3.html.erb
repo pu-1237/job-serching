@@ -10,8 +10,9 @@
         <%= form_for @user, url: registration_path do |f| %>
         <table id="form_table">
             <tr>
-                <td><%#= f.label :new_profile_picture %></td>
-                <td><%#= f.hidden_field :new_profile_picture %></td>
+                <td><%= f.label :new_profile_picture %></td>
+                <td><%= image_tag @user.new_profile_picture.to_s%>
+                <%= f.hidden_field :new_profile_picture %></td>
             </tr>
             <tr>
                 <td>

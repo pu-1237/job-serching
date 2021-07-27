@@ -1,0 +1,19 @@
+<% if @images.present? %>
+    <table class="list">
+        <thead>
+        <tr>
+        <th>番号</th>
+        <th>画像</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @images.each_with_index do |image, index|%>
+        <tr>
+        <td><%= index + 1 %></td>
+        <td><%= image_tag image.data.variant(resize: "100x>")%></td>
+        <% end %>
+        </tbody>
+    </table>
+<% else %>
+<p>画像がありません</p>
+<% end %>

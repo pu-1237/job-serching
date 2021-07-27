@@ -15,6 +15,14 @@
                             </td>
                         </tr>
                         <tr>
+                            <th>本人確認書類</th>
+                            <td>
+                                <% @user.images.each_with_index do |image, index|%>
+                                    <%= image_tag image.data.variant(resize: "100x>")%>
+                                <% end %>
+                            </td>
+                        </tr>
+                        <tr>
                             <th><%= User.human_attribute_name(:id) %> </th>
                             <td><%= @user.id %></td>
                         </tr>

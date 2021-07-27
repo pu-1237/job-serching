@@ -34,7 +34,7 @@ class RegistrationsController < ApplicationController
 
     def step3
         
-        session[:new_profile_picture] = user_params[:new_profile_picture]
+        session[:new_data] = user_params[:new_data]
         @user = User.new(
             email: session[:email],
             password: session[:password],
@@ -51,7 +51,6 @@ class RegistrationsController < ApplicationController
             address_city: session[:address_city],
             address_street: session[:address_street],
             station: session[:station],
-            new_profile_picture: session[:new_profile_picture]
         )
     end
     
@@ -73,7 +72,6 @@ class RegistrationsController < ApplicationController
             address_city: session[:address_city],
             address_street: session[:address_street],
             station: session[:station],
-            new_profile_picture: user_params[:new_profile_picture] # step2で入力した値をインスタンスに渡す
         )
         
         if params[:back].present?
@@ -116,6 +114,4 @@ class RegistrationsController < ApplicationController
             :new_profile_picture
         )
     end
-
-    
 end
