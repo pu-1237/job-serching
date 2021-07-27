@@ -6,9 +6,10 @@
                     <tr>
                         <th>プロフィール画像</th>
                         <td><% if @user.profile_picture.attached? %>
-                                <%= image_tag @user.profile_picture.variant(resize_to_fill: [128, 128]) %>
+                                <%= image_tag @user.profile_picture.variant(resize_to_fill: [150, 200]) %>
                             <% end %>
                         </td>
+                        <td><%= link_to '編集', edit_account_path(edit: 'picture'), class: 'btn btn-primary' %></td>
                     </tr>
                     <tr>
                         <th><%= User.human_attribute_name(:id) %> </th>
@@ -62,7 +63,7 @@
                     </tr>
                     <tr>
                         <th><%= User.human_attribute_name(:password) %></th>
-                        <td><%= @user.password %></td>
+                        <td><%= "非表示" %></td>
                         <td><%= link_to '編集', edit_account_path(edit: 'password'), class: 'btn btn-primary' %></td>
                     </tr>
                 </tbody>

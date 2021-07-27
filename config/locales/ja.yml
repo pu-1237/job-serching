@@ -10,12 +10,6 @@ ja:
     models:
       topic: トピック
     attributes:
-      topic:
-        id: ID
-        title: タイトル
-        body: 本文
-        created_at: 登録日時
-        updated_at: 更新日時
       user:
         name: ユーザー名
         email: メールアドレス
@@ -24,7 +18,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード(確認)
         new_profile_picture: プロフィール画像
-        postal_code: 郵便番号
+        postcode: 郵便番号
         address: 住所
         station: 最寄駅
       event:

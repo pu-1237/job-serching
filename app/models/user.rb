@@ -1,16 +1,15 @@
 class User < ApplicationRecord
     has_secure_password
 
-    validates :last_name, presence: true
-    validates :first_name, presence: true
-    validates :last_name_kana, presence: true
-    validates :first_name_kana, presence: true
+    validates :last_name, :first_name, :last_name_kana, :first_name_kana, :postcode, :prefecture_code, :address_city, :address_street, :station, :gender, :birthday, presence: true
     validates :email, email: {allow_blank: true}
 
     has_many :events, dependent: :destroy
     has_many :event_applicants, foreign_key: 'applicant_id', dependent: :destroy
 
     has_many :images, class_name: "UserImage"
+
+    accepts_nested_attributes_for :images
 
     has_one_attached :profile_picture
     attribute :new_profile_picture

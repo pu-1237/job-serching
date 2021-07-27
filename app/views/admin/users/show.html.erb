@@ -15,14 +15,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>本人確認書類</th>
-                            <td>
-                                <% @user.images.each_with_index do |image, index|%>
-                                    <%= image_tag image.data.variant(resize: "100x>")%>
-                                <% end %>
-                            </td>
-                        </tr>
-                        <tr>
                             <th><%= User.human_attribute_name(:id) %> </th>
                             <td><%= @user.id %></td>
                         </tr>
@@ -51,7 +43,7 @@
                             <td><%= @user.number %></td>
                         </tr>
                         <tr>
-                            <th><%= User.human_attribute_name(:postal_code) %></th>
+                            <th><%= '郵便番号' %></th>
                             <td><%= @user.postcode %></td>
                         </tr>
                         <tr>
@@ -65,6 +57,14 @@
                         <tr>
                             <th><%= User.human_attribute_name(:admin) %></th>
                             <td><%= @user.admin? ? '〇' : '－' %></td>
+                        </tr>
+                        <tr>
+                            <th><%= link_to "本人確認書類", [@user, :images]%></th>
+                            <td>
+                                <% @user.images.each_with_index do |image, index|%>
+                                    <%= image_tag image.data.variant(resize: "100x>")%>
+                                <% end %>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

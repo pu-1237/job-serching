@@ -29,12 +29,6 @@ class RegistrationsController < ApplicationController
         session[:address_city] = user_params[:address_city]
         session[:address_street] = user_params[:address_street]
         session[:station] = user_params[:station]
-        @user = User.new # 新規インスタンス作成
-    end
-
-    def step3
-        
-        session[:new_data] = user_params[:new_data]
         @user = User.new(
             email: session[:email],
             password: session[:password],
@@ -55,25 +49,9 @@ class RegistrationsController < ApplicationController
     end
     
     def create
-        
-        @user = User.new(
-            email: session[:email], # sessionに保存された値をインスタンスに渡す
-            password: session[:password],
-            password_confirmation: session[:password_confirmation],
-            last_name: session[:last_name],
-            first_name: session[:first_name],
-            last_name_kana: session[:last_name_kana],
-            first_name_kana: session[:first_name_kana],
-            gender: session[:gender],
-            birthday: session[:birthday],
-            number: session[:number],
-            postcode: session[:postcode],
-            prefecture_code: session[:prefecture_code],
-            address_city: session[:address_city],
-            address_street: session[:address_street],
-            station: session[:station],
+        @user = User.new(user_params
         )
-        
+
         if params[:back].present?
             render :step1
             return
@@ -81,9 +59,9 @@ class RegistrationsController < ApplicationController
     
         if @user.save
             session[:user_id] = @user.id
-            redirect_to step4_registration_path
+            redirect_to step3_registration_path
         else
-            render :step3
+            render :step2
         end
     end
 
@@ -111,7 +89,17 @@ class RegistrationsController < ApplicationController
             :station,
             :password,
             :password_confirmation,
-            :new_profile_picture
+            images_attributes: [
+                :id,
+                :new_data
+            ]
+        )
+    end
+
+    def image_params
+        params.require(:image).permit(
+            :new_data,
+            :alt_text
         )
     end
 end

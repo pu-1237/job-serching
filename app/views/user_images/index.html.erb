@@ -10,7 +10,7 @@
         <% @images.each_with_index do |image, index|%>
         <tr>
         <td><%= index + 1 %></td>
-        <td><%= image_tag image.data.variant(resize: "100x>")%></td>
+        <td><%= image_tag image.data.variant(resize: "300x>")%></td>
         <% end %>
         </tbody>
     </table>

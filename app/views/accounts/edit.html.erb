@@ -1,6 +1,14 @@
 <div>
     <div class="col-md-4 offset-md-4">
-        <% if params[:edit] == 'email' %>
+        <% if params[:edit] == 'picture' %>
+            <h2 class="text-center pt-5"> プロフィール画像を変更 </h2>
+            <%= form_with model: @user, url: account_path, local: true do |f| %>
+                <%= f.file_field :new_profile_picture, class: 'file-form' %>
+                <%= f.submit nil, class: 'btn btn-primary'%>
+            <% end %>
+        </tr>
+
+        <% elsif params[:edit] == 'email' %>
             <h2 class="text-center pt-5"> Eメールアドレスを変更 </h2>
 
             <%= form_with model: @user, url: account_path, local: true do |f| %>
