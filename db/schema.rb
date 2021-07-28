@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_11_045240) do
+ActiveRecord::Schema.define(version: 2021_07_28_112814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,18 +65,21 @@ ActiveRecord::Schema.define(version: 2021_07_11_045240) do
     t.bigint "user_id"
     t.datetime "start"
     t.datetime "end"
-    t.integer "limit"
-    t.datetime "deadline"
+    t.integer "limit", null: false
+    t.datetime "deadline", null: false
     t.string "place"
     t.integer "allowance"
     t.string "remark"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.string "image"
+  create_table "user_images", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "alt_text", default: "", null: false
+    t.integer "position"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_images_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,18 +90,18 @@ ActiveRecord::Schema.define(version: 2021_07_11_045240) do
     t.boolean "admin", default: false, null: false
     t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.string "number"
-    t.string "last_name"
-    t.string "first_name"
-    t.string "last_name_kana"
-    t.string "first_name_kana"
-    t.integer "postcode"
-    t.integer "prefecture_code"
-    t.string "address_city"
-    t.string "address_street"
-    t.string "station"
-    t.string "gender"
-    t.date "birthday"
+    t.string "number", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.integer "postcode", null: false
+    t.integer "prefecture_code", null: false
+    t.string "address_city", null: false
+    t.string "address_street", null: false
+    t.string "station", null: false
+    t.string "gender", null: false
+    t.date "birthday", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

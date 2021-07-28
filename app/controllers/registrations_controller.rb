@@ -11,46 +11,20 @@ class RegistrationsController < ApplicationController
     end
 
     def step2
-        # date_selectでparamsに渡されたhashから要素を取り出してインスタンス生成
-        date = Date.new(params[:user]["birthday(1i)"].to_i,params[:user]["birthday(2i)"].to_i,params[:user]["birthday(3i)"].to_i)
+        # date_selectでparamsに渡されたhashから要素を取り出してインスタンス生成する場合の記述
+        # date = Date.new(params[:user]["birthday(1i)"].to_i,params[:user]["birthday(2i)"].to_i,params[:user]["birthday(3i)"].to_i)
+        
         # step1で入力した値をsessionに保存
-        session[:email] = user_params[:email]
-        session[:password] = user_params[:password]
-        session[:password_confirmation] = user_params[:password_confirmation]
-        session[:last_name] = user_params[:last_name]
-        session[:first_name] = user_params[:first_name]
-        session[:last_name_kana] = user_params[:last_name_kana]
-        session[:first_name_kana] = user_params[:first_name_kana]
-        session[:gender] = user_params[:gender]
-        session[:birthday] = date
-        session[:number] = user_params[:number]
-        session[:postcode] = user_params[:postcode]
-        session[:prefecture_code] = user_params[:prefecture_code]
-        session[:address_city] = user_params[:address_city]
-        session[:address_street] = user_params[:address_street]
-        session[:station] = user_params[:station]
-        @user = User.new(
-            email: session[:email],
-            password: session[:password],
-            password_confirmation: session[:password_confirmation],
-            last_name: session[:last_name],
-            first_name: session[:first_name],
-            last_name_kana: session[:last_name_kana],
-            first_name_kana: session[:first_name_kana],
-            gender: session[:gender],
-            birthday: session[:birthday],
-            number: session[:number],
-            postcode: session[:postcode],
-            prefecture_code: session[:prefecture_code],
-            address_city: session[:address_city],
-            address_street: session[:address_street],
-            station: session[:station],
-        )
+        @user = User.new(user_params)
+
+        # returnが実行された時点でメソッドが終了する
+        return if @user.valid?
+        flash.now[:alert] = '未入力の項目があります。'
+        render :step1
     end
     
     def create
-        @user = User.new(user_params
-        )
+        @user = User.new(user_params)
 
         if params[:back].present?
             render :step1

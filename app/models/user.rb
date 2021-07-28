@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
     validates :last_name, :first_name, :last_name_kana, :first_name_kana, :postcode, :prefecture_code, :address_city, :address_street, :station, :gender, :birthday, presence: true
     validates :email, email: {allow_blank: true}
+    validates :number, presence: true, format: {with: /\A[0-9-]{,14}\z/}
 
     has_many :events, dependent: :destroy
     has_many :event_applicants, foreign_key: 'applicant_id', dependent: :destroy

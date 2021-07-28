@@ -148,3 +148,14 @@ p#step {
   display: inline-block;
 }
 
+/* エラーメッセージ */
+
+.alert.alert-false{
+  color: red;
+}
+
+/* エラーメッセージでのフォームの表示崩れ防止 */
+
+.field_with_errors {
+  display: contents;
+}
