@@ -33,6 +33,9 @@
                         <%= Event.human_attribute_name(:title) %>
                     </th>
                     <th>
+                        <%= Event.human_attribute_name(:place) %>
+                    </th>
+                    <th>
                         <%= Event.human_attribute_name(:start) %>
                     </th>
                 </tr>
@@ -45,6 +48,9 @@
                         </td>
                         <td>
                             <%= link_to event.title, event %>
+                        </td>
+                        <td>
+                            <%= event.place %>
                         </td>
                         <td>
                             <%= event.start.strftime("%m月%d日 %H:%M") %>

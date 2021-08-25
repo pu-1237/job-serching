@@ -58,14 +58,6 @@
                             <th><%= User.human_attribute_name(:admin) %></th>
                             <td><%= @user.admin? ? '〇' : '－' %></td>
                         </tr>
-                        <tr>
-                            <th><%= link_to "本人確認書類", [@user, :images]%></th>
-                            <td>
-                                <% @user.images.each_with_index do |image, index|%>
-                                    <%= image_tag image.data.variant(resize: "100x>")%>
-                                <% end %>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
     </div>

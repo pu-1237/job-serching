@@ -1,5 +1,8 @@
+<div class="col-md-6 offset-md-3">
+<h2 class="text-center pt-5"> 本人確認書類を登録 </h2>
 <%= form_for @image, as: "image" do |f| %>
     <%= f.label :new_data %>
     <%= f.file_field :new_data%>
-    <%= f.submit %>
+    <%= f.submit nil, class: 'btn btn-primary'%>
 <% end %>
+</div>

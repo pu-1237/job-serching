@@ -9,7 +9,7 @@ class UserImagesController < ApplicationController
   end
 
   def show
-    redirect_to action: "efit"
+    redirect_to action: "edit"
   end
 
   def new
@@ -30,7 +30,7 @@ class UserImagesController < ApplicationController
   end
 
   def update
-    @image = @user.images.build(image_params)
+    @image = @user.images.find(params[:id])
     @image.assign_attributes(image_params)
     if @image.save
       redirect_to [@user, :images], notice: "画像を更新しました"
@@ -40,9 +40,9 @@ class UserImagesController < ApplicationController
   end
 
   def destroy
-    @imager = @entry.images.find(params[:id])
+    @image = @user.images.find(params[:id])
     @image.destroy
-    redirect_to [@user, :images], notice: "画像を更新しました"
+    redirect_to [@user, :images], notice: "画像を削除しました"
   end
 
   private

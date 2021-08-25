@@ -1,28 +1,7 @@
 
-<% unless current_user.admin %>
-    <%if @event.deadline > DateTime.now %>
-        <% if @event.applicant_ids.include?(current_user.id) %>
-            <% if EventApplicant.find_by(event_id: @event.id, applicant_id: current_user.id).request == false %>
-                <%= link_to "申し込みをキャンセルする", cancel_request_event_path(@event.id), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
-            <% end %>
-        <% else %>
-            <% #申し込み上限判定 %>
-            <% if @event.limit > @event.applicant_ids.size %>
-                <%= link_to "申し込む", apply_event_path(@event.id), data: { confirm: "こちらの案件に申し込みますか？" } %>
-            <% end %>
-        <% end %>
-    <% end %>
-    <% if @event.start.day == Date.today.day %>
-        <% if @event.applicant_ids.include?(current_user.id) %>
-            <% if EventApplicant.find_by(event_id: @event.id, applicant_id: current_user.id).attendance == false %>
-                <%= link_to '出勤確認', punch_in_event_path%>
-            <% end %>
-        <% end %>
-    <% end %>
-<% end %>
 <div>
     <div class="col-md-6 offset-md-3"> 
-        <h2 class="text-center"> イベント詳細 </h2>
+        <h2 class="text-center pt-5"> イベント詳細 </h2>
         <div class="nav justify-content-end">
             <% if current_user.admin? %>
                 <%= link_to '編集', edit_event_path, class: 'nav-link' %>
@@ -97,13 +76,35 @@
                 </tr>
             </tbody>
         </table>
+
+        <% unless current_user.admin %>
+            <%if @event.deadline > DateTime.now %>
+                <% if @event.applicant_ids.include?(current_user.id) %>
+                    <% if EventApplicant.find_by(event_id: @event.id, applicant_id: current_user.id).request == false %>
+                        <%= link_to "申し込みをキャンセルする", cancel_request_event_path(@event.id), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" }, class:"btn btn-primary" %>
+                    <% end %>
+                <% else %>
+                    <% #申し込み上限判定 %>
+                    <% if @event.limit > @event.applicant_ids.size %>
+                        <%= link_to "申し込む", apply_event_path(@event.id), data: { confirm: "こちらの案件に申し込みますか？" }, class:"btn btn-primary" %>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <% if @event.start.day == Date.today.day %>
+                <% if @event.applicant_ids.include?(current_user.id) %>
+                    <% if EventApplicant.find_by(event_id: @event.id, applicant_id: current_user.id).attendance == false %>
+                        <%= link_to '出勤確認', punch_in_event_path, class:"btn btn-primary" %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
     </div>
 </div>
 
 <% if current_user.admin? %>
     <div>
         <div class="col-md-6 offset-md-3"> 
-            <h2 class="text-center"> 申し込み者一覧 </h2>
+            <h2 class="text-center pt-5"> 申し込み者一覧 </h2>
                     <table class="table table-hover">
                 <thead> 
                     <tr>
@@ -111,16 +112,16 @@
                             <%= User.human_attribute_name(:id) %> 
                         </th>
                         <th>
-                            <%= User.human_attribute_name(:name) %> 
+                            <%= '名前' %> 
                         </th>
                         <th>
                             <%= User.human_attribute_name(:email) %>
                         </th>
                         <th>
-                            キャンセルリクエスト
+                            キャンセル
                         </th>
                         <th>
-                            キャンセル処理
+                            
                         </th>
                         <th>
                             出勤確認
@@ -145,7 +146,7 @@
                                 <%= link_to applicant.id, [:admin, applicant] %>
                             </td>
                             <td>
-                                <%= link_to applicant.name, [:admin, applicant] %>
+                                <%= link_to applicant.full_name, [:admin, applicant] %>
                             </td>
                             <td>
                                 <%= applicant.email %>

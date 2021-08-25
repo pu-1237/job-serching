@@ -27,14 +27,17 @@ input#event_place {
 
 input#event_allowance {
     width: 11em;
+    display:inline-block;
 }
 
 input#event_wages {
     width: 11em;
+    display:inline-block;
 }
 
 input#event_limit {
     width: 11em;
+    display:inline-block;
 }
 
 select#event_start {

@@ -1,19 +1,52 @@
-<% if @images.present? %>
-    <table class="list">
+<div class="col-md-6 offset-md-3"> 
+<br>
+<%= link_to "プロフィール画像を追加する", new_account_path %>
+<table class= "table table-hover table-bordered">
+    <thead>
+    <tr>
+    <th></th>
+    <th>画像</th>
+    <th>操作</th>
+    </tr>
+    </thead>
+    <% if @user.profile_picture.attached? %>
+    <tbody>
+    <tr>
+        <td>プロフィール画像</td>
+        <td><% if @user.profile_picture.attached? %>
+                <%= image_tag @user.profile_picture.variant(resize_to_fill: [150, 200]) %>
+            <% else %>
+                画像がありません
+            <% end %>
+        </td>
+        <td>
+            <%= link_to '編集', edit_account_path(edit: 'picture') %>
+        </td>
+    </tr>
+    </tbody>
+    <% end %>
+</table>
+<%= link_to "本人確認書類を追加する", [:new, @user, :image] %>
+    <table class="table table-bordered">
         <thead>
         <tr>
         <th>番号</th>
         <th>画像</th>
+        <th>操作</th>
         </tr>
         </thead>
         <tbody>
         <% @images.each_with_index do |image, index|%>
         <tr>
-        <td><%= index + 1 %></td>
+        <td><%= "本人確認書類" + (index + 1).to_s %></td>
         <td><%= image_tag image.data.variant(resize: "300x>")%></td>
+        <td>
+            <div>
+                <%= link_to '編集', edit_user_image_path(@user, image) %>
+                <%= link_to '削除', user_image_path(@user, image), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+            </div>
+        </td>
         <% end %>
         </tbody>
     </table>
-<% else %>
-<p>画像がありません</p>
-<% end %>
+</div>

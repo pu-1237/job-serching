@@ -22,6 +22,10 @@ class RegistrationsController < ApplicationController
         flash.now[:alert] = '未入力の項目があります。'
         render :step1
     end
+
+    def step3
+        @user = current_user
+    end
     
     def create
         @user = User.new(user_params)
@@ -31,11 +35,13 @@ class RegistrationsController < ApplicationController
             return
         end
     
-        if @user.save
+        begin
+            @user.save!
             session[:user_id] = @user.id
             redirect_to step3_registration_path
-        else
-            render :step2
+        rescue
+            flash.now[:alert] = '既に使用されているメールアドレスです。'
+            render :step1
         end
     end
 
