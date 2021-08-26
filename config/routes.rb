@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resource :account, only:[:new, :show, :edit, :update]
+  resource :account, only:[:show, :edit, :update]
 
   resource :registration do
     collection do

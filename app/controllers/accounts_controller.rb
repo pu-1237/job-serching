@@ -4,10 +4,6 @@ def show
     @user = current_user
 end
 
-def new
-    @user = current_user
-end
-
 def edit
     @user = current_user
 end

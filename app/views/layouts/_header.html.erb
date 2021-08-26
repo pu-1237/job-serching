@@ -16,10 +16,10 @@
                 <%= link_to '案件一覧', events_path, class: 'nav-link', id: 'nav-linkDropdown'%>
                 <%= link_to '申し込み一覧', entries_events_path, class: 'nav-link', id: 'nav-linkDropdown' %>
                 <%= link_to '給与明細', payments_events_path, class: 'nav-link', id: 'nav-linkDropdown' %>
-                <%= link_to 'アカウント', account_path, class: 'nav-link', id: 'nav-linkDropdown'%>
+                <%= link_to 'マイアカウント', account_path, class: 'nav-link', id: 'nav-linkDropdown'%>
             <%end%>
             <div class="dropdown-divider"></div>
-            <%= link_to t('.logout'), logout_path, method: :delete, class: 'nav-link', id: 'nav-linkDropdown'  %>
+            <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link', id: 'nav-linkDropdown'  %>
           </div>
         </li>
   <% end %>

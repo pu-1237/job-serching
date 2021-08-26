@@ -1,6 +1,6 @@
 <div class="col-md-6 offset-md-3"> 
 <br>
-<%= link_to "プロフィール画像を追加する", new_account_path %>
+<%= link_to '顔写真を追加する', edit_account_path(edit: 'picture') %>
 <table class= "table table-hover table-bordered">
     <thead>
     <tr>
@@ -9,10 +9,9 @@
     <th>操作</th>
     </tr>
     </thead>
-    <% if @user.profile_picture.attached? %>
     <tbody>
     <tr>
-        <td>プロフィール画像</td>
+        <td>顔写真</td>
         <td><% if @user.profile_picture.attached? %>
                 <%= image_tag @user.profile_picture.variant(resize_to_fill: [150, 200]) %>
             <% else %>
@@ -24,7 +23,6 @@
         </td>
     </tr>
     </tbody>
-    <% end %>
 </table>
 <%= link_to "本人確認書類を追加する", [:new, @user, :image] %>
     <table class="table table-bordered">
