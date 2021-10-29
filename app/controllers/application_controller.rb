@@ -5,11 +5,13 @@ class ApplicationController < ActionController::Base
 
     class Forbidden < StandardError; end
 
+=begin
     if Rails.env.production? || ENV["RESCUE_EXCEPTIONS"]
         rescue_from StandardError, with: :rescue_internal_server_error
         rescue_from ActiveRecord::RecordNotFound, with: :rescue_not_found
         rescue_from ActionController::ParameterMissing, with: :rescue_bad_request
     end
+=end
 
 
     private
