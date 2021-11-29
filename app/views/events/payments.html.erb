@@ -33,12 +33,12 @@
             <% events.each do |event| %>
                 <% applicant = EventApplicant.find_by(event_id: event.id, applicant_id: current_user.id)  %>
                 <% if applicant.finish != nil && applicant.begin != nil %>
-                    <% zikan = (applicant.finish - applicant.begin) / 3600 %>
-                    <% zangyou = zikan - 8 %>
-                    <% if zangyou > 0 %> 
-                        <% zikan = zikan - zangyou + zangyou * 1.5 %>
+                    <% working_hours= (applicant.finish - applicant.begin) / 3600 %>
+                    <% overtime  = working_hours - 8 %>
+                    <% if overtime  > 0 %> 
+                        <% working_hours = working_hours - overtime  + overtime  * 1.5 %>
                     <% end %>
-                    <% sum += event.wages * zikan.to_i + event.allowance%>
+                    <% sum += event.wages * working_hours.to_i + event.allowance%>
                 <% end %>
             <% end %>
             <td><%= "支給額:#{sum}円" %></td>
