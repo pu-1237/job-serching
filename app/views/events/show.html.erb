@@ -63,7 +63,7 @@
                         見込み金額
                     </td>
                     <td>
-                        <%= "#{@event.wages * ((@event.end - @event.start) / 3600).to_i}円" %> 
+                        <%= "#{@event.wages * ((@event.end - @event.start) / 3600).to_i + @event.allowance}円" %> 
                     </td>
                 </tr>
                 <tr>
