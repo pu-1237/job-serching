@@ -37,6 +37,7 @@ class RegistrationsController < ApplicationController
     
         begin
             @user.save!
+            RegisterMailer.creation_email(@user).deliver_now
             session[:user_id] = @user.id
             redirect_to step3_registration_path
         rescue
