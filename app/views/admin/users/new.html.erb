@@ -3,6 +3,7 @@
         <h2 class="text-center pt-5"> ユーザー登録フォーム</h2>
         <hr width="750" align="left">
         <h2 class="text-left pt-5"> 必要事項をご記入ください </h2>
+            <%= render partial: 'layouts/error_messages', locals: { t: @user } %>
             <%= render partial: 'form', locals: { user: @user } %>
     </div>
 </div>

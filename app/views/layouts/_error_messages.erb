@@ -1,7 +1,7 @@
-<% if event.errors.any? %>
+<% if t.errors.any? %>
     <div class = "alert alert-danger">
         <ul>
-        <% event.errors.full_messages.each do |message| %>
+        <% t.errors.full_messages.each do |message| %>
             <li><%= message %></li>
         <% end %>
         </ul>

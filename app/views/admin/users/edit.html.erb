@@ -1,7 +1,7 @@
 <div>
     <div class="col-md-6 offset-md-3">
         <h2 class="text-left pt-5"> 必要事項をご記入ください </h2>
-            <%= render partial: 'error_messages', locals: { user: @user } %>
+            <%= render partial: 'layouts/error_messages', locals: { t: @user } %>
             <%= render partial: 'form', locals: { user: @user } %>
     </div>
 </div>
