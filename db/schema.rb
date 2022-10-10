@@ -1,10 +1,20 @@
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
+#
+# It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2021_07_28_112814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  # Active Storage(ファイルのアップロード機能追加)
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -33,8 +43,6 @@ ActiveRecord::Schema.define(version: 2021_07_28_112814) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-
-  #イベント〜ユーザーの中間テーブル
   create_table "event_applicants", force: :cascade do |t|
     t.bigint "event_id"
     t.bigint "applicant_id"
@@ -47,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_07_28_112814) do
     t.index ["applicant_id"], name: "index_event_applicants_on_applicant_id"
     t.index ["event_id"], name: "index_event_applicants_on_event_id"
   end
-  #イベントテーブル
+
   create_table "events", force: :cascade do |t|
     t.string "title", limit: 30, null: false
     t.text "description", null: false
@@ -64,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_07_28_112814) do
     t.string "remark"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
-  #画像テーブル
+
   create_table "user_images", force: :cascade do |t|
     t.bigint "user_id"
     t.string "alt_text", default: "", null: false
@@ -73,7 +81,7 @@ ActiveRecord::Schema.define(version: 2021_07_28_112814) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_user_images_on_user_id"
   end
-  #ユーザーテーブル
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
@@ -99,8 +107,6 @@ ActiveRecord::Schema.define(version: 2021_07_28_112814) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-
-  #イベント〜ユーザー間の外部キー設定
   add_foreign_key "event_applicants", "events"
   add_foreign_key "event_applicants", "users", column: "applicant_id"
   add_foreign_key "events", "users"
