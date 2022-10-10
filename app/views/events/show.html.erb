@@ -146,7 +146,7 @@
                                     <% #link_toにcancelメソッドで受け取るパラメータを付与する%>
                                     <%= link_to "◯", cancel_event_path(applicant_id: applicant.id ), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
                                 <% else %>
-                                    <%= link_to "ー", cancel_event_path(applicant_id: applicant.id ), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
+                                    <%= link_to "-", cancel_event_path(applicant_id: applicant.id ), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
                                 <% end %>
                             </td>
                             <td>

@@ -1,12 +1,10 @@
 class Event < ApplicationRecord
+    has_many :event_applicants, dependent: :destroy
+    has_many :applicants, through: :event_applicants, dependent: :destroy
+    
     validates :title, :description, :place, :wages, :allowance, :limit, presence: true
 
     validate  :start_end_check
-
-    belongs_to :user
-
-    has_many :event_applicants, dependent: :destroy
-    has_many :applicants, through: :event_applicants, dependent: :destroy
 
     accepts_nested_attributes_for :event_applicants
 

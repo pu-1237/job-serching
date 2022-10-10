@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-
+    has_many :event_applicants, foreign_key: 'applicant_id', dependent: :destroy
+    has_many :events, dependent: :destroy
+    
     validates :last_name, :first_name, :last_name_kana, :first_name_kana, :prefecture_code, :address_city, :address_street, :station, :gender, :birthday, presence: true
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX, message: "が正しく入力されていません" }, uniqueness: { case_sensitive: false }
@@ -8,9 +10,6 @@ class User < ApplicationRecord
     has_secure_password
     VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
     validates :password, format: { with: VALID_PASSWORD_REGEX, message: "は半角英数を両方含む必要があります"}, allow_nil: true
-
-    has_many :events, dependent: :destroy
-    has_many :event_applicants, foreign_key: 'applicant_id', dependent: :destroy
 
     has_many :images, class_name: "UserImage"
 
