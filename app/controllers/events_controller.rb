@@ -30,7 +30,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.new(event_params)
     if @event.save
-        redirect_to manager_events_url, notice: "「#{@event.title}」を登録しました。"
+      redirect_to manager_events_url, notice: "「#{@event.title}」を登録しました。"
     else
       render :new
     end
@@ -41,9 +41,13 @@ class EventsController < ApplicationController
   end
 
   def update
-    event = Event.find(params[:id])
-    event.update!(event_params)
-    redirect_to event_path, notice: "「#{event.title}を編集しました」"
+    @event = Event.find(params[:id])
+
+    if @event.update(event_params)
+      redirect_to event_path, notice: "「#{event.title}を編集しました」"
+    else
+      render :edit
+    end
   end
 
 

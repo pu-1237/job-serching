@@ -1,10 +1,12 @@
 class User < ApplicationRecord
     has_secure_password
 
-    validates :last_name, :first_name, :last_name_kana, :first_name_kana, :postcode, :prefecture_code, :address_city, :address_street, :station, :gender, :birthday, presence: true
-    validates :email, email: {allow_blank: true}
-    validates :number, presence: true, format: {with: /\A[0-9-]{,14}\z/}
-
+    validates :last_name, :first_name, :last_name_kana, :first_name_kana, :prefecture_code, :address_city, :address_street, :station, :gender, :birthday, presence: true
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    validates :email, presence: true, format: { with: VALID_EMAIL_REGEX, message: "が正しく入力されていません" }, uniqueness: { case_sensitive: false }
+    validates :number, presence: true, uniqueness: true, format: {with: /\A\d{10}$|^\d{11}\z/, message: "が正しく入力されていません"}
+    validates :postcode, presence: true, format: {with: /\A\d{7}\z/, message: "が正しく入力されていません"}
+    
     has_many :events, dependent: :destroy
     has_many :event_applicants, foreign_key: 'applicant_id', dependent: :destroy
 

@@ -21,9 +21,18 @@ ja:
         postcode: 郵便番号
         address: 住所
         station: 最寄駅
+        last_name: 苗字
+        first_name: 名前
+        last_name_kana: 苗字(カナ)
+        first_name_kana: 名前(カナ)
+        prefecture_code: 県
+        address_city: 市町村
+        address_street: 番地・建物
+        gender: 性別
+        birthday: 生年月日
       event:
         title: タイトル
-        descriotion: 作業内容
+        description: 作業内容
         place: 作業場所
         wages: 時給
         allowance: 別途手当

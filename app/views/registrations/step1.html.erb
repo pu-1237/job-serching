@@ -6,11 +6,16 @@
 
         <h5 id="step">STEP1 応募情報登録</h5> >STEP2 入力内容確認 >STEP3 完了
         <h2 class="text-left pt-5"> 必要事項をご記入ください </h2>
-        <% if flash.alert.present? %>
-            <h5 class="alert alert-danger">
-            <%= flash.alert %>
-            </h5>
-        <% end %>
+            <% #バリデーションからエラーメッセージを取り出す %>
+            <% if @user.errors.any? %>
+                <div class = "alert alert-danger">
+                    <ul>
+                    <% @user.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                </div>
+            <% end %>
         <%= form_for @user, url: step2_registration_path, method: :get do |f| %>
         <table class="table table-bordered" id="form_table">
             <tbody>

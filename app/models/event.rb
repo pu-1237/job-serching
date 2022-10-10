@@ -1,5 +1,7 @@
 class Event < ApplicationRecord
-    validates :title, :description, :wages, presence: true
+    validates :title, :description, :place, :wages, :allowance, :limit, presence: true
+
+    validate  :start_end_check
 
     belongs_to :user
 
@@ -9,8 +11,6 @@ class Event < ApplicationRecord
     accepts_nested_attributes_for :event_applicants
 
     default_scope -> { order(start: :asc) }
-
-    validate  :start_end_check
 
     #時間の矛盾を防ぐ
     def start_end_check
