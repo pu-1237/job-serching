@@ -1,6 +1,6 @@
 
 <div>
-    <div class="col-md-6 offset-md-3"> 
+    <div class="col-md-6 offset-md-2"> 
         <h2 class="text-center pt-5"> イベント詳細 </h2>
         <div class="nav justify-content-end">
             <% if current_user.admin? %>
@@ -103,7 +103,7 @@
 
 <% if current_user.admin? %>
     <div>
-        <div class="col-md-6 offset-md-3"> 
+        <div class="col-md-8 offset-md-2"> 
             <h2 class="text-center pt-5"> 申し込み者一覧 </h2>
                     <table class="table table-hover">
                 <thead> 
@@ -115,13 +115,7 @@
                             <%= '名前' %> 
                         </th>
                         <th>
-                            <%= User.human_attribute_name(:email) %>
-                        </th>
-                        <th>
                             キャンセル
-                        </th>
-                        <th>
-                            
                         </th>
                         <th>
                             出勤確認
@@ -149,18 +143,12 @@
                                 <%= link_to applicant.full_name, [:admin, applicant] %>
                             </td>
                             <td>
-                                <%= applicant.email %>
-                            </td>
-                            <td>
                                 <% if user_applicant.request %>
-                                    ○
+                                    <% #link_toにcancelメソッドで受け取るパラメータを付与する%>
+                                    <%= link_to "◯", cancel_event_path(applicant_id: applicant.id ), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
                                 <% else %>
-                                    -
+                                    <%= link_to "ー", cancel_event_path(applicant_id: applicant.id ), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
                                 <% end %>
-                            </td>
-                            <td>
-                                <% #link_toにcancelメソッドで受け取るパラメータを付与する%>
-                                <%= link_to "申し込みをキャンセルする", cancel_event_path(applicant_id: applicant.id ), data: { confirm: "こちらの案件への申し込みをキャンセルしますか？" } %>
                             </td>
                             <td>
                                 <% if user_applicant.attendance %>
