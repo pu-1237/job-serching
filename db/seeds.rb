@@ -10,15 +10,33 @@ User.find_or_create_by!(email: 'admin@example.com') do |user|
     user.first_name = '太郎'
     user.last_name_kana = 'カンリシャ'
     user.first_name_kana = 'タロウ'
-    user.number = '090-0000-0000'
+    user.number = '09000000000'
     user.postcode = 1111111
     user.prefecture_code = 1
     user.address_city = '豊島区'
     user.address_street = '池袋'
     user.station = '池袋駅'
     user.birthday = Date.today
-    user.password = 'password'
-    user.password_confirmation = 'password'
+    user.password = 'password2'
+    user.password_confirmation = 'password2'
     user.gender = 'male'
     user.admin = true
 end
+User.find_or_create_by!(email: 'user@example.com') do |user|
+    user.last_name = 'ユーザー'
+    user.first_name = '花子'
+    user.last_name_kana = 'ユーザー'
+    user.first_name_kana = 'ハナコ'
+    user.number = '08000000000'
+    user.postcode = 1111111
+    user.prefecture_code = 1
+    user.address_city = '豊島区'
+    user.address_street = '池袋'
+    user.station = '池袋駅'
+    user.birthday = Date.today
+    user.password = 'password2'
+    user.password_confirmation = 'password2'
+    user.gender = 'male'
+    user.admin = false
+end
+

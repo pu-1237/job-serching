@@ -14,7 +14,7 @@ def update
     if @user.update(user_params)
         redirect_to account_path, notice: "アカウント情報を更新しました。"
     else
-        render :edit
+        render :show
     end
 end
 

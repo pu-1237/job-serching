@@ -24,7 +24,7 @@
     </tr>
     </tbody>
 </table>
-<%= link_to "本人確認書類を追加する", [:new, @user, :image] %>
+<%= link_to "その他写真を追加する", [:new, @user, :image] %>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -36,7 +36,7 @@
         <tbody>
         <% @images.each_with_index do |image, index|%>
         <tr>
-        <td><%= "本人確認書類" + (index + 1).to_s %></td>
+        <td><%= "写真" + (index + 1).to_s %></td>
         <td><%= image_tag image.data.variant(resize: "300x>")%></td>
         <td>
             <div>
