@@ -110,8 +110,7 @@ User.find_or_create_by!(email: 'user_saitou@example.com') do |user|
     user.password_confirmation = 'password2'
     user.gender = 'male'
     user.admin = false
-    user.profile_picture.attach(io: File.open(Rails.root.join('app/assets/images/photo.jpg')),
-    filename: 'photo.jpg')
+
 end
 
 # イベント登録

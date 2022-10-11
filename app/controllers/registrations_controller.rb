@@ -1,5 +1,4 @@
 class RegistrationsController < ApplicationController
-
     include ActiveRecord::AttributeAssignment
 
     def new

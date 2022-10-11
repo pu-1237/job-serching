@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_many :event_applicants, foreign_key: 'applicant_id', dependent: :destroy
     has_many :events, dependent: :destroy
+
+    before_create :default_image
     
     validates :last_name, :first_name, :last_name_kana, :first_name_kana, :prefecture_code, :address_city, :address_street, :station, :gender, :birthday, presence: true
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -86,6 +88,13 @@ class User < ApplicationRecord
     # 住所を結合させる
     def address
         self.prefecture_name &.+ self.address_city &.+ self.address_street
+    end
+
+    #デフォルト画像を登録する
+    def default_image
+        if !self.profile_picture.attached?
+            self.profile_picture.attach(io: File.open(Rails.root.join('app/assets/images/photo.jpg')), filename: 'photo.jpg')
+        end
     end
 
 end

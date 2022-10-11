@@ -43,6 +43,8 @@ def list
     events = Event.all.find_all{ |event| current_user.event_applicants.map(&:event_id).include?(event.id) }
     @events = events.find_all{ |event| event.start.year.to_s == params[:year] && sprintf('%02d', event.start.month)== params[:month] }
 end
+
+
 private
 
 def user_params
