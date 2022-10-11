@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark fixed-top p-3">
-  <a class="navbar-brand mb-0 h1" href="/">ジョブサーチ</a>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top p-3">
+<a class="navbar-brand" href=""> <%= link_to image_tag("logo.png"), "/" %></a>
 
+  
   <% if current_user%>
         <li class= "nav-item dropdown">
           <a style="color:white; font-size: 120%;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
