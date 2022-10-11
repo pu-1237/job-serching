@@ -44,7 +44,7 @@ document.addEventListener('turbolinks:load', function() {
         navLinkDayClick: function(date, jsEvent) {  //日付クリックでのイベント
             const year = date.getFullYear(); //date(Dateオブジェクト)から西暦を取り出す
             const month = ( '00' + (date.getMonth() + 1)).slice(-2); //月を取り出して桁数を揃える
-            const day = ( '00' +　date.getDate()).slice(-2);　//日付を取り出して桁数を揃える
+            const day = ( '00' + date.getDate()).slice(-2); //日付を取り出して桁数を揃える
             window.location.href = "events/" + year + "/" + month + "/" + day //遷移先の指定
             console.log(date)
         },

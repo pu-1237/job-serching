@@ -2,24 +2,28 @@
 <html>
   <head>
     <title>ジョブサーチ</title>
+    <%= render 'layouts/header' %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body data-turbolinks="false">
-    <%= render 'layouts/header' %>
-    <div class="container">
-      <% if flash.notice.present? %>
-        <div class="alert alert-success">
-          <%= flash.notice %> 
+  <div class="mb-5">
+    <body data-turbolinks="false">
+        <div class="jumbotron jumbotron-extend">
+          <div class="container-fluid ">
+            <% if flash.notice.present? %>
+              <div class="alert alert-success">
+                <%= flash.notice %> 
+              </div>
+            <% end %>
+            <div class="yield-container">
+              <%= yield %>
+            </div>
+          </div>
         </div>
-      <% end %>
-    </div>
-    <%= yield %>
-  </body>
+    </body>
+  </div>
   <%= render 'layouts/footer' %>
 </html>

@@ -164,3 +164,35 @@ p#step {
 .field_with_errors {
   display: contents;
 }
+
+.jumbotron-extend {
+  min-height: 100vh;
+  background: image-url('background.jpg');
+}
+
+.calendar {
+  background-color: white;
+}
+.table {
+  background-color: white;
+}
+
+.navbar-brand {
+  font-size: 130%;
+  font-weight: 500;
+}
+
+.footer {
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 90px;
+  background-color: #DDDDDD;
+  }
+.yield-container {
+      box-sizing: border-box;
+      width: 100%;
+      padding-top: 10px;
+      padding-bottom: 50px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+}
