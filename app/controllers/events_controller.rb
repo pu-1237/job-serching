@@ -44,7 +44,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if @event.update(event_params)
-      redirect_to event_path, notice: "「#{event.title}を編集しました」"
+      redirect_to event_path, notice: "「#{@event.title}を編集しました」"
     else
       render :edit
     end

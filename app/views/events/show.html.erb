@@ -2,8 +2,8 @@
     <div class="col-md-6 offset-md-2"> 
         <div class="nav justify-content-end">
             <% if current_user.admin? %>
-                <%= link_to '編集', edit_event_path, class: 'nav-link' %>
-                <%= link_to '削除', @event, method: :delete, data: { confirm: "このワークを削除しますか？"}, class: 'nav-link' %> 
+                <%= link_to '編集', edit_event_path, class: 'btn btn-primary' %>
+                <%= link_to '削除', @event, method: :delete, data: { confirm: "このワークを削除しますか？"}, class: 'btn btn-primary' %> 
             <% end %>
         </div>
         <table class="table table-bordered table-hover"> 
