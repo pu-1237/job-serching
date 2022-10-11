@@ -85,7 +85,7 @@ User.find_or_create_by!(email: 'user_satou@example.com') do |user|
     user.admin = false
 end
 User.find_or_create_by!(email: 'user_saitou@example.com') do |user|
-    user.last_name = '斉藤'
+    user.last_name = '加藤'
     user.first_name = '花子'
     user.last_name_kana = 'サイトウ'
     user.first_name_kana = 'ハナコ'
