@@ -138,7 +138,7 @@ for i in 1..6 do
     for j in 1..60 do
         if j % (i + 1) == 0 
             @event = Event.find(j)
-            if @event.deadline < DateTime.now
+            if @event.deadline <= DateTime.now
                 EventApplicant.create(applicant_id: i, event_id: j, begin: @event.start ,finish: @event.end) 
             else
                 EventApplicant.create(applicant_id: i, event_id: j) 
