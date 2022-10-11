@@ -1,6 +1,6 @@
 <div>
     <div class="col-md-6 offset-md-3">
-        <h2 class="text-center pt-5"> マイアカウント </h2> <p><td><%= link_to "写真を追加する", [@user, :images] %></td></p>
+        <p><td><%= link_to "写真を追加する", [@user, :images], class: 'btn btn-primary' %></td></p>
         <%= render partial: 'layouts/error_messages', locals: { t: @user } %>
             <table class= "table table-hover table-bordered">
                 <tbody>

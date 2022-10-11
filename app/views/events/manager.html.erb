@@ -1,6 +1,5 @@
 <div> 
     <div class="col-md-6 offset-md-3"> 
-        <h2 class="text-center pt-5"> 案件管理 </h2>
             <%= search_form_for @q, url: "manager", class: 'mb-5 form-inline' do |f| %>
                 <div class="col-som-10">
                     <%= f.search_field :id_eq, class: 'form-control', placeholder: 'id'  %>

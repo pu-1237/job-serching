@@ -15,6 +15,8 @@ User.find_or_create_by!(email: 'admin@example.com') do |user|
     user.password_confirmation = 'password2'
     user.gender = 'male'
     user.admin = true
+    user.profile_picture.attach(io: File.open(Rails.root.join('app/assets/images/photo.jpg')),
+    filename: 'photo.jpg')
 end
 User.find_or_create_by!(email: 'user_yamada@example.com') do |user|
     user.last_name = '山田'
@@ -32,6 +34,8 @@ User.find_or_create_by!(email: 'user_yamada@example.com') do |user|
     user.password_confirmation = 'password2'
     user.gender = 'male'
     user.admin = false
+    user.profile_picture.attach(io: File.open(Rails.root.join('app/assets/images/photo.jpg')),
+    filename: 'photo.jpg')
 end
 User.find_or_create_by!(email: 'user_tanaka@example.com') do |user|
     user.last_name = '田中'
@@ -49,6 +53,8 @@ User.find_or_create_by!(email: 'user_tanaka@example.com') do |user|
     user.password_confirmation = 'password2'
     user.gender = 'male'
     user.admin = false
+    user.profile_picture.attach(io: File.open(Rails.root.join('app/assets/images/photo.jpg')),
+    filename: 'photo.jpg')
 end
 User.find_or_create_by!(email: 'user_suzuki@example.com') do |user|
     user.last_name = '鈴木'
@@ -66,6 +72,8 @@ User.find_or_create_by!(email: 'user_suzuki@example.com') do |user|
     user.password_confirmation = 'password2'
     user.gender = 'male'
     user.admin = false
+    user.profile_picture.attach(io: File.open(Rails.root.join('app/assets/images/photo.jpg')),
+    filename: 'photo.jpg')
 end
 User.find_or_create_by!(email: 'user_satou@example.com') do |user|
     user.last_name = '佐藤'
@@ -83,6 +91,8 @@ User.find_or_create_by!(email: 'user_satou@example.com') do |user|
     user.password_confirmation = 'password2'
     user.gender = 'male'
     user.admin = false
+    user.profile_picture.attach(io: File.open(Rails.root.join('app/assets/images/photo.jpg')),
+    filename: 'photo.jpg')
 end
 User.find_or_create_by!(email: 'user_saitou@example.com') do |user|
     user.last_name = '加藤'
@@ -100,6 +110,8 @@ User.find_or_create_by!(email: 'user_saitou@example.com') do |user|
     user.password_confirmation = 'password2'
     user.gender = 'male'
     user.admin = false
+    user.profile_picture.attach(io: File.open(Rails.root.join('app/assets/images/photo.jpg')),
+    filename: 'photo.jpg')
 end
 
 # イベント登録
