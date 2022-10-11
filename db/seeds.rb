@@ -104,7 +104,7 @@ end
 
 # イベント登録
 60.times do |n|
-    unless (n % 4 == 0 and n % 9 == 0)
+    unless (n % 4 == 0 or n % 9 == 0)
         Event.create!(
             title: "サンプル#{n + 1}",
             description: '詳細',
