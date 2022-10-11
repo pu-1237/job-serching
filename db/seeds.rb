@@ -104,7 +104,7 @@ end
 
 # イベント登録
 60.times do |n|
-    unless (n % 4 == 0)
+    if (n % 4 != 0 and n % 9 != 0)
         Event.create!(
             title: "サンプル#{n + 1}",
             description: '詳細',
@@ -117,7 +117,7 @@ end
             allowance: 2000,
             remark: 'なし'
         )
-    else
+    elsif (n % 4 == 0)
         Event.create!(
             title: "サンプル#{n + 1}",
             description: '詳細',
@@ -130,6 +130,19 @@ end
             allowance: 2000,
             remark: 'なし'
         )
+    else
+        Event.create!(
+            title: "サンプル#{n + 1}",
+            description: '詳細',
+            wages: 1000,
+            start: DateTime.now.beginning_of_day + (n - 27).day,
+            end: DateTime.now.beginning_of_day + (n - 27).day + 8.hour,
+            limit: 5,
+            deadline: DateTime.now.beginning_of_day + (n - 28).day,
+            place: '場所',
+            allowance: 2000,
+            remark: 'なし'
+        )        
     end
 end
 
