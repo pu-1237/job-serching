@@ -45,6 +45,10 @@ class Admin::UsersController < ApplicationController
 
   end
 
+  def payment
+    
+  end
+
   private
 
   def user_params

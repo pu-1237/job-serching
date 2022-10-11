@@ -25,16 +25,19 @@ Rails.application.routes.draw do
     collection do
       get 'manager'
       get 'datelist'
-      get 'entries'
-      get 'payments'
-      get 'payments/:year/:month' => 'events#list',
-        :constraints => { :year => /\d{4}/, :month => /\d{2}/ }
       get ':year/:month/:day' => 'events#date',
         :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
     end
   end
   
-  resource :account, only:[:show, :edit, :update]
+  resources :accounts do
+    collection do
+      get 'entries'
+      get 'payments'
+      get 'payments/:year/:month' => 'events#list',
+      :constraints => { :year => /\d{4}/, :month => /\d{2}/ }
+    end
+  end
 
   resource :registration do
     collection do

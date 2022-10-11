@@ -1,6 +1,6 @@
 <div class="top">
 <div class="col-md-6 offset-md-3"> 
-<%= link_to '顔写真を追加する', edit_account_path(edit: 'picture') %>
+<%= link_to '顔写真を追加する', edit_account_path(id: @user, edit: 'picture') %>
 <table class= "table table-hover table-bordered">
     <thead>
     <tr>
@@ -19,7 +19,7 @@
             <% end %>
         </td>
         <td>
-            <%= link_to '編集', edit_account_path(edit: 'picture') %>
+            <%= link_to '編集', edit_account_path(id: @user, edit: 'picture') %>
         </td>
     </tr>
     </tbody>
