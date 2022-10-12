@@ -5,10 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <title>ジョブサーチ</title>
+    <%= render 'layouts/header' %>
   </head>
   <body>
     <div class="container">
@@ -22,9 +28,31 @@
         </ol>
         <!-- ここに画像部分を記述 -->
         <div class="carousel-inner">
-          <div class="carousel-item active"><%= image_tag "image_1.png", class: "d-block w-100"%></div>
-          <div class="carousel-item"><%= image_tag "image_2.png", class: "d-block w-100"%></div>
-          <div class="carousel-item"><%= image_tag "image_3.png" , class: "d-block w-100"%></div>
+          <div class="carousel-item active">
+            <%= image_tag "image_1.png", class: "d-block w-100"%>
+              <!-- ここに文字部分を記述 -->
+              <div class="carousel-caption d-none d-block">
+                <h1 class="carousel-h1">First slide label</h1>
+                <p class="carousel-p">Test</p>
+                <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-danger btn-lg', id: 'link_to' %>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "image_2.png", class: "d-block w-100"%>
+              <div class="carousel-caption d-none d-block">
+                <h1 class="carousel-h1">Second slide label</h1>
+                <p class="carousel-p">Test</p>
+                <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-danger btn-lg', id: 'link_to' %>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "image_3.png" , class: "d-block w-100"%>
+              <div class="carousel-caption d-none d-block">
+                <h1 class="carousel-h1">Third slide label</h1>
+                <p class="carousel-p">Test</p>
+                <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-danger btn-lg', id: 'link_to' %>
+              </div>
+          </div>
         </div>
         <!-- 画像遷移のボタンを記述 -->
         <a href="#sample" class="carousel-control-prev" data-slide="prev">
