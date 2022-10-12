@@ -10,10 +10,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag('favicon.ico', skip_pipeline: true) %>
   </head>
-  <div class="mb-5">
+  <div class="mb-1">
     <body data-turbolinks="false">
         <div class="jumbotron jumbotron-extend">
-          <div class="container-fluid ">
             <% if flash.notice.present? %>
               <div class="alert alert-success">
                 <%= flash.notice %> 
@@ -22,7 +21,6 @@
             <div class="yield-container">
               <%= yield %>
             </div>
-          </div>
         </div>
     </body>
   </div>
