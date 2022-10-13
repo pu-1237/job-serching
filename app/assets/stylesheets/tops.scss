@@ -14,9 +14,19 @@
 #link_to {
     font-size: 1.7vw;
 }
-.container {
-    padding-top: 50px;
-    margin-top: 22px;
+
+/* カルーセル */
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.main {
+    position: fixed;
+    top: 80px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow-y: auto;
 }
 @media (min-width: 980px){
     .carousel-caption {
@@ -27,9 +37,7 @@
     .carousel-caption {
         top: 40%;
     }
-    .container {
-        margin-top: 17px;
-    }
+
     .carousel-h1 {
         font-size: 4vw;
         padding-top: 10px;
