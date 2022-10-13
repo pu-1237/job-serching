@@ -4,7 +4,9 @@
 <h2 class="text-center pt-5"> その他写真を変更 </h2>
 <%= form_for @image, as: "image", url: url do |f| %>
     <%= f.file_field :new_data%>
+    <div class="text-right">
     <%= f.submit nil, class: 'btn btn-primary' %>
+    </div>
 <% end %>
 
 </div>

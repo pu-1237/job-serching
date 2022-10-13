@@ -39,32 +39,32 @@
                     <tr>
                         <th><%= User.human_attribute_name(:email) %></th>
                         <td><%= @user.email %></td>
-                        <td><%= link_to '編集', edit_account_path(id: @user.id, edit: 'email'), class: 'btn btn-primary' %></td>
+                        <td><%= link_to '編集', edit_account_path(id: @user.id, edit: 'email'), class: 'btn btn-outline-primary' %></td>
                     </tr>
                     <tr>
                         <th><%= User.human_attribute_name(:number) %></th>
                         <td><%= @user.number %></td>
-                        <td><%= link_to '編集', edit_account_path(id: @user.id, edit: 'number'), class: 'btn btn-primary' %></td>
+                        <td><%= link_to '編集', edit_account_path(id: @user.id, edit: 'number'), class: 'btn btn-outline-primary' %></td>
                     </tr>
                     <tr>
                         <th><%= User.human_attribute_name(:postcode) %></th>
                         <td><%= @user.postcode %></td>
-                        <td><%= link_to '編集', edit_account_path(id: @user.id, edit: 'postcode'), class: 'btn btn-primary' %></td>
+                        <td><%= link_to '編集', edit_account_path(id: @user.id, edit: 'postcode'), class: 'btn btn-outline-primary' %></td>
                     </tr>
                     <tr>
                         <th><%= User.human_attribute_name(:address) %></th>
                         <td><%= @user.address %></td>
-                        <td><%= link_to '編集', edit_account_path(id: @user.id, edit: 'address'), class: 'btn btn-primary' %></td>
+                        <td><%= link_to '編集', edit_account_path(id: @user.id, edit: 'address'), class: 'btn btn-outline-primary' %></td>
                     </tr>
                     <tr>
                         <th><%= User.human_attribute_name(:station) %></th>
                         <td><%= @user.station %></td>
-                        <td><%= link_to '編集', edit_account_path(id: @user.id, edit: 'station'), class: 'btn btn-primary' %></td>
+                        <td><%= link_to '編集', edit_account_path(id: @user.id, edit: 'station'), class: 'btn btn-outline-primary' %></td>
                     </tr>
                     <tr>
                         <th><%= User.human_attribute_name(:password) %></th>
                         <td><%= "******" %></td>
-                        <td><%= link_to '編集', edit_account_path(id: @user.id, edit: 'password'), class: 'btn btn-primary' %></td>
+                        <td><%= link_to '編集', edit_account_path(id: @user.id, edit: 'password'), class: 'btn btn-outline-primary' %></td>
                     </tr>
                 </tbody>
             </table>

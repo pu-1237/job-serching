@@ -10,8 +10,8 @@ class User < ApplicationRecord
     validates :number, presence: true, uniqueness: true, format: {with: /\A\d{10}$|^\d{11}\z/, message: "が正しく入力されていません"}
     validates :postcode, presence: true, format: {with: /\A\d{7}\z/, message: "が正しく入力されていません"}
     has_secure_password
-    VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-    validates :password, format: { with: VALID_PASSWORD_REGEX, message: "は半角英数を両方含む必要があります"}, allow_nil: true
+    VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]{8,}+\z/i.freeze
+    validates :password, format: { with: VALID_PASSWORD_REGEX, message: "は半角英数を両方含む8文字以上である必要があります"}, allow_nil: true
 
     has_many :images, class_name: "UserImage"
 

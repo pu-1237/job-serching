@@ -3,8 +3,7 @@
 <div>
     <div class="col-md-6 offset-md-3">
         <h2 class="text-center pt-5"> WEB登録フォーム</h2>
-        <hr width="750" align="left">
-
+        <hr width="100%" >
             <p id="step">STEP1 応募情報登録 ></p><h5 id="step">STEP2 入力内容確認 </h5> >STEP3 完了
 
         <h2 class="text-left pt-5"> 入力内容を確認してください </h2>
@@ -121,8 +120,10 @@
                 </td>
             </tr>
         </table>
-        <%= f.submit '戻る', name: 'back', class: 'btn btn-primary'%>
-        <%= f.submit '登録する', class: 'btn btn-primary'%>
+        <%= f.submit '＜ 戻る', name: 'back', class: 'btn btn-secondary btn-lg'%>
+        <div class="text-right" style="margin-top: -50px;">
+        <%= f.submit '進む ＞', class: 'btn btn-secondary btn-lg'%>
+        </div>
         <% end %>
     </div>
 </div>

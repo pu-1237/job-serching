@@ -1,6 +1,5 @@
 <div class="top">
 <div class="col-md-6 offset-md-3"> 
-<%= link_to '顔写真を追加する', edit_account_path(id: @user, edit: 'picture') %>
 <table class= "table table-hover table-bordered">
     <thead>
     <tr>
@@ -19,7 +18,7 @@
             <% end %>
         </td>
         <td>
-            <%= link_to '編集', edit_account_path(id: @user, edit: 'picture') %>
+            <%= link_to '編集', edit_account_path(id: @user, edit: 'picture'),class: 'btn btn-outline-primary' %>
         </td>
     </tr>
     </tbody>
@@ -40,8 +39,8 @@
         <td><%= image_tag image.data.variant(resize: "300x>")%></td>
         <td>
             <div>
-                <%= link_to '編集', edit_user_image_path(@user, image) %>
-                <%= link_to '削除', user_image_path(@user, image), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+                <%= link_to '編集', edit_user_image_path(@user, image),class: 'btn btn-outline-primary'%>
+                <%= link_to '削除', user_image_path(@user, image), method: :delete, data: {confirm: "本当に削除しますか？"},class: 'btn btn-outline-primary' %>
             </div>
         </td>
         <% end %>

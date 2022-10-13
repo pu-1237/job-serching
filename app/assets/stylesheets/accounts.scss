@@ -1,3 +1,56 @@
 // Place all the styles related to the accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+input#image_new_data {
+    width: 100%;
+}
+input#user_email.form-control{
+    width: 100%;
+}
+input#user_prefecture_code.form-control{
+    width: 100%;
+}
+input#user_address_city.form-control{
+    width: 100%;
+}
+input#user_address_street.form-control{
+    width: 100%;
+}
+@media (min-width: 980px){
+    input#user_address_city.form-control{
+        width: 400px;
+    }
+    input#user_address_street.form-control {
+        width: 400px;
+    }
+}
+@media (min-width: 580px){
+    input#user_address_city.form-control{
+        width: 300px;
+    }
+    input#user_address_street.form-control {
+        width: 300px;
+    }
+}
+
+input#user_station.form-control{
+    width: 100%;
+}
+
+input#user_number.form-control{
+    width: 100%;
+}
+
+input#user_postcode.form-control{
+    width: 100%;
+}
+
+input#user_password.form-control{
+    width: 100%;
+}
+input#user_password_confirmation.form-control{
+    width: 100%;
+}
+

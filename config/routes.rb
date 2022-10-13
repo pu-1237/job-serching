@@ -35,6 +35,8 @@ Rails.application.routes.draw do
       get 'payments'
       get 'payments/:year/:month' => 'accounts#list',
       :constraints => { :year => /\d{4}/, :month => /\d{2}/ }
+      get '/:id' => 'accounts#index',
+      :constraints => { :id => /\d+/ }
     end
   end
 

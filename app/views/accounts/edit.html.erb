@@ -1,50 +1,53 @@
 <div>
     <div class="col-md-4 offset-md-4">
         <% if params[:edit] == 'picture' %>
-            <h2 class="text-center pt-5"> プロフィール画像を変更 </h2>
+            <h3 class="text-center pt-5"> プロフィール画像を変更 </h2>
             <%= form_with model: @user, url: account_path, local: true do |f| %>
                 <%= f.file_field :new_profile_picture, class: 'file-form' %>
-                <%= f.submit nil, class: 'btn btn-primary'%>
+                <div class="text-right">
+                    <%= f.submit nil, class: 'btn btn-primary'%>
+                </div>
             <% end %>
         </tr>
 
         <% elsif params[:edit] == 'email' %>
-            <h2 class="text-center pt-5"> Eメールアドレスを変更 </h2>
+            <h3 class="text-center pt-5"> Eメールアドレスを変更 </h2>
 
             <%= form_with model: @user, url: account_path, local: true do |f| %>
-                <%= '新しいEメールアドレス:' %>
-                <%= f.text_field :email, class: 'form-control' %>
-                <%= f.submit nil, class: 'btn btn-primary'%>
+                <%= f.text_field :email, class: 'form-control', placeholder: '新しいメールアドレス' %>
+                    <div class="text-right">
+                        <%= f.submit nil, class: 'btn btn-primary'%>
+                    </div>
             <% end %>
         <% elsif params[:edit] == 'number' %>
-            <h2 class="text-center pt-5"> 電話番号を変更 </h2>
-
+            <h3 class="text-center pt-5"> 電話番号を変更 </h2>
             <%= form_with model: @user, url: account_path, local: true do |f| %>
-                <%= '新しい電話番号:' %>
-                <%= f.text_field :number, class: 'form-control' %>
+                <%= f.text_field :number, class: 'form-control', placeholder: '新しい電話番号' %>
+                <div class="text-right">
                 <%= f.submit nil, class: 'btn btn-primary'%>
+                </div>
             <% end %>
         <% elsif params[:edit] == 'password' %>
-            <h2 class="text-center pt-5"> パスワードを変更 </h2>
+            <h3 class="text-center pt-5"> パスワードを変更 </h2>
         <%= form_with model:@user, url:account_path, local: true do |f| %>
-            <%= f.label :password %>
-            <%= f.password_field :password, class: 'form-control' %>
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, class: 'form-control' %>
+            <%= f.password_field :password, class: 'form-control', placeholder: '新しいパスワード'%>
+            <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'パスワードを確認' %>
+            <div class="text-right">
             <%= f.submit nil, class: 'btn btn-primary'%>
+            </div>
         <% end %>
         <% elsif params[:edit] == 'postcode' %>
-            <h2 class="text-center pt-5"> 郵便番号を変更 </h2>
+            <h3 class="text-center pt-5"> 郵便番号を変更する </h2>
 
             <%= form_with model: @user, url: account_path, local: true do |f| %>
-                <%= '新しい郵便番号:' %>
-                <%= f.text_field :postcode, class: 'form-control' %>
+                <%= f.text_field :postcode, class: 'form-control' , placeholder: '新しい郵便番号'%>
+                <div class="text-right">
                 <%= f.submit nil, class: 'btn btn-primary'%>
+                </div>
             <% end %>
         <% elsif params[:edit] == 'address' %>
-            <h2 class="text-center pt-5"> 住所を変更 </h2>
+            <h3 class="text-center pt-5"> 住所を変更 </h2>
             <%= form_with model: @user, url: account_path, local: true do |f| %>
-            <%= '新しい住所:' %>
             <table>
             <tr>
                 <td><%= f.label :prefecture_code, '都道府県' %></td>
@@ -59,17 +62,23 @@
                 <td><%= f.text_field :address_street, autocomplete: 'address_street', class: 'form-control', id: "user_address_street" %></td>
             </tr>
             <tr>
-                <td><%= f.submit nil, class: 'btn btn-primary'%></td>
+                <td></td>
+                <td>
+                    <div class="text-right">
+                        <%= f.submit nil, class: 'btn btn-primary'%>
+                    </div>
+                </td>
             </tr>
             </table>
             <% end %>
         <% elsif params[:edit] == 'station' %>
-            <h2 class="text-center pt-5"> 最寄駅を変更 </h2>
+            <h3 class="text-center pt-5"> 最寄駅を変更 </h2>
 
             <%= form_with model: @user, url: account_path, local: true do |f| %>
-                <%= '新しい最寄駅:' %>
-                <%= f.text_field :station, class: 'form-control' %>
+                <%= f.text_field :station, class: 'form-control' , placeholder: '新しい最寄駅'%>
+                <div class="text-right">
                 <%= f.submit nil, class: 'btn btn-primary'%>
+                </div>
             <% end %>
         <% end %>
     </div>
