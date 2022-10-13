@@ -1,15 +1,14 @@
+<%= image_tag "login.png", class: 'logo'%>
 
-<div>
-    <div class="col-md-4 offset-md-4">
-        <p></p>
-        <%= form_with scope: :session, local: true do |f| %>
-            <%= f.label :email %>
-            <%= f.text_field :email, class: 'form-control', id: 'session_email' %>
-            <%= f.label :password %>
-            <%= f.password_field :password, class: 'form-control', id: 'session_password' %>
-            <%= f.submit 'ログイン', class: 'btn btn-primary'%>
-        <% end %>
-        <p></p>
-        <%= link_to 'パスワードを忘れた方', new_password_reset_path %>
-    </div>
+<div class="col-md-4 offset-md-4">
+
+    <%= form_with scope: :session, local: true do |f| %>
+        <div class="field message_box">
+        <%= f.text_field :email, class: 'form-control form-control-lg', id: 'session_email', placeholder: 'メールアドレス' , style: "width:100%"%>
+        <%= f.password_field :password, class: 'form-control form-control-lg', id: 'session_password', placeholder: 'パスワード' , style: "width:100%"%>     
+        </div>       
+        <%= f.submit 'サインイン', class: 'btn btn-primary btn-lg btn-block'%>
+    <% end %>
+    <p></p>
+    <%= link_to 'パスワードを忘れた方', new_password_reset_path %>
 </div>

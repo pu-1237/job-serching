@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     collection do
       get 'entries'
       get 'payments'
-      get 'payments/:year/:month' => 'events#list',
+      get 'payments/:year/:month' => 'accounts#list',
       :constraints => { :year => /\d{4}/, :month => /\d{2}/ }
     end
   end

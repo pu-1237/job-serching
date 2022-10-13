@@ -162,7 +162,8 @@ p#step {
 
 .jumbotron-extend {
   min-height: 100vh;
-  background: image-url('background.jpg');
+  /* background: image-url('background.jpg'); */
+  background-color: #EEEEEE;
 }
 
 .calendar {
@@ -193,4 +194,20 @@ p#step {
 }
 .alert-success {
   margin-top: 50px;
+}
+
+/* ヘッダー */
+a.navbar-brand.mb-0.h1{
+  font-size:150%;
+  padding-top: 7px;
+}
+#nav-linkDropdown.nav-link {
+  color:white; 
+  font-size: 120%;
+  padding-top: 10px;
+}
+#nav-linkDropdown.nav-link.btn.btn-outline-secondary {
+  color:white; 
+  font-size: 120%;
+  padding-top: 8px;
 }

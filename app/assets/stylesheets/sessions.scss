@@ -1,0 +1,17 @@
+
+/* 入力フォームのサイズを調整する */
+input[type="text"] {
+    /* width: 200px; */
+    height: 50px;
+}
+
+input[type="password"] {
+    /* width: 200px; */
+    height: 50px;
+}
+
+/* 画像を中央寄せにする */
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }  
