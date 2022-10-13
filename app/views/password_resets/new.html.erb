@@ -1,9 +1,10 @@
 <br>
 <div class="col-md-4 offset-md-4">
-<h3>パスワード再設定リクエストを送る</h3><br>
-<p>登録中のEメールアドレス:</p>
+<h3>パスワード再設定リクエスト</h3><br>
     <%= form_for(:password_reset, url: password_resets_path) do |f| %>
-        <%= f.email_field :email, class: 'form-control' %>
+        <%= f.email_field :email, class: 'form-control', placeholder: '登録中のメールアドレス' %>
+        <div class="text-right">
         <%= f.submit "送信する", class: 'btn btn-primary' %>
+        </div>
     <% end %>
 </div>

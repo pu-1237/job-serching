@@ -1,6 +1,6 @@
 <div>
     <div class="col-md-6 offset-md-3">
-        <p><td><%= link_to "写真を追加する", [@user, :images], class: 'btn btn-primary' %></td></p>
+        <td><%= link_to "その他写真", [@user, :images], class: 'btn btn-primary' %></td>
         <%= render partial: 'layouts/error_messages', locals: { t: @user } %>
             <table class= "table table-hover table-bordered">
                 <tbody>
@@ -14,6 +14,9 @@
                         <td><% if @user.profile_picture.attached? %>
                                 <%= image_tag @user.profile_picture.variant(resize_to_fill: [128, 128]) %>
                             <% end %>
+                        </td>
+                        <td>
+                            <%= link_to '編集', edit_account_path(id: @user, edit: 'picture'),class: 'btn btn-outline-primary' %>
                         </td>
                     </tr>
                     <tr>

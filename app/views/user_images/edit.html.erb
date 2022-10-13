@@ -1,7 +1,7 @@
 <% url = user_image_path(@user, @image) %>
 
 <div class="col-md-4 offset-md-4"> 
-<h2 class="text-center pt-5"> その他写真を変更 </h2>
+<h2 class="text-center pt-5"> 写真を変更 </h2>
 <%= form_for @image, as: "image", url: url do |f| %>
     <%= f.file_field :new_data%>
     <div class="text-right">
