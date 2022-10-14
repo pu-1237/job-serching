@@ -11,20 +11,22 @@
         <div class="carousel-item active">
         <%= image_tag "image_1.png", class: "d-block w-100"%>
             <!-- ここに文字部分を記述 -->
-            <div class="carousel-caption d-none d-block">
-            <h1 class="carousel-h1">First slide label</h1>
-            <p class="carousel-p">Test</p>
-            <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-danger btn-lg', id: 'link_to' %>
+            <div class="carousel-caption d-none d-block", id='carousel-1'>
+                    <p class="text-left" id="rb">コンサート・イベントアルバイト</p>
+                    <h1 class="carousel-h1 text-left">Job Serch</h1>
+            <p class="carousel-p text-left">感動と興奮、熱気にあふれる仕事</p>
+            <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-primary btn-lg', id: 'link_to' %>
             </div>
         </div>
         <div class="carousel-item">
         <%= image_tag "image_2.png", class: "d-block w-100"%>
             <div class="carousel-caption d-none d-block">
-            <h1 class="carousel-h1">Second slide label</h1>
-            <p class="carousel-p">Test</p>
+            <h1 class="carousel-h1-2">Second slide label</h1>
+            <p class="carousel-p-2">Test</p>
             <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-danger btn-lg', id: 'link_to' %>
             </div>
         </div>
+                <!-- 
         <div class="carousel-item">
         <%= image_tag "image_3.png" , class: "d-block w-100"%>
             <div class="carousel-caption d-none d-block">
@@ -33,6 +35,7 @@
             <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-danger btn-lg', id: 'link_to' %>
             </div>
         </div>
+        -->
     </div>
     <!-- 画像遷移のボタンを記述 -->
     <a href="#sample" class="carousel-control-prev" data-slide="prev">

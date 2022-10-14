@@ -2,55 +2,54 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
+/* アカウント編集画面 */
 input#image_new_data {
     width: 100%;
 }
-input#user_email.form-control{
+input#user_email.form-control.account-edit{
     width: 100%;
 }
-input#user_prefecture_code.form-control{
+input#user_prefecture_code.form-control.account-edit{
     width: 100%;
 }
-input#user_address_city.form-control{
+input#user_address_city.form-control.account-edit{
     width: 100%;
 }
-input#user_address_street.form-control{
+input#user_address_street.form-control.account-edit{
     width: 100%;
 }
 @media (min-width: 980px){
-    input#user_address_city.form-control{
+    input#user_address_city.form-control.account-edit{
         width: 400px;
     }
-    input#user_address_street.form-control {
+    input#user_address_street.form-control.account-edit {
         width: 400px;
     }
 }
 @media (min-width: 580px){
-    input#user_address_city.form-control{
+    input#user_address_city.form-control.account-edit{
         width: 300px;
     }
-    input#user_address_street.form-control {
+    input#user_address_street.form-control.account-edit {
         width: 300px;
     }
 }
 
-input#user_station.form-control{
+input#user_station.form-control.account-edit{
     width: 100%;
 }
 
-input#user_number.form-control{
+input#user_number.form-control.account-edit{
     width: 100%;
 }
 
-input#user_postcode.form-control{
+input#user_postcode.form-control.account-edit{
     width: 100%;
 }
 
-input#user_password.form-control{
+input#user_password.form-control.account-edit{
     width: 100%;
 }
-input#user_password_confirmation.form-control{
+input#user_password_confirmation.form-control.account-edit{
     width: 100%;
 }
-

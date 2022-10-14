@@ -177,7 +177,7 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 保存する
+      create: 登録する
       submit: 保存する
       update: 保存する
   number:

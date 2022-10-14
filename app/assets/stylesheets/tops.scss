@@ -2,17 +2,41 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.carousel-caption {
-    top: 45%;
+div#carousel-1.carousel-caption.d-none.d-block{
+    top: 20%;
 }
-.carousel-h1 {
-    font-size: 4vw;
+.carousel-caption {
+    top: 40%;
+}
+h1.carousel-h1 {
+    font-size: 5vw;
+    line-height: 0.8;
+    color: #444444;
+}
+
+p#rb {
+    font-size: 1.5vw;
+    line-height: 0;
+    color: #444444;
 }
 .carousel-p {
-    font-size: 3vw;    /* 文字サイズ指定 */
+    font-size: 2vw;
+    line-height: 4;
+    color: #444444;
 }
 #link_to {
     font-size: 1.7vw;
+}
+
+h1.carousel-h2 {
+    font-size: 5vw;
+    line-height: 0.8;
+    color: white;
+}
+.carousel-p-2 {
+    font-size: 2vw;
+    line-height: 4;
+    color: white;
 }
 
 /* カルーセル */
@@ -51,4 +75,8 @@ body{
     .carousel-indicators {
         visibility: hidden;
     }
+}
+
+.navbar-inner {
+    background:transparent;
 }

@@ -1,7 +1,7 @@
 <div>
     <div class="col-md-6 offset-md-3">
         <h2 class="text-center pt-5"> 案件登録フォーム</h2>
-        <hr width="750" align="left">
+        <hr width="100%">
         <h2 class="text-left pt-5"> 必要事項をご記入ください </h2>
         <%= render partial: 'layouts/error_messages', locals: { t: @event } %>
         <%= render partial: 'form', locals: { event: @event } %>

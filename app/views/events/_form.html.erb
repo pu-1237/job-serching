@@ -15,15 +15,15 @@
         </tr>
         <tr>
             <td><%= f.label :wages %></td>
-            <td><%= f.number_field :wages, class: 'form-control', id: 'event_wages' %> 円</td>
+            <td><%= f.number_field :wages, class: 'form-control', id: 'event_wages' %> </td>
         </tr>
         <tr>
             <td><%= f.label :allowance %></td>
-            <td><%= f.number_field :allowance, class: 'form-control', id: 'event_allowance' %> 円</td>
+            <td><%= f.number_field :allowance, class: 'form-control', id: 'event_allowance' %> </td>
         </tr>
         <tr>
             <td><%= f.label :limit %></td>
-            <td><%= f.number_field :limit, class: 'form-control', id: 'event_limit' %> 人</td>
+            <td><%= f.number_field :limit, class: 'form-control', id: 'event_limit' %> </td>
         </tr>
         <tr>
             <td><%= f.label :remark %></td>
@@ -43,5 +43,7 @@
         </tr>
     </tbody>
 </table>
-<%= f.submit nil, class: 'btn btn-primary js-event-create-btn' %>
+<div class="text-right">
+<%= f.submit '登録する', class: 'btn btn-primary btn-lg js-event-create-btn rounded-pill' %>
+</div>
 <% end %>  
