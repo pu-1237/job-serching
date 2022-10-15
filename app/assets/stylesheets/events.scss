@@ -1,6 +1,8 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* カレンダー */
 .calendar-container {
     padding-left:  120px;
     padding-right: 120px;
@@ -37,7 +39,6 @@
 }
 
 /* form修正*/
-
 input#event_title.form-control{
     width: 20em;
 }
@@ -67,4 +68,36 @@ input#event_remark.form-control{
 
 input#event_discription.form-control{
     width: 10em;
+}
+@media (max-width: 480px){
+    input#event_title.form-control{
+        width: 100%;
+    }
+
+    input#event_description.form-control{
+        width: 100%;
+    }
+
+    input#event_place.form-control{
+        width: 100%;
+    }
+
+    input#event_wages.form-control{
+        width: 10em;
+    }
+
+    input#event_allowance.form-control{
+        width: 10em;
+    }
+
+    input#event_limit.form-control{
+        width: 10em;
+    }
+    input#event_remark.form-control{
+        width: 100%;
+    }
+
+    input#event_discription.form-control{
+        width: 100%;
+    }
 }

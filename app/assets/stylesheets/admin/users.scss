@@ -8,7 +8,37 @@ select#user_birthday_1i {
     margin-bottom: 10px;
 }
 
-@media (max-width: 580px){
+@media (max-width: 480px){
+    input#user_new_profile_picture.file-form{
+        width:100%;
+    }
+    input#user_last_name.form-control.form_inline{
+        width: 100%;
+    }
+    input#user_first_name.form-control{
+        width: 100%;
+    }
+    input#user_last_name_kana.form-control{
+        width: 100%;
+    }
+    input#user_first_name_kana.form-control{
+        width: 100%;
+    }
+    td#select{
+        width: 100%;
+    }
+    input#email.form-control{
+        width: 100%;
+    }
+    input#number.form-control{
+        width: 100%;
+    }
+    input#user_prefecture_code.form-control{
+        width: 100%;
+    }
+    input#user_address_city.form-control{
+        width: 100%;
+    }
     input#user_address_street.form-control{
         width: 100%;
     }
