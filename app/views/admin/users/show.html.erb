@@ -2,7 +2,7 @@
     <div class="col-md-6 offset-md-3">
             <div class="nav justify-content-end"> 
                 <%= link_to '編集', edit_admin_user_path(@user), class: 'btn btn-primary' %>
-                <%= link_to '削除', admin_user_path(@user), method: :delete, data: {confirm: "ユーザー「#{@user.full_name}」を削除してよろしいですか？"}, class: 'btn btn-primary' %>
+                <%= link_to '削除', admin_user_path(@user), method: :delete, data: {confirm: "ユーザー「#{@user.full_name}」を削除してよろしいですか？"}, class: 'btn btn-danger' %>
             </div>
                 <table class= "table table-hover table-bordered">
                     <tbody>

@@ -2,44 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-div#carousel-1.carousel-caption.d-none.d-block{
-    top: 20%;
-}
-.carousel-caption {
-    top: 40%;
-}
-h1.carousel-h1 {
-    font-size: 5vw;
-    line-height: 0.8;
-    color: #444444;
-}
-
-p#rb {
-    font-size: 1.5vw;
-    line-height: 0;
-    color: #444444;
-}
-.carousel-p {
-    font-size: 2vw;
-    line-height: 4;
-    color: #444444;
-}
-#link_to {
-    font-size: 1.7vw;
-}
-
-h1.carousel-h2 {
-    font-size: 5vw;
-    line-height: 0.8;
-    color: white;
-}
-.carousel-p-2 {
-    font-size: 2vw;
-    line-height: 4;
-    color: white;
-}
-
-/* カルーセル */
+/* カルーセル全体の配置 */
 body{
     margin: 0px;
     padding: 0px;
@@ -77,6 +40,57 @@ body{
     }
 }
 
-.navbar-inner {
-    background:transparent;
+/* カルーセルの文字1 */
+
+div#carousel-1.carousel-caption.d-none.d-block{
+    top: 20%;
+    left: 10%;
 }
+#rb-1 {
+    font-size: 2vw;
+    line-height: 0;
+    color: #444444;
+}
+#h1-1 {
+    font-size: 7vw;
+    line-height: 0.8;
+    color: #444444;
+}
+#p-1 {
+    font-size: 3vw;
+    line-height: 4;
+    color: #444444;
+}
+div#carousel-1-link_to.carousel-caption.d-none.d-block{
+    top:60%
+}
+#link_to-1 {
+    font-size: 1.7vw;
+}
+
+/* カルーセルの文字2 */
+div#carousel-2.carousel-caption.d-none.d-block{
+    top: 20%;
+}
+#rb-2 {
+    font-size: 2vw;
+    line-height: 0;
+    color: white;
+}
+#h1-2 {
+    font-size: 7vw;
+    line-height: 0.8;
+    color: white;
+}
+#p-2 {
+    font-size: 3vw;
+    line-height: 4;
+    color: white;
+}
+div#carousel-2-link_to.carousel-caption.d-none.d-block{
+    top:60%
+}
+#link_to-2 {
+    font-size: 1.7vw;
+}
+

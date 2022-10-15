@@ -4,7 +4,7 @@
     <ol class="carousel-indicators">
         <li data-target="#sample" data-slide-to="0" class="active"></li>
         <li data-target="#sample" data-slide-to="1"></li>
-        <li data-target="#sample" data-slide-to="2"></li>
+        <!-- li data-target="#sample" data-slide-to="2"></li -->
     </ol>
     <!-- ここに画像部分を記述 -->
     <div class="carousel-inner">
@@ -12,18 +12,23 @@
         <%= image_tag "image_1.png", class: "d-block w-100"%>
             <!-- ここに文字部分を記述 -->
             <div class="carousel-caption d-none d-block", id='carousel-1'>
-                    <p class="text-left" id="rb">コンサート・イベントアルバイト</p>
-                    <h1 class="carousel-h1 text-left">Job Serch</h1>
-            <p class="carousel-p text-left">感動と興奮、熱気にあふれる仕事</p>
-            <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-primary btn-lg', id: 'link_to' %>
+                <p class="text-left" id="rb-1">コンサート・イベントアルバイト</p>
+                <h1 class="text-left" id="h1-1">Job Serch</h1>
+                <p class="text-left" id="p-1">感動と興奮、熱気にあふれる仕事</p>
+            </div>
+            <div class="carousel-caption d-none d-block", id='carousel-1-link_to'>
+                <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-primary btn-lg', id: 'link_to-1' %>
             </div>
         </div>
         <div class="carousel-item">
         <%= image_tag "image_2.png", class: "d-block w-100"%>
-            <div class="carousel-caption d-none d-block">
-            <h1 class="carousel-h1-2">Second slide label</h1>
-            <p class="carousel-p-2">Test</p>
-            <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-danger btn-lg', id: 'link_to' %>
+            <div class="carousel-caption d-none d-block", id='carousel-2'>
+                <p class="text-right" id="rb-2">コンサート・イベントアルバイト</p>
+                <h1 class="text-right" id="h1-2">Job Serch</h1>
+                <p class="text-right" id="p-2">最高の舞台に向けて</p>
+            </div>
+            <div class="carousel-caption d-none d-block", id='carousel-2-link_to'>
+                <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-primary btn-lg', id: 'link_to-2' %>
             </div>
         </div>
                 <!-- 
