@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     helper_method :current_user
-    before_action :login_required, except: [:top], if: :use_before_action?
+    before_action :login_required, if: :use_before_action?
     before_action :set_locale
 
     class Forbidden < StandardError; end

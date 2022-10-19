@@ -50,6 +50,36 @@
         <span class="sr-only">次の画像へ</span>
     </a>
 </div>
+<div class="News">
+<div class="col-md-6 offset-md-3">
+    <h2>お知らせ</h2>
+    <table class="table table-hover">
+        <thead> 
+            <tr>
+                <th>
+                    <%= '日付' %> 
+                </th>
+                <th>
+                    <%= 'タイトル' %>
+                </th>
+            </tr>
+        </thead>
+        <tbody> 
+            <% @news.last(5).reverse_each do |news| %>
+                <tr> 
+                    <td>
+                        <%= news.created_at.strftime('%Y/%m/%d') %>
+                    </td>
+                    <td>
+                        <%= link_to news.title, news %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <%= link_to 'ニュース一覧', news_index_path%>
+</div>
+</div>
 
 
 

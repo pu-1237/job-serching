@@ -157,3 +157,11 @@ for i in 2..6 do
         end
     end
 end
+
+# News登録
+10.times do |n|
+    News.create!(
+        title: "[NEWS] 当社ウェブサイトをリニューアルいたしました。#{n+1}",
+        text: 'なし'
+    )
+end

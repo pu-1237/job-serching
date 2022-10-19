@@ -1,0 +1,17 @@
+<%= form_with model: news, local: true do |f| %>
+<table class="table table-bordered" id="form_table">
+    <tbody>
+        <tr>
+            <td><%= f.label :title %></td>
+            <td><%= f.text_field :title, class: 'form-control', id: '' %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :text %></td>
+            <td><%= f.text_area :text, rows: 5, class: 'form-control', id: '' %></td>
+        </tr>
+    </tbody>
+</table>
+<div class="text-right">
+<%= f.submit '登録する', class: 'btn btn-primary btn-lg js-event-create-btn rounded-pill' %>
+</div>
+<% end %>  

@@ -1,0 +1,29 @@
+
+<div class="col-md-6 offset-md-3"> 
+    <div class="nav justify-content-end">
+        <% if current_user&.admin? %>
+            <%= link_to '編集', edit_news_path, class: 'btn btn-primary' %>
+            <%= link_to '削除', @news, method: :delete, data: { confirm: "このニュースを削除しますか？"}, class: 'btn btn-danger' %> 
+        <% end %>
+    </div>
+    <table class="table table-bordered table-hover"> 
+        <tbody> 
+            <tr>
+                <td>
+                    タイトル
+                </td>
+                <td>
+                    <%= @news.title %> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    詳細
+                </td>
+                <td>
+                    <%= @news.text %> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

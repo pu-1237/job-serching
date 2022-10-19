@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   root 'tops#index'
 
+  resources :news
+
   namespace :admin do
     resources :users
   end
@@ -53,5 +55,4 @@ Rails.application.routes.draw do
       get 'sent'
     end
   end
-  
 end

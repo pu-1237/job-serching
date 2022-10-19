@@ -37,6 +37,12 @@
     <%end%>
     <% if current_user == nil %>
       <li class="nav-item">
+        <%= link_to '業務紹介', '#', class: 'nav-link', id: 'nav-linkDropdown'%>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'アクセス', '#', class: 'nav-link', id: 'nav-linkDropdown'%>
+      </li>
+      <li class="nav-item">
         <%= link_to 'Sing up', step1_registration_path, class: 'nav-link btn btn-outline-secondary', id: 'nav-linkDropdown'%>
       </li>
       <li class="nav-item">

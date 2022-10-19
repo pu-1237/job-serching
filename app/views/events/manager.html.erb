@@ -1,16 +1,18 @@
 <div> 
     <div class="col-md-6 offset-md-3"> 
-            <%= search_form_for @q, url: "manager", class: 'mb-5 form-inline' do |f| %>
-                <div class="col-som-10">
-                    <%= f.search_field :id_eq, class: 'form-control', placeholder: 'id'  %>
-                </div>
-                <div class="col-som-10">
-                    <%= f.search_field :title_cont, class: 'form-control', placeholder: 'タイトル'  %>
-                </div>
-                <div class="form-group">
-                    <%= f.submit class: 'btn btn-outline-primary' %>
-                </div>
-            <% end %>
+        <%# 検索機能 %>
+        <%= search_form_for @q, url: "manager", class: 'mb-5 form-inline' do |f| %>
+            <div class="col-som-10">
+                <%= f.search_field :id_eq, class: 'form-control', placeholder: 'id'  %>
+            </div>
+            <div class="col-som-10">
+                <%= f.search_field :title_cont, class: 'form-control', placeholder: 'タイトル'  %>
+            </div>
+            <div class="form-group">
+                <%= f.submit class: 'btn btn-outline-primary' %>
+            </div>
+        <% end %>
+        <%# テーブル %>
         <div class="text-center">
             <h3><%= @month.strftime("%Y年%m月") %></h3>
         </div>
