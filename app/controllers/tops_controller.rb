@@ -3,4 +3,7 @@ class TopsController < ApplicationController
     def index
         @news = News.all
     end
+    def business
+
+    end
 end

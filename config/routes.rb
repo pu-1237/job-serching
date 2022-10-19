@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   root 'tops#index'
+  get 'business', to:'tops#business'
+
 
   resources :news
 

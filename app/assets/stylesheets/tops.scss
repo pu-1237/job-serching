@@ -37,17 +37,17 @@ div#carousel-1.carousel-caption.d-none.d-block{
 #rb-1.text-left {
     font-size: 2vw;
     line-height: 0;
-    color: #444444;
+    color: white;
 }
 #h1-1.text-left {
     font-size: 7vw;
     line-height: 0.8;
-    color: #444444;
+    color: white;
 }
 #p-1.text-left {
     font-size: 3vw;
     line-height: 4;
-    color: #444444;
+    color: white;
 }
 div#carousel-1-link_to.carousel-caption.d-none.d-block{
     top:60%
@@ -101,4 +101,31 @@ div#carousel-2-link_to.carousel-caption.d-none.d-block{
         font-size: 3vw;
         line-height: 1;
     }
+}
+
+/* 業務紹介 */
+div#business.carousel-caption.d-none.d-block{
+    top: 40%;
+}
+h1#business.text-left {
+    font-size: 4vw;
+    line-height: 0.8;
+    color: white;
+}
+hr#business {
+    width: 40%;
+    text-align:left;
+    margin-left:0px;
+    border-style: none;
+    border-top: 2px solid white;
+}
+p#business.text-left {
+    font-size: 1.7vw;
+    line-height: 2;
+    color: white;
+}
+p#business-p2.text-left {
+    font-size: 1.7vw;
+    line-height: 0;
+    color: white;
 }
