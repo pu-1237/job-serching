@@ -161,7 +161,8 @@ end
 # News登録
 10.times do |n|
     News.create!(
-        title: "[NEWS] 当社ウェブサイトをリニューアルいたしました。#{n+1}",
-        text: 'なし'
+        title: "[NEWS] 当社ウェブサイトをリニューアルいたしました。(#{n+1})",
+        text: "1行目\n 2行目"
+        
     )
 end

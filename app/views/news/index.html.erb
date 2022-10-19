@@ -1,12 +1,9 @@
-
 <div class="col-md-6 offset-md-3">
     <h2>お知らせ</h2>
+    <hr>
     <table class="table table-hover">
         <thead> 
         <tr>
-                <th>
-                    <%= sort_link(@q, :id) %> 
-                </th>
                 <th>
                     <%= '日付' %> 
                 </th>
@@ -19,9 +16,6 @@
             <% @news.each do |news| %>
                 <tr> 
                     <td>
-                        <%= news.id %>
-                    </td>
-                    <td>
                         <%= news.created_at.strftime('%Y/%m/%d') %>
                     </td>
                     <td>
@@ -32,3 +26,8 @@
         </tbody>
     </table>
     <%= paginate @news %>
+    <div class="nav justify-content-end">
+        <% if current_user&.admin? %>
+            <%= link_to '追加', new_news_path, class: 'btn btn-primary' %>
+        <% end %>
+    </div>

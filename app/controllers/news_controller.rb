@@ -18,7 +18,7 @@ class NewsController < ApplicationController
         @news = News.new(news_params)
     
         if @news.save
-            redirect_to news_path, notice: "ニュース「#{@news.title}」を登録しました。"
+            redirect_to news_index_path, notice: "ニュース「#{@news.title}」を登録しました。"
         else
             render :new
         end

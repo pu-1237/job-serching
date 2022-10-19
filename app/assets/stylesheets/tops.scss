@@ -15,6 +15,18 @@ body{
     right: 0px;
     overflow-y: auto;
 }
+div.News {
+    padding-top: 80px;
+}
+div.access {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+hr#top {
+    width: 100%;
+    border-style: none;
+    border-top: 2px solid black;
+}
 
 /* カルーセルの文字1 */
 

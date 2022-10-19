@@ -41,6 +41,10 @@ ja:
         start: 開始日時
         end: 終了日時
         deadline: 応募期限
+      news:
+        title: タイトル
+        text: 詳細
+
       
   date:
     abbr_day_names:
