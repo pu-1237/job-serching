@@ -113,31 +113,35 @@ User.find_or_create_by!(email: 'user_saitou@example.com') do |user|
 
 end
 
+
 # イベント登録
 60.times do |n|
+    random = Random.new(88)
+    places = ['東京ドーム','埼玉スーパーアリーナ','代々木第一体育館','横浜アリーナ']
+    descriptions = ['搬入','搬出','イベント運営','グッズ販売']
     unless (n % 4 == 0 or n % 9 == 0)
         Event.create!(
             title: "サンプル#{n + 1}",
-            description: '詳細',
+            description: descriptions.sample,
             wages: 1000,
-            start: DateTime.now.beginning_of_day + (n - 29).day,
-            end: DateTime.now.beginning_of_day + (n - 29).day + 8.hour,
+            start: DateTime.now.beginning_of_day + (n - 29).day - 14.hour,
+            end: DateTime.now.beginning_of_day + (n - 29).day - 14.hour + 8.hour,
             limit: 5,
             deadline: DateTime.now.beginning_of_day + (n - 30).day,
-            place: '場所',
+            place: places.sample,
             allowance: 2000,
             remark: 'なし'
         )
     else
         Event.create!(
             title: "サンプル#{n + 1}",
-            description: '詳細',
+            description: descriptions[random.rand(3)],
             wages: 1000,
-            start: DateTime.now.beginning_of_day + (n - 28).day,
-            end: DateTime.now.beginning_of_day + (n - 28).day + 8.hour,
+            start: DateTime.now.beginning_of_day + (n - 28).day - 14.hour,
+            end: DateTime.now.beginning_of_day + (n - 28).day - 14.hour + 8.hour,
             limit: 5,
             deadline: DateTime.now.beginning_of_day + (n - 29).day,
-            place: '場所',
+            place: places[random.rand(2)],
             allowance: 2000,
             remark: 'なし'
         )
@@ -160,9 +164,17 @@ end
 
 # News登録
 10.times do |n|
-    News.create!(
-        title: "[NEWS] 当社ウェブサイトをリニューアルいたしました。(#{n+1})",
-        text: "1行目\n 2行目"
-        
-    )
+    if n == 9
+        News.create!(
+            title: "[News]当社ウェブサイトをリニューアルいたしました。",
+            text: "この度、お客様ににより快適にご利用いただけるよう、ページ構成ならびにサイトデザインの見直しを実施いたしました。\n
+            今後も、よりいっそう内容を充実させると共に、利便性の向上に努めてまいります。\n
+            一層のご愛顧を賜りますようよろしくお願いいたします。"
+        )
+    else
+        News.create!(
+            title: "ニュースその#{n+1}",
+            text: "1行目\n2行目\n3行目"
+        )    
+    end
 end

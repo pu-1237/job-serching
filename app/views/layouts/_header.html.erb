@@ -37,6 +37,9 @@
     <%end%>
     <% if current_user == nil %>
       <li class="nav-item">
+        <%= link_to 'アクセス', root_url(anchor: 'access'), class: 'nav-link', id: 'nav-linkDropdown'%>
+      </li>
+      <li class="nav-item">
         <%= link_to '業務紹介', business_url, class: 'nav-link', id: 'nav-linkDropdown'%>
       </li>
       <li class="nav-item">

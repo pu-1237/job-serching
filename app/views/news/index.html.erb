@@ -1,17 +1,7 @@
 <div class="col-md-6 offset-md-3">
     <h2>お知らせ</h2>
     <hr>
-    <table class="table table-hover">
-        <thead> 
-        <tr>
-                <th>
-                    <%= '日付' %> 
-                </th>
-                <th>
-                    <%= 'タイトル' %>
-                </th>
-            </tr>
-        </thead>
+    <table class="table table-hover" id='news_index'>
         <tbody> 
             <% @news.each do |news| %>
                 <tr> 
