@@ -20,6 +20,3 @@ module LookForWork
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
-
-# For Heroku
-config.assets.initialize_on_precompile = false
