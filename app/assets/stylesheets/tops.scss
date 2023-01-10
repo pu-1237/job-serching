@@ -92,7 +92,6 @@ div#carousel-2-link_to.carousel-caption.d-none.d-block{
         font-size: 3vw;
         line-height: 0;
         color: white;
-        visibility: hidden;
     }
     #h1-1.text-left {
         font-size: 20vw;
@@ -111,7 +110,6 @@ div#carousel-2-link_to.carousel-caption.d-none.d-block{
         font-size: 3vw;
         line-height: 0;
         color: white;
-        visibility: hidden;
     }
     #h1-2.text-left {
         font-size: 20vw;
@@ -240,7 +238,7 @@ hr#last {
         display: flex;
         flex-direction: column;
         margin-top:60px;
-        padding: 0px;
+        padding:0px;
     }
     .PC_Flex_container a{
         width: 50%;
