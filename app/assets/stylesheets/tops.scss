@@ -35,18 +35,13 @@ div#carousel-1.carousel-caption.d-none.d-block{
     left: 10%;
 }
 #rb-1.text-left {
-    font-size: 2vw;
+    font-size: 3vw;
     line-height: 0;
     color: white;
 }
 #h1-1.text-left {
-    font-size: 7vw;
+    font-size: 20vw;
     line-height: 0.8;
-    color: white;
-}
-#p-1.text-left {
-    font-size: 3vw;
-    line-height: 4;
     color: white;
 }
 div#carousel-1-link_to.carousel-caption.d-none.d-block{
@@ -59,20 +54,16 @@ div#carousel-1-link_to.carousel-caption.d-none.d-block{
 /* カルーセルの文字2 */
 div#carousel-2.carousel-caption.d-none.d-block{
     top: 20%;
+    left: 10%;
 }
-#rb-2.text-right {
-    font-size: 2vw;
+#rb-2.text-left {
+    font-size: 3vw;
     line-height: 0;
     color: white;
 }
-#h1-2.text-right {
-    font-size: 7vw;
+#h1-2.text-left {
+    font-size: 20vw;
     line-height: 0.8;
-    color: white;
-}
-#p-2.text-right {
-    font-size: 3vw;
-    line-height: 4;
     color: white;
 }
 div#carousel-2-link_to.carousel-caption.d-none.d-block{
@@ -93,13 +84,45 @@ div#carousel-2-link_to.carousel-caption.d-none.d-block{
     .carousel-indicators {
         visibility: hidden;
     }
-    #p-1.text-left {
-        font-size: 3vw;
-        line-height: 1;
+    div#carousel-1.carousel-caption.d-none.d-block{
+        top: 0%;
+        left: 10%;
     }
-    #p-2.text-right {
+    #rb-1.text-left {
         font-size: 3vw;
-        line-height: 1;
+        line-height: 0;
+        color: white;
+        visibility: hidden;
+    }
+    #h1-1.text-left {
+        font-size: 20vw;
+        line-height: 0.8;
+        color: white;
+    }
+    #link_to-1 {
+        font-size: 1.7vw;
+    }
+    
+    /* カルーセルの文字2 */
+    div#carousel-2.carousel-caption.d-none.d-block{
+        top: 0%;
+    }
+    #rb-2.text-left {
+        font-size: 3vw;
+        line-height: 0;
+        color: white;
+        visibility: hidden;
+    }
+    #h1-2.text-left {
+        font-size: 20vw;
+        line-height: 0.8;
+        color: white;
+    }
+    div#carousel-2-link_to.carousel-caption.d-none.d-block{
+        top:60%
+    }
+    #link_to-2 {
+        font-size: 1.7vw;
     }
 }
 
@@ -192,4 +215,35 @@ div.row.featurette {
 hr#last {
     margin-top: 80px;
     margin-bottom: 60px;
+}
+
+/* ボタンの調整　*/
+.w-300px {width: 300px !important;}
+.h-80px {height: 80px !important;}
+
+.entry-btn {
+    margin-top:100px;
+    margin-bottom:50px;}
+
+.PC_Flex_container{
+    display: flex;
+    justify-content: space-around;
+}
+.PC_Flex_container a{
+    display: block;
+    margin-top:100px;
+    border: 3px solid #444;
+}
+
+@media screen and (max-width:900px){
+    .PC_Flex_container{
+        display: flex;
+        flex-direction: column;
+        margin-top:60px;
+        padding: 0px;
+    }
+    .PC_Flex_container a{
+        width: 50%;
+        margin: 10px auto;
+    }
 }

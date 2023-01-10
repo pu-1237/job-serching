@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top p-3">
+<nav class="navbar navbar-expand-md navbar-dark bg-info fixed-top p-3">
   <a class="navbar-brand mb-0 h1" href="/">Job Serch</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,46 +7,46 @@
   <ul class="navbar-nav">
     <% if current_user&.admin %>
       <li class="nav-item">
-        <%= link_to '案件一覧', events_path, class: 'nav-link', id: 'nav-linkDropdown' %>
+        <%= link_to 'INDEX', events_path, class: 'nav-link', id: 'nav-linkDropdown' %>
       </li>
       <li class="nav-item">
-        <%= link_to '案件管理', manager_events_path, class: 'nav-link', id: 'nav-linkDropdown'%>
+        <%= link_to 'EVENT', manager_events_path, class: 'nav-link', id: 'nav-linkDropdown'%>
       </li>
       <li class="nav-item">
-        <%= link_to 'ユーザー管理', admin_users_path, class: 'nav-link', id: 'nav-linkDropdown'%>
+        <%= link_to 'USER', admin_users_path, class: 'nav-link', id: 'nav-linkDropdown'%>
       </li>
       <li class="nav-item">
-        <%= link_to 'Sign out', logout_path, method: :delete, class: 'nav-link btn btn-outline-secondary', id: 'nav-linkDropdown'%>
+        <%= link_to 'Log Out', logout_path, method: :delete, class: 'nav-link btn btn-outline-secondary', id: 'nav-linkDropdown'%>
       </li>
     <% elsif current_user %>
       <li class="nav-item">
-        <%= link_to '案件一覧', events_path, class: 'nav-link', id: 'nav-linkDropdown'%>
+        <%= link_to 'INDEX', events_path, class: 'nav-link', id: 'nav-linkDropdown'%>
       </li>
       <li class="nav-item">
-        <%= link_to '申し込み一覧', entries_accounts_path, class: 'nav-link', id: 'nav-linkDropdown'%>
+        <%= link_to 'MYLIST', entries_accounts_path, class: 'nav-link', id: 'nav-linkDropdown'%>
       </li>
       <li class="nav-item">
-        <%= link_to '給与明細', payments_accounts_path, class: 'nav-link', id: 'nav-linkDropdown'%>
+        <%= link_to 'SALARY', payments_accounts_path, class: 'nav-link', id: 'nav-linkDropdown'%>
       </li>
       <li class="nav-item">
-        <%= link_to 'アカウント', accounts_path, class: 'nav-link', id: 'nav-linkDropdown'%>
+        <%= link_to 'ACCOUNT', accounts_path, class: 'nav-link', id: 'nav-linkDropdown'%>
       </li>
       <li class="nav-item">
-        <%= link_to 'Sign out', logout_path, method: :delete, class: 'nav-link btn btn-outline-secondary', id: 'nav-linkDropdown'%>
+        <%= link_to 'Log Out', logout_path, method: :delete, class: 'nav-link btn btn-outline-secondary', id: 'nav-linkDropdown'%>
       </li>
     <%end%>
     <% if current_user == nil %>
       <li class="nav-item">
-        <%= link_to 'アクセス', root_url(anchor: 'access'), class: 'nav-link', id: 'nav-linkDropdown'%>
+        <%= link_to 'ACCESS', root_url(anchor: 'access'), class: 'nav-link', id: 'nav-linkDropdown'%>
       </li>
       <li class="nav-item">
-        <%= link_to '業務紹介', business_url, class: 'nav-link', id: 'nav-linkDropdown'%>
+        <%= link_to 'BUSINESS', business_url, class: 'nav-link', id: 'nav-linkDropdown'%>
       </li>
       <li class="nav-item">
-        <%= link_to 'Sing up', step1_registration_path, class: 'nav-link btn btn-outline-secondary', id: 'nav-linkDropdown'%>
+        <%= link_to 'ENTRY', step1_registration_path, class: 'nav-link btn btn-outline-secondary', id: 'nav-linkDropdown'%>
       </li>
       <li class="nav-item">
-        <%= link_to 'Sing in', login_path, class: 'nav-link btn btn-outline-secondary', id: 'nav-linkDropdown'%>
+        <%= link_to 'MEMBER', login_path, class: 'nav-link btn btn-outline-secondary', id: 'nav-linkDropdown'%>
       </li>
     <% end %>
   </ul>

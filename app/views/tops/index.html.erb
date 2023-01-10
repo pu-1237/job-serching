@@ -12,33 +12,21 @@
         <%= image_tag "image_1.png", class: "d-block w-100"%>
             <!-- ここに文字部分を記述 -->
             <div class="carousel-caption d-none d-block", id='carousel-1'>
-                <p class="text-left" id="rb-1">コンサート・イベントアルバイト</p>
+                <p class="text-left" id="rb-1">アルバイトスタッフの</p>
                 <h1 class="text-left" id="h1-1">Job Serch</h1>
-                <p class="text-left" id="p-1">感動と興奮、熱気にあふれる仕事</p>
             </div>
             <div class="carousel-caption d-none d-block", id='carousel-1-link_to'>
-                <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-primary btn-lg', id: 'link_to-1' %>
             </div>
         </div>
         <div class="carousel-item">
         <%= image_tag "image_2.png", class: "d-block w-100"%>
             <div class="carousel-caption d-none d-block", id='carousel-2'>
-                <p class="text-right" id="rb-2">コンサート・イベントアルバイト</p>
-                <h1 class="text-right" id="h1-2">Job Serch</h1>
-                <p class="text-right" id="p-2">最高の舞台に向けて</p>
+                <p class="text-left" id="rb-2">アルバイトスタッフの</p>
+                <h1 class="text-left" id="h1-2">Job Serch</h1>
             </div>
             <div class="carousel-caption d-none d-block", id='carousel-2-link_to'>
-                <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-primary btn-lg', id: 'link_to-2' %>
             </div>
         </div>
-        <!-- div class="carousel-item">
-        <%= image_tag "image_3.png" , class: "d-block w-100"%>
-            <div class="carousel-caption d-none d-block">
-            <h1 class="carousel-h1">Third slide label</h1>
-            <p class="carousel-p">Test</p>
-            <%= link_to '今すぐサインアップ', step1_registration_path, class: 'btn btn-danger btn-lg', id: 'link_to' %>
-            </div>
-        </div -->
     </div>
     <!-- 画像遷移のボタンを記述 -->
     <a href="#sample" class="carousel-control-prev" data-slide="prev">
@@ -49,6 +37,13 @@
         <span class="carousel-control-next-icon"></span>
         <span class="sr-only">次の画像へ</span>
     </a>
+</div>
+
+<div class="col-md-6 offset-md-3">
+    <ul class="PC_Flex_container">
+        <li><%= link_to 'ENTRY', step1_registration_path ,class:"btn .font-s btn-primary btn-lg rounded-0 w-300px h-80px", style:"font-size: 250%"%></li>
+        <li><%= link_to 'MEMBER', login_path, class:"btn btn-danger btn-lg rounded-0 w-300px h-80px " ,style:"font-size: 250%" %> </li>
+    </ul>
 </div>
 <!-- お知らせ -->
 <div class="News">
@@ -83,15 +78,15 @@
         <tbody> 
             <tr>
                 <td>住所</td>
-                <td>〒171-0043 東京都豊島区要町1-4-12 戸田ビル4F</td>
+                <td>〒XXX-XXXX 東京都◯◯区◯◯町X-X ◯◯ビル</td>
             </tr>
             <tr>
                 <td>電話番号</td>
-                <td>TEL : 080-2237-6638</td>
+                <td>TEL : XX-XXXX-XXXX</td>
             </tr>
             <tr>
                 <td>アクセス</td>
-                <td>池袋駅<br>西口から徒歩15分</td>
+                <td>◯◯駅<br>徒歩15分</td>
             </tr>
             <tr>
                 <td>受付時間</td>
