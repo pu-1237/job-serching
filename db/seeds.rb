@@ -115,7 +115,7 @@ end
 
 
 # イベント登録
-60.times do |n|
+120.times do |n|
     random = Random.new(88)
     places = ['東京ドーム','埼玉スーパーアリーナ','代々木第一体育館','横浜アリーナ']
     descriptions = ['コンサート搬入作業','コンサート搬出作業','イベント運営業務','グッズ販売','イベント警備業務']
@@ -124,10 +124,10 @@ end
             title: descriptions.sample,
             description: descriptions.sample,
             wages: 1000,
-            start: DateTime.now.beginning_of_day + (n - 29).day - 14.hour,
-            end: DateTime.now.beginning_of_day + (n - 29).day - 14.hour + 8.hour,
+            start: DateTime.now.beginning_of_day + (n - 99).day - 14.hour,
+            end: DateTime.now.beginning_of_day + (n - 99).day - 14.hour + 8.hour,
             limit: 5,
-            deadline: DateTime.now.beginning_of_day + (n - 30).day,
+            deadline: DateTime.now.beginning_of_day + (n - 100).day,
             place: places.sample,
             allowance: 2000,
             remark: 'なし'
@@ -137,10 +137,10 @@ end
             title: descriptions[random.rand(3)],
             description: descriptions[random.rand(3)],
             wages: 1000,
-            start: DateTime.now.beginning_of_day + (n - 28).day - 14.hour,
-            end: DateTime.now.beginning_of_day + (n - 28).day - 14.hour + 8.hour,
+            start: DateTime.now.beginning_of_day + (n - 98).day - 14.hour,
+            end: DateTime.now.beginning_of_day + (n - 98).day - 14.hour + 8.hour,
             limit: 5,
-            deadline: DateTime.now.beginning_of_day + (n - 29).day,
+            deadline: DateTime.now.beginning_of_day + (n - 99).day,
             place: places[random.rand(2)],
             allowance: 2000,
             remark: 'なし'
@@ -150,7 +150,7 @@ end
 
 # idを中間テーブルに登録
 for i in 2..6 do
-    for j in 1..60 do
+    for j in 1..120 do
         if j % (i + 1) == 0 
             @event = Event.find(j)
             if @event.deadline < DateTime.now
