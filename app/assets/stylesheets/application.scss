@@ -231,5 +231,10 @@ hr {
 @media (max-width: 480px){
   .logo_area_header {
     width: 200px;
+    margin-bottom:0;
+  }
+  .logo_header{
+    height: 100%;
+    width: 100%;
   }
 }

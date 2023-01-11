@@ -4,13 +4,13 @@ User.find_or_create_by!(email: 'admin@example.com') do |user|
     user.first_name = '太郎'
     user.last_name_kana = 'カンリシャ'
     user.first_name_kana = 'タロウ'
-    user.number = '09000000001'
-    user.postcode = 1111111
+    user.number = '09012345679'
+    user.postcode = 1234567
     user.prefecture_code = 13
-    user.address_city = '豊島区'
-    user.address_street = '池袋'
-    user.station = '池袋駅'
-    user.birthday = Date.today
+    user.address_city = '〇〇区'
+    user.address_street = '〇〇'
+    user.station = '〇〇駅'
+    user.birthday = Date.new(1990, 7, 30)
     user.password = 'password2'
     user.password_confirmation = 'password2'
     user.gender = 'male'
@@ -18,18 +18,18 @@ User.find_or_create_by!(email: 'admin@example.com') do |user|
     user.profile_picture.attach(io: File.open(Rails.root.join('app/assets/images/photo.jpg')),
     filename: 'photo.jpg')
 end
-User.find_or_create_by!(email: 'user_yamada@example.com') do |user|
+User.find_or_create_by!(email: 'user@example.com') do |user|
     user.last_name = '山田'
-    user.first_name = '次郎'
+    user.first_name = '太郎'
     user.last_name_kana = 'ヤマダ'
-    user.first_name_kana = 'ジロウ'
-    user.number = '09000000002'
-    user.postcode = 1111111
+    user.first_name_kana = 'タロウ'
+    user.number = '09012345678'
+    user.postcode = 1234567
     user.prefecture_code = 13
-    user.address_city = '豊島区'
-    user.address_street = '池袋'
-    user.station = '池袋駅'
-    user.birthday = Date.today
+    user.address_city = '〇〇区'
+    user.address_street = '〇〇'
+    user.station = '〇〇駅'
+    user.birthday = Date.new(1994, 7, 30)
     user.password = 'password2'
     user.password_confirmation = 'password2'
     user.gender = 'male'
@@ -118,10 +118,10 @@ end
 60.times do |n|
     random = Random.new(88)
     places = ['東京ドーム','埼玉スーパーアリーナ','代々木第一体育館','横浜アリーナ']
-    descriptions = ['搬入','搬出','イベント運営','グッズ販売']
+    descriptions = ['コンサート搬入作業','コンサート搬出作業','イベント運営業務','グッズ販売','イベント警備業務']
     unless (n % 4 == 0 or n % 9 == 0)
         Event.create!(
-            title: "サンプル#{n + 1}",
+            title: descriptions.sample,
             description: descriptions.sample,
             wages: 1000,
             start: DateTime.now.beginning_of_day + (n - 29).day - 14.hour,
@@ -134,7 +134,7 @@ end
         )
     else
         Event.create!(
-            title: "サンプル#{n + 1}",
+            title: descriptions[random.rand(3)],
             description: descriptions[random.rand(3)],
             wages: 1000,
             start: DateTime.now.beginning_of_day + (n - 28).day - 14.hour,

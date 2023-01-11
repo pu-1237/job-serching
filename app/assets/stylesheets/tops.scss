@@ -8,7 +8,7 @@ body{
     padding: 0px;
 }
 .main {
-    position: fixed;
+
     top: 80px;
     bottom: 0px;
     left: 0px;
@@ -92,6 +92,7 @@ div#carousel-2-link_to.carousel-caption.d-none.d-block{
         font-size: 3vw;
         line-height: 0;
         color: white;
+        visibility: hidden;
     }
     #h1-1.text-left {
         font-size: 20vw;
@@ -110,6 +111,7 @@ div#carousel-2-link_to.carousel-caption.d-none.d-block{
         font-size: 3vw;
         line-height: 0;
         color: white;
+        visibility: hidden;
     }
     #h1-2.text-left {
         font-size: 20vw;
