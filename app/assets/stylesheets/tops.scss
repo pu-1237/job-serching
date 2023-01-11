@@ -3,12 +3,14 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 /* カルーセル全体の配置 */
+.carousel-box{
+    margin-top:70px;
+}
 body{
     margin: 0px;
     padding: 0px;
 }
 .main {
-
     top: 80px;
     bottom: 0px;
     left: 0px;
@@ -76,11 +78,20 @@ div#carousel-2-link_to.carousel-caption.d-none.d-block{
 /* @mediaは最後に記述する */
 
 @media (min-width: 980px){
+    .carousel-box{
+        margin-top:80px;
+    }
+    .img.d-block.w-100{
+        top:50%;
+    }
     .carousel-caption {
         top: 55%;
     }
 }
 @media (max-width: 480px){
+    .carousel-box{
+        margin-top:70px;
+    }
     .carousel-indicators {
         visibility: hidden;
     }
