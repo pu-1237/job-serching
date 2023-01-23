@@ -42,13 +42,13 @@ User.find_or_create_by!(email: 'user_tanaka@example.com') do |user|
     user.first_name = '三郎'
     user.last_name_kana = 'タナカ'
     user.first_name_kana = 'サブロウ'
-    user.number = '09000000003'
+    user.number = '09000000000'
     user.postcode = 1111111
     user.prefecture_code = 13
-    user.address_city = '豊島区'
-    user.address_street = '池袋'
-    user.station = '池袋駅'
-    user.birthday = Date.today
+    user.address_city = '〇〇区'
+    user.address_street = '〇〇'
+    user.station = '〇〇駅'
+    user.birthday = Date.new(1991, 10, 21)
     user.password = 'password2'
     user.password_confirmation = 'password2'
     user.gender = 'male'
@@ -64,10 +64,10 @@ User.find_or_create_by!(email: 'user_suzuki@example.com') do |user|
     user.number = '09000000004'
     user.postcode = 1111111
     user.prefecture_code = 13
-    user.address_city = '豊島区'
-    user.address_street = '池袋'
-    user.station = '池袋駅'
-    user.birthday = Date.today
+    user.address_city = '〇〇区'
+    user.address_street = '〇〇'
+    user.station = '〇〇駅'
+    user.birthday = Date.new(1995, 11, 2)
     user.password = 'password2'
     user.password_confirmation = 'password2'
     user.gender = 'male'
@@ -83,10 +83,10 @@ User.find_or_create_by!(email: 'user_satou@example.com') do |user|
     user.number = '09000000005'
     user.postcode = 1111111
     user.prefecture_code = 13
-    user.address_city = '豊島区'
-    user.address_street = '池袋'
-    user.station = '池袋駅'
-    user.birthday = Date.today
+    user.address_city = '〇〇区'
+    user.address_street = '〇〇'
+    user.station = '〇〇駅'
+    user.birthday = Date.new(1994, 1, 3)
     user.password = 'password2'
     user.password_confirmation = 'password2'
     user.gender = 'male'
@@ -102,10 +102,10 @@ User.find_or_create_by!(email: 'user_saitou@example.com') do |user|
     user.number = '09000000006'
     user.postcode = 1111111
     user.prefecture_code = 13
-    user.address_city = '豊島区'
-    user.address_street = '池袋'
-    user.station = '池袋駅'
-    user.birthday = Date.today
+    user.address_city = '〇〇区'
+    user.address_street = '〇〇'
+    user.station = '〇〇駅'
+    user.birthday = Date.new(1997, 4, 15)
     user.password = 'password2'
     user.password_confirmation = 'password2'
     user.gender = 'male'
@@ -172,9 +172,10 @@ end
             一層のご愛顧を賜りますようよろしくお願いいたします。"
         )
     else
-        News.create!(
+        p = News.create!(
             title: "ニュースその#{n+1}",
-            text: "1行目\n2行目\n3行目"
+            text: "1行目\n2行目\n3行目",
+            created_at: (10-n).days.ago
         )    
     end
 end
